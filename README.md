@@ -51,9 +51,20 @@ docker compose down -v        # stop and wipe the database
 
 Key design choice: **`Card`** (shared content) is separated from **`CardProgress`** (each learner's SM-2 state), so many learners can study the same deck without copying it.
 
+Full business spec (Vietnamese): [docs/domain/business-spec.md](docs/domain/business-spec.md).
+
+## Design (UX/UI)
+
+The UI (Vietnamese, mobile-first) is designed before implementation and serves as the contract for each milestone.
+
+- **Design docs**: [docs/design](docs/design/README.md) — personas, user flows, sitemap & permission matrix, design system, 22 screen specs, UX copy.
+- **Clickable prototype**: `python -m http.server 5500 --directory docs/design/prototype` → http://localhost:5500
+- Planned frontend: **React + Vite**, reusing `docs/design/prototype/assets/tokens.css`.
+
 ## Roadmap
 
 - [x] **M0** Project setup — Maven, Docker Compose, Flyway, CI
+- [x] **Design** UX/UI docs and clickable prototype
 - [ ] **M1** Users & JWT authentication
 - [ ] **M2** Deck & card CRUD with ownership rules
 - [ ] **M3** SM-2 scheduling, due cards, review logs
