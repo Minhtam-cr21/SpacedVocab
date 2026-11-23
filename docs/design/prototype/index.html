@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpacedVocab · Prototype</title>
+  <link rel="stylesheet" href="assets/tokens.css">
+  <link rel="stylesheet" href="assets/components.css">
+  <style>
+    .screen-link { display: flex; gap: var(--space-3); align-items: center; }
+    .screen-link .code { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted); min-width: 34px; }
+  </style>
+</head>
+<body>
+<main class="page" style="padding-bottom:var(--space-12)">
+  <div class="page-header">
+    <div>
+      <span class="badge badge-primary">Prototype UX/UI</span>
+      <h1 class="mt-4">SpacedVocab — Thư viện màn hình</h1>
+      <p class="muted mt-0">Bấm thử được, dữ liệu giả. Mỗi màn có nút "☰ Mục lục" và "◐ Giao diện" ở góc dưới phải. Tài liệu: <a href="../README.md">docs/design</a>.</p>
+    </div>
+  </div>
+
+  <div class="grid grid-3">
+    <section class="card stack-sm" aria-labelledby="g-guest">
+      <h2 id="g-guest" style="font-size:var(--text-lg)">👀 Guest</h2>
+      <a class="nav-item screen-link" href="screens/landing.html"><span class="code">D1</span>Landing</a>
+      <a class="nav-item screen-link" href="screens/register.html"><span class="code">D2</span>Đăng ký</a>
+      <a class="nav-item screen-link" href="screens/login.html"><span class="code">D3</span>Đăng nhập</a>
+      <a class="nav-item screen-link" href="screens/explore.html"><span class="code">D4</span>Khám phá deck</a>
+      <a class="nav-item screen-link" href="screens/public-deck.html"><span class="code">D5</span>Xem trước deck</a>
+    </section>
+
+    <section class="card stack-sm" aria-labelledby="g-learner">
+      <h2 id="g-learner" style="font-size:var(--text-lg)">🎓 Learner</h2>
+      <a class="nav-item screen-link" href="screens/onboarding.html"><span class="code">D6</span>Onboarding</a>
+      <a class="nav-item screen-link" href="screens/dashboard.html"><span class="code">D7</span>Dashboard</a>
+      <a class="nav-item screen-link" href="screens/library.html"><span class="code">D8</span>Thư viện</a>
+      <a class="nav-item screen-link" href="screens/deck-form.html"><span class="code">D9</span>Tạo / sửa deck</a>
+      <a class="nav-item screen-link" href="screens/deck-detail.html"><span class="code">D10</span>Chi tiết deck</a>
+      <a class="nav-item screen-link" href="screens/card-form.html"><span class="code">D11</span>Thêm / sửa thẻ</a>
+      <a class="nav-item screen-link" href="screens/import.html"><span class="code">D12</span>Import CSV</a>
+      <a class="nav-item screen-link" href="screens/review.html"><span class="code">D13</span>Phiên ôn tập ⭐</a>
+      <a class="nav-item screen-link" href="screens/review-summary.html"><span class="code">D14</span>Tổng kết phiên</a>
+      <a class="nav-item screen-link" href="screens/stats.html"><span class="code">D15</span>Thống kê</a>
+      <a class="nav-item screen-link" href="screens/settings.html"><span class="code">D16</span>Hồ sơ &amp; cài đặt</a>
+      <a class="nav-item screen-link" href="screens/deck-detail.html?view=subscriber"><span class="code">D17</span>Modal báo cáo deck (bấm 🚩)</a>
+    </section>
+
+    <section class="card stack-sm" aria-labelledby="g-admin">
+      <h2 id="g-admin" style="font-size:var(--text-lg)">🛡 Admin</h2>
+      <a class="nav-item screen-link" href="screens/admin-dashboard.html"><span class="code">D18</span>Tổng quan hệ thống</a>
+      <a class="nav-item screen-link" href="screens/admin-users.html"><span class="code">D19</span>Quản lý người dùng</a>
+      <a class="nav-item screen-link" href="screens/admin-decks.html"><span class="code">D20</span>Deck chính thức</a>
+      <a class="nav-item screen-link" href="screens/admin-reports.html"><span class="code">D21</span>Hàng đợi report</a>
+      <hr style="margin:var(--space-3) 0">
+      <h2 style="font-size:var(--text-lg)">🧩 Chung</h2>
+      <a class="nav-item screen-link" href="screens/error.html"><span class="code">D22</span>Lỗi 403 / 404 / mạng</a>
+      <a class="nav-item screen-link" href="screens/style-guide.html"><span class="code">SG</span>Style guide</a>
+    </section>
+  </div>
+
+  <section class="card mt-6">
+    <h2 style="font-size:var(--text-lg)">Gợi ý thử</h2>
+    <ul class="muted" style="margin:0;padding-left:20px">
+      <li><strong>Phiên ôn tập (D13)</strong>: nhấn <kbd>Space</kbd> lật thẻ, <kbd>1</kbd>–<kbd>4</kbd> chấm điểm. Thời gian dưới mỗi nút do SM-2 tính.</li>
+      <li><strong>Đăng nhập (D3)</strong>: <code>locked@example.com</code> để xem trạng thái bị khóa; mật khẩu sai để xem lỗi.</li>
+      <li><strong>Admin → Người dùng (D19)</strong>: bấm "Khóa" để xem hộp thoại xác nhận.</li>
+      <li>Thu nhỏ cửa sổ dưới 1024px để xem bottom nav trên mobile.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

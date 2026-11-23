@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D21 Admin · Report · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+  <style>
+    .report-item { width: 100%; text-align: left; font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+    .report-item[aria-pressed="true"] { background: var(--primary-soft); }
+    @media (min-width: 1024px) { .split { display: grid; grid-template-columns: 380px 1fr; gap: var(--space-5); align-items: start; } }
+  </style>
+</head>
+<body data-shell="admin" data-active="admin-reports" data-page="admin-reports">
+<main class="page">
+  <div class="page-header"><div><p class="breadcrumb"><a href="admin-dashboard.html">Quản trị</a> / Report</p><h1>Hàng đợi report</h1></div></div>
+
+  <div class="tabs" role="tablist" aria-label="Trạng thái report">
+    <button class="tab" role="tab" aria-selected="true" aria-controls="rp-open">Đang chờ (3)</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="rp-done">Đã xử lý</button>
+  </div>
+
+  <div id="rp-open" role="tabpanel" class="split">
+    <div class="list">
+      <button class="list-item report-item" aria-pressed="true" data-report="Free IELTS 9.0 tips — CLICK HERE" data-reason="Spam / quảng cáo · 4 người báo cáo · “Toàn link quảng cáo khóa học”"><div class="grow"><strong class="truncate">Free IELTS 9.0 tips — CLICK HERE</strong><div class="muted small">Spam / quảng cáo · 4 báo cáo</div></div><span class="badge badge-danger">2 ngày</span></button>
+      <button class="list-item report-item" aria-pressed="false" data-report="Phrasal verbs hằng ngày" data-reason="Sai nghĩa / chính tả · 1 người báo cáo · “Thẻ 'give up' nghĩa bị ghi nhầm”"><div class="grow"><strong class="truncate">Phrasal verbs hằng ngày</strong><div class="muted small">Sai nghĩa · 1 báo cáo</div></div><span class="badge">5 giờ</span></button>
+      <button class="list-item report-item" aria-pressed="false" data-report="Movie quotes" data-reason="Vi phạm bản quyền · 1 người báo cáo · “Copy nguyên phụ đề phim”"><div class="grow"><strong class="truncate">Movie quotes</strong><div class="muted small">Bản quyền · 1 báo cáo</div></div><span class="badge">1 giờ</span></button>
+    </div>
+
+    <section class="card stack mt-4" aria-live="polite" aria-labelledby="report-detail-title" style="margin-top:0">
+      <div><span class="badge badge-info">PUBLIC</span> <span class="muted small">Tác giả: spam_bot_99 · 25 thẻ · 0 người học</span></div>
+      <h2 id="report-detail-title" class="mt-0">Free IELTS 9.0 tips — CLICK HERE</h2>
+      <div class="alert alert-warning" id="report-detail-reason">Spam / quảng cáo · 4 người báo cáo · “Toàn link quảng cáo khóa học”</div>
+      <div>
+        <h3 style="font-size:var(--text-md)">Xem trước thẻ</h3>
+        <div class="list">
+          <div class="list-item"><div class="grow"><div class="word" lang="en">band 9</div><div class="muted small truncate">Mua khóa học tại bit.ly/xxxx</div></div></div>
+          <div class="list-item"><div class="grow"><div class="word" lang="en">secret</div><div class="muted small truncate">Inbox để nhận tài liệu…</div></div></div>
+        </div>
+      </div>
+      <div class="row-between">
+        <a class="btn btn-ghost btn-sm" href="admin-users.html">Xem tác giả →</a>
+        <div class="row">
+          <button class="btn btn-secondary" data-toast="Đã bỏ qua report.">Bỏ qua</button>
+          <button class="btn btn-danger" data-open="confirm-hide">Ẩn deck</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="rp-done" role="tabpanel" hidden>
+    <div class="table-wrap"><table class="table"><thead><tr><th>Deck</th><th>Lý do</th><th>Kết quả</th><th>Người xử lý</th><th>Thời gian</th></tr></thead>
+      <tbody><tr><td>Bad words list</td><td>Phản cảm</td><td><span class="badge badge-danger">Đã ẩn deck</span></td><td>Chị Hà</td><td>18/11/2026</td></tr>
+      <tr><td>Daily idioms</td><td>Sai nghĩa</td><td><span class="badge">Bỏ qua</span></td><td>Chị Hà</td><td>15/11/2026</td></tr></tbody></table></div>
+  </div>
+
+  <dialog class="modal" id="confirm-hide" aria-labelledby="hide-title">
+    <div class="modal-body"><div class="confirm-icon" aria-hidden="true">🚫</div><h2 id="hide-title">Ẩn deck này?</h2><p class="muted">Deck sẽ biến mất khỏi Khám phá và thư viện của người đã đăng ký. Tác giả vẫn thấy deck kèm thông báo bị ẩn. Có thể bỏ ẩn sau. Tất cả report của deck sẽ chuyển sang "Đã xử lý".</p></div>
+    <div class="modal-footer"><button class="btn btn-secondary" data-close>Hủy</button><button class="btn btn-danger" data-toast="Đã ẩn deck và đóng 4 report.">Ẩn deck</button></div>
+  </dialog>
+</main>
+</body>
+</html>

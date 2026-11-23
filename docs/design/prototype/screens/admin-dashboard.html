@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D18 Admin · Tổng quan · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="admin" data-active="admin-dashboard" data-page="admin-dashboard">
+<main class="page">
+  <div class="page-header"><div><p class="breadcrumb">Quản trị</p><h1>Tổng quan hệ thống</h1></div></div>
+
+  <div class="grid grid-4">
+    <div class="card stat-tile"><span class="label">Người dùng</span><span class="value">2.418</span><span class="delta">▲ 86 tuần này</span></div>
+    <div class="card stat-tile"><span class="label">Hoạt động hôm nay</span><span class="value">612</span><span class="muted small">đã ôn ≥ 1 thẻ</span></div>
+    <div class="card stat-tile"><span class="label">Lượt ôn hôm nay</span><span class="value">18.940</span></div>
+    <div class="card stat-tile"><span class="label">Tài khoản bị khóa</span><span class="value">7</span></div>
+  </div>
+
+  <div class="grid grid-2 mt-6">
+    <section class="card" aria-labelledby="todo-h">
+      <div class="row-between"><h2 id="todo-h" class="mt-0" style="font-size:var(--text-lg)">Cần xử lý</h2></div>
+      <div class="list mt-4">
+        <a class="list-item" href="admin-reports.html" style="color:inherit;text-decoration:none"><span aria-hidden="true">🚩</span><div class="grow"><strong>3 report đang chờ</strong><div class="muted small">Cũ nhất: 2 ngày trước</div></div><span class="badge badge-count">3</span></a>
+        <a class="list-item" href="admin-decks.html" style="color:inherit;text-decoration:none"><span aria-hidden="true">🗂</span><div class="grow"><strong>Deck chính thức</strong><div class="muted small">4 deck · 4.770 thẻ</div></div><span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+    <section class="card" aria-labelledby="top-h">
+      <h2 id="top-h" style="font-size:var(--text-lg)">Deck công khai nhiều người học</h2>
+      <div class="bars">
+        <div class="bar-row"><span class="truncate">Oxford 3000</span><div class="progress"><span style="width:100%"></span></div><span>5.320</span></div>
+        <div class="bar-row"><span class="truncate">IELTS Core</span><div class="progress"><span style="width:23%"></span></div><span>1.240</span></div>
+        <div class="bar-row"><span class="truncate">AWL</span><div class="progress"><span style="width:17%"></span></div><span>930</span></div>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

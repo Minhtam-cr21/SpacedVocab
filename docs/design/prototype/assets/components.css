@@ -37,7 +37,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-6) 0; }
 @media (min-width: 640px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } .grid-3 { grid-template-columns: repeat(2, 1fr); } .grid-4 { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } .grid-4 { grid-template-columns: repeat(4, 1fr); } }
 .center { text-align: center; }
-.mt-0 { margin-top: 0; } .mt-4 { margin-top: var(--space-4); } .mt-6 { margin-top: var(--space-6); }
+.mt-0 { margin-top: 0; } .mb-0 { margin-bottom: 0; } .mt-4 { margin-top: var(--space-4); } .mt-6 { margin-top: var(--space-6); }
 
 /* ---------- AppShell ---------- */
 .app-shell { min-height: 100vh; }
