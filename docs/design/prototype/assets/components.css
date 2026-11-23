@@ -342,9 +342,9 @@ dialog.modal::backdrop { background: rgb(10 10 25 / 0.55); }
 
 /* ---------- Prototype-only toolbar ---------- */
 .proto-bar {
-  position: fixed; top: var(--space-2); right: var(--space-2); z-index: 200; display: flex; gap: 4px;
+  position: fixed; bottom: var(--space-2); right: var(--space-2); z-index: 200; display: flex; gap: 4px;
   padding: 4px; border-radius: var(--radius-full); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-md); font-size: var(--text-xs);
 }
 .proto-bar a, .proto-bar button { border: 0; background: none; color: var(--text); font: inherit; padding: 6px 10px; border-radius: var(--radius-full); text-decoration: none; cursor: pointer; }
 .proto-bar a:hover, .proto-bar button:hover { background: var(--surface-2); }
-@media (max-width: 767px) { .proto-bar { top: auto; bottom: calc(var(--bottom-nav-h) + 8px); right: 8px; } body[data-shell="focus"] .proto-bar, body[data-shell="guest"] .proto-bar { bottom: 8px; } }
+@media (max-width: 1023px) { body[data-shell="learner"] .proto-bar { bottom: calc(var(--bottom-nav-h) + 8px); } }

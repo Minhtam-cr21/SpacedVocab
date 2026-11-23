@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D2 Đăng ký · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="guest" data-page="register">
+<main class="auth-wrap">
+  <div class="card auth-card">
+    <h1>Tạo tài khoản</h1>
+    <p class="muted">Miễn phí. Bắt đầu học trong chưa đầy 1 phút.</p>
+    <form class="stack mt-4" data-proto data-validate="register" data-next="onboarding.html" novalidate>
+      <div class="field">
+        <label class="label" for="name">Tên hiển thị</label>
+        <input class="input" id="name" name="name" autocomplete="nickname" placeholder="Ví dụ: Minh Anh">
+      </div>
+      <div class="field">
+        <label class="label" for="email">Email <span class="req">*</span></label>
+        <input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-err">
+        <span class="error-text" id="email-err" hidden></span>
+      </div>
+      <div class="field">
+        <label class="label" for="password">Mật khẩu <span class="req">*</span></label>
+        <input class="input" id="password" name="password" type="password" autocomplete="new-password" required aria-describedby="pw-hint pw-err">
+        <span class="hint" id="pw-hint">Ít nhất 8 ký tự.</span>
+        <span class="error-text" id="pw-err" hidden></span>
+      </div>
+      <div class="field">
+        <label class="label" for="confirm">Nhập lại mật khẩu <span class="req">*</span></label>
+        <input class="input" id="confirm" name="confirm" type="password" autocomplete="new-password" required aria-describedby="cf-err">
+        <span class="error-text" id="cf-err" hidden></span>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Tạo tài khoản</button>
+    </form>
+    <p class="small muted center mt-4">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+    <p class="small muted center">💡 Thử nhập <code>taken@example.com</code> để xem lỗi email trùng.</p>
+  </div>
+</main>
+</body>
+</html>

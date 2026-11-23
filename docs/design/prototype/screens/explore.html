@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D4 Khám phá · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="guest" data-page="explore">
+<main class="page">
+  <div class="page-header">
+    <div><h1>Khám phá bộ thẻ</h1><p class="muted mt-0">Bộ thẻ chính thức và bộ thẻ cộng đồng chia sẻ công khai.</p></div>
+  </div>
+
+  <form class="row" role="search" onsubmit="return false">
+    <div class="search"><label class="sr-only" for="q">Tìm bộ thẻ</label><input class="input" id="q" type="search" placeholder="Tìm theo tên, ví dụ: IELTS"></div>
+    <label class="sr-only" for="filter">Loại</label>
+    <select class="select" id="filter" style="width:auto"><option>Tất cả</option><option>Chính thức</option><option>Cộng đồng</option></select>
+    <label class="sr-only" for="sort">Sắp xếp</label>
+    <select class="select" id="sort" style="width:auto"><option>Nhiều người học</option><option>Mới nhất</option><option>Tên A–Z</option></select>
+  </form>
+
+  <div class="row mt-4 small muted"><span>Trạng thái demo:</span>
+    <select class="select" style="width:auto;min-height:32px" data-state-switch="explore-results" aria-label="Chọn trạng thái hiển thị">
+      <option value="data">Có dữ liệu</option><option value="loading">Đang tải</option><option value="empty">Không có kết quả</option>
+    </select>
+  </div>
+
+  <div id="explore-results" class="mt-4">
+    <div data-state="data">
+      <div class="grid grid-3">
+        <a class="card card-link deck-card" href="public-deck.html"><span class="badge badge-primary" style="align-self:flex-start">OFFICIAL</span><h3>IELTS Academic Core</h3><p class="muted small mt-0">600 từ học thuật hay gặp trong IELTS Reading &amp; Writing.</p><div class="meta"><span>600 thẻ</span><span>👥 1.240</span></div></a>
+        <a class="card card-link deck-card" href="public-deck.html"><span class="badge badge-primary" style="align-self:flex-start">OFFICIAL</span><h3>Oxford 3000</h3><p class="muted small mt-0">3.000 từ quan trọng nhất theo Oxford Learner's Dictionaries.</p><div class="meta"><span>3.000 thẻ</span><span>👥 5.320</span></div></a>
+        <a class="card card-link deck-card" href="public-deck.html"><span class="badge badge-info" style="align-self:flex-start">PUBLIC</span><h3>Phrasal verbs hằng ngày</h3><p class="muted small mt-0">Cụm động từ dùng trong giao tiếp. Tác giả: Minh Anh.</p><div class="meta"><span>140 thẻ</span><span>👥 37</span></div></a>
+        <a class="card card-link deck-card" href="public-deck.html"><span class="badge badge-info" style="align-self:flex-start">PUBLIC</span><h3>Tiếng Anh cho lập trình viên</h3><p class="muted small mt-0">Thuật ngữ trong tài liệu kỹ thuật. Tác giả: Tuấn.</p><div class="meta"><span>210 thẻ</span><span>👥 112</span></div></a>
+        <a class="card card-link deck-card" href="public-deck.html"><span class="badge badge-info" style="align-self:flex-start">PUBLIC</span><h3>TOEIC Business</h3><p class="muted small mt-0">Từ vựng chủ đề văn phòng, hợp đồng.</p><div class="meta"><span>320 thẻ</span><span>👥 86</span></div></a>
+        <a class="card card-link deck-card" href="public-deck.html"><span class="badge badge-primary" style="align-self:flex-start">OFFICIAL</span><h3>Academic Word List</h3><p class="muted small mt-0">570 họ từ học thuật (Coxhead).</p><div class="meta"><span>570 thẻ</span><span>👥 930</span></div></a>
+      </div>
+      <nav class="pagination" aria-label="Phân trang"><span class="muted">Hiển thị 1–6 trong 48 bộ thẻ</span><div class="row"><button class="btn btn-secondary btn-sm" disabled>← Trước</button><button class="btn btn-secondary btn-sm">Sau →</button></div></nav>
+    </div>
+    <div data-state="loading" aria-busy="true">
+      <div class="grid grid-3">
+        <div class="card"><div class="skeleton skeleton-line" style="width:30%"></div><div class="skeleton skeleton-line" style="height:20px;width:70%"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line" style="width:50%"></div></div>
+        <div class="card"><div class="skeleton skeleton-line" style="width:30%"></div><div class="skeleton skeleton-line" style="height:20px;width:70%"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line" style="width:50%"></div></div>
+        <div class="card"><div class="skeleton skeleton-line" style="width:30%"></div><div class="skeleton skeleton-line" style="height:20px;width:70%"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line" style="width:50%"></div></div>
+      </div>
+    </div>
+    <div data-state="empty">
+      <div class="empty-state"><div class="art" aria-hidden="true">🔍</div><h3>Không tìm thấy bộ thẻ nào</h3><p>Thử từ khóa khác, hoặc tự tạo bộ thẻ của riêng bạn.</p><a class="btn btn-primary" href="register.html">Đăng ký để tạo bộ thẻ</a></div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

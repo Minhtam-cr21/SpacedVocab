@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D22 Lỗi 403 / 404 · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="guest" data-page="error">
+<main class="page page-narrow">
+  <div class="row small muted"><span>Trạng thái demo:</span>
+    <select class="select" style="width:auto;min-height:32px" data-state-switch="err" aria-label="Chọn loại lỗi">
+      <option value="404">404 Không tìm thấy</option><option value="403">403 Không có quyền</option><option value="500">Lỗi máy chủ / mạng</option><option value="session">Hết phiên đăng nhập</option>
+    </select>
+  </div>
+  <div id="err" class="mt-6">
+    <div data-state="404" class="empty-state"><div class="art" aria-hidden="true">🧭</div><h1>Không tìm thấy trang</h1><p>Trang hoặc bộ thẻ này không tồn tại, hoặc đã bị xóa.</p><div class="row" style="justify-content:center"><a class="btn btn-primary" href="dashboard.html">Về trang chủ</a><a class="btn btn-secondary" href="explore.html">Khám phá bộ thẻ</a></div></div>
+    <div data-state="403" class="empty-state"><div class="art" aria-hidden="true">🔒</div><h1>Bạn không có quyền truy cập</h1><p>Trang này chỉ dành cho quản trị viên hoặc chủ sở hữu bộ thẻ.</p><a class="btn btn-primary" href="dashboard.html">Về trang chủ</a></div>
+    <div data-state="500" class="empty-state"><div class="art" aria-hidden="true">📡</div><h1>Có lỗi xảy ra</h1><p>Không kết nối được tới máy chủ. Kiểm tra mạng rồi thử lại. Dữ liệu ôn tập của bạn không bị mất.</p><button class="btn btn-primary" type="button" onclick="location.reload()">Thử lại</button></div>
+    <div data-state="session" class="empty-state"><div class="art" aria-hidden="true">⏱</div><h1>Phiên đăng nhập đã hết hạn</h1><p>Vì lý do bảo mật, vui lòng đăng nhập lại để tiếp tục.</p><a class="btn btn-primary" href="login.html">Đăng nhập lại</a></div>
+  </div>
+</main>
+</body>
+</html>

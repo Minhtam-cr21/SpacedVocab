@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D5 Xem trước deck · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="guest" data-page="public-deck">
+<main class="page">
+  <p class="breadcrumb"><a href="explore.html">Khám phá</a> / IELTS Academic Core</p>
+  <div class="page-header">
+    <div>
+      <span class="badge badge-primary">OFFICIAL</span>
+      <h1 class="mt-4">IELTS Academic Core</h1>
+      <p class="muted mt-0">600 từ học thuật hay gặp trong IELTS Reading &amp; Writing · Tạo bởi SpacedVocab</p>
+      <div class="row small muted"><span>600 thẻ</span><span>👥 1.240 người học</span><span>Cập nhật 01/11/2026</span></div>
+    </div>
+  </div>
+
+  <div class="row small muted"><span>Xem như:</span>
+    <select class="select" style="width:auto;min-height:32px" data-state-switch="cta" aria-label="Chọn vai trò người xem">
+      <option value="guest">Khách (chưa đăng nhập)</option><option value="learner">Learner chưa đăng ký</option><option value="subscribed">Learner đã đăng ký</option><option value="owner">Chủ sở hữu deck</option>
+    </select>
+  </div>
+
+  <div id="cta" class="card mt-4">
+    <div data-state="guest" class="row-between"><div><strong>Muốn học bộ thẻ này?</strong><p class="muted small mt-0">Đăng ký miễn phí để lưu tiến độ và nhận lịch ôn mỗi ngày.</p></div><a class="btn btn-primary" href="register.html">Đăng ký để học</a></div>
+    <div data-state="learner" class="row-between"><div><strong>Thêm vào thư viện</strong><p class="muted small mt-0">Bạn sẽ học thẻ của bộ này cùng các deck khác.</p></div><div class="row"><button class="btn btn-ghost btn-sm" data-open="report-modal">🚩 Báo cáo</button><button class="btn btn-primary" data-toast="Đã thêm vào thư viện. 20 thẻ mới sẵn sàng hôm nay." data-toast-action="Học ngay">+ Thêm vào thư viện</button></div></div>
+    <div data-state="subscribed" class="row-between"><div><span class="badge badge-success">✓ Đã có trong thư viện</span><p class="muted small mt-4 mb-0">18 thẻ đến hạn hôm nay.</p></div><div class="row"><button class="btn btn-ghost btn-sm" data-toast="Đã bỏ deck khỏi thư viện. Tiến độ vẫn được giữ.">Bỏ khỏi thư viện</button><a class="btn btn-primary" href="review.html">Bắt đầu học</a></div></div>
+    <div data-state="owner" class="row-between"><div><span class="badge">Deck của bạn</span><p class="muted small mt-4 mb-0">Bạn không thể đăng ký deck của chính mình (R4).</p></div><a class="btn btn-secondary" href="deck-detail.html">Mở trong thư viện</a></div>
+  </div>
+
+  <h2 class="mt-6">Xem trước 10 thẻ</h2>
+  <div class="list">
+    <div class="list-item"><div class="grow"><div class="word" lang="en">ubiquitous</div><div class="muted small truncate">có mặt ở khắp nơi, phổ biến</div></div><span class="badge">adj</span></div>
+    <div class="list-item"><div class="grow"><div class="word" lang="en">mitigate</div><div class="muted small truncate">giảm nhẹ, làm dịu bớt</div></div><span class="badge">verb</span></div>
+    <div class="list-item"><div class="grow"><div class="word" lang="en">resilient</div><div class="muted small truncate">kiên cường, mau phục hồi</div></div><span class="badge">adj</span></div>
+    <div class="list-item"><div class="grow"><div class="word" lang="en">scrutinize</div><div class="muted small truncate">xem xét kỹ lưỡng</div></div><span class="badge">verb</span></div>
+    <div class="list-item"><div class="grow"><div class="word" lang="en">paradigm</div><div class="muted small truncate">mô hình, hệ hình</div></div><span class="badge">noun</span></div>
+  </div>
+  <p class="small muted center mt-4">+ 595 thẻ khác — đăng ký để xem toàn bộ</p>
+
+  <!-- D17 · Modal báo cáo deck -->
+  <dialog class="modal" id="report-modal" aria-labelledby="report-title">
+    <form method="dialog">
+      <div class="modal-header"><h2 id="report-title">Báo cáo bộ thẻ</h2><button class="btn btn-ghost btn-icon" type="button" data-close aria-label="Đóng">✕</button></div>
+      <div class="modal-body stack">
+        <p class="muted mt-0">Cho chúng tôi biết vấn đề với "IELTS Academic Core". Admin sẽ xem xét trong 48 giờ.</p>
+        <fieldset class="choice-group" style="border:0;padding:0;margin:0">
+          <legend class="label">Lý do <span class="req">*</span></legend>
+          <label class="choice"><input type="radio" name="reason" checked><span>Nội dung sai nghĩa / sai chính tả</span></label>
+          <label class="choice"><input type="radio" name="reason"><span>Nội dung phản cảm, không phù hợp</span></label>
+          <label class="choice"><input type="radio" name="reason"><span>Spam / quảng cáo</span></label>
+          <label class="choice"><input type="radio" name="reason"><span>Vi phạm bản quyền</span></label>
+        </fieldset>
+        <div class="field"><label class="label" for="detail">Mô tả thêm</label><textarea class="textarea" id="detail" maxlength="500" placeholder="Ví dụ: thẻ 'mitigate' bị sai nghĩa"></textarea><span class="hint">Tối đa 500 ký tự.</span></div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-secondary" type="button" data-close>Hủy</button><button class="btn btn-primary" type="button" data-toast="Cảm ơn bạn! Admin sẽ xem xét báo cáo.">Gửi báo cáo</button></div>
+    </form>
+  </dialog>
+</main>
+</body>
+</html>

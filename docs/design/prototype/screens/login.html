@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D3 Đăng nhập · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="guest" data-page="login">
+<main class="auth-wrap">
+  <div class="card auth-card">
+    <h1>Chào mừng trở lại</h1>
+    <p class="muted">Đăng nhập để tiếp tục chuỗi ngày học.</p>
+
+    <div class="alert alert-danger mt-4" id="login-error" role="alert" hidden>⚠ Email hoặc mật khẩu không đúng. Vui lòng thử lại.</div>
+    <div class="alert alert-warning mt-4" id="login-locked" role="alert" hidden>🔒 Tài khoản của bạn đang bị tạm khóa. Liên hệ quản trị viên để được hỗ trợ.</div>
+
+    <form class="stack mt-4" id="login-form" novalidate>
+      <div class="field">
+        <label class="label" for="email">Email</label>
+        <input class="input" id="email" name="email" type="email" autocomplete="email" value="minhanh@example.com">
+      </div>
+      <div class="field">
+        <div class="row-between"><label class="label" for="password">Mật khẩu</label><a class="small" href="#" aria-disabled="true" title="Giai đoạn sau">Quên mật khẩu?</a></div>
+        <input class="input" id="password" name="password" type="password" autocomplete="current-password">
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Đăng nhập</button>
+    </form>
+    <p class="small muted center mt-4">Chưa có tài khoản? <a href="register.html">Đăng ký miễn phí</a></p>
+    <details class="small muted mt-4">
+      <summary>💡 Tài khoản demo</summary>
+      <ul>
+        <li>Learner: <code>minhanh@example.com</code> / <code>password123</code></li>
+        <li>Admin: <code>admin@example.com</code> / <code>password123</code></li>
+        <li>Bị khóa: <code>locked@example.com</code></li>
+        <li>Sai mật khẩu: nhập bất kỳ</li>
+      </ul>
+    </details>
+  </div>
+</main>
+</body>
+</html>
