@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Style guide · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+  <style>
+    .swatch { display: flex; flex-direction: column; gap: 6px; font-size: var(--text-xs); }
+    .swatch i { display: block; height: 56px; border-radius: var(--radius-md); border: 1px solid var(--border); }
+    .sg-section { margin-bottom: var(--space-10); }
+  </style>
+</head>
+<body data-shell="guest" data-page="style-guide">
+<main class="page">
+  <div class="page-header"><div><p class="breadcrumb">Design system</p><h1>Style guide</h1><p class="muted">Mọi component dùng trong prototype. Đổi sáng/tối bằng nút "◐ Giao diện".</p></div></div>
+
+  <section class="sg-section" aria-labelledby="sg-color">
+    <h2 id="sg-color">Màu sắc</h2>
+    <div class="grid grid-4">
+      <div class="swatch"><i style="background:var(--primary)"></i>--primary</div>
+      <div class="swatch"><i style="background:var(--success)"></i>--success</div>
+      <div class="swatch"><i style="background:var(--warning)"></i>--warning</div>
+      <div class="swatch"><i style="background:var(--danger)"></i>--danger</div>
+      <div class="swatch"><i style="background:var(--bg)"></i>--bg</div>
+      <div class="swatch"><i style="background:var(--surface)"></i>--surface</div>
+      <div class="swatch"><i style="background:var(--surface-2)"></i>--surface-2</div>
+      <div class="swatch"><i style="background:var(--text)"></i>--text</div>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-type">
+    <h2 id="sg-type">Typography</h2>
+    <div class="card stack">
+      <h1 class="mt-0">Tiêu đề 1 — Học từ vựng thông minh</h1>
+      <h2>Tiêu đề 2 — Thư viện của tôi</h2>
+      <h3>Tiêu đề 3 — Thẻ đến hạn hôm nay</h3>
+      <p>Đoạn văn: Ứng dụng giúp bạn ghi nhớ lâu hơn nhờ ôn tập ngắt quãng.</p>
+      <p class="muted small">Chữ phụ cỡ nhỏ — cập nhật 2 phút trước.</p>
+      <p class="content-en" lang="en" style="font-size:var(--text-2xl);font-weight:700">ubiquitous <span class="muted" style="font-size:var(--text-lg);font-weight:500">/juːˈbɪk.wɪ.təs/</span></p>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-btn">
+    <h2 id="sg-btn">Button</h2>
+    <div class="row">
+      <button class="btn btn-primary">Bắt đầu ôn</button>
+      <button class="btn btn-secondary">Hủy</button>
+      <button class="btn btn-ghost">Bỏ qua</button>
+      <button class="btn btn-danger">Xóa deck</button>
+      <button class="btn btn-danger-outline">Khóa</button>
+      <button class="btn btn-primary" disabled>Đang lưu…</button>
+      <button class="btn btn-primary btn-sm">Nhỏ</button>
+      <button class="btn btn-primary btn-lg">Lớn</button>
+      <button class="btn btn-secondary btn-icon" aria-label="Thêm tùy chọn">⋯</button>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-form">
+    <h2 id="sg-form">Form</h2>
+    <div class="grid grid-2">
+      <div class="field"><label class="label" for="sg-1">Tên deck <span class="req">*</span></label><input class="input" id="sg-1" value="IELTS Writing"><span class="hint">Tối đa 100 ký tự.</span></div>
+      <div class="field has-error"><label class="label" for="sg-2">Từ vựng <span class="req">*</span></label><input class="input" id="sg-2" value="mitigate" aria-describedby="sg-2-err"><span class="error-text" id="sg-2-err">⚠ Từ "mitigate" đã có trong deck này.</span></div>
+      <div class="field"><label class="label" for="sg-3">Từ loại</label><select class="select" id="sg-3"><option>verb</option><option>noun</option></select></div>
+      <div class="field"><label class="label" for="sg-4">Tìm kiếm</label><div class="search"><input class="input" id="sg-4" placeholder="Tìm deck…"></div></div>
+    </div>
+    <div class="choice-group grid-2 grid mt-4">
+      <label class="choice"><input type="radio" name="sg-v" checked><span><strong>Riêng tư</strong><br><span class="muted small">Chỉ mình bạn thấy</span></span></label>
+      <label class="choice"><input type="radio" name="sg-v"><span><strong>Công khai</strong><br><span class="muted small">Ai cũng có thể xem và đăng ký học</span></span></label>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-badge">
+    <h2 id="sg-badge">Badge &amp; Alert</h2>
+    <div class="row">
+      <span class="badge badge-new">NEW</span><span class="badge badge-learning">LEARNING</span><span class="badge badge-review">REVIEW</span>
+      <span class="badge badge-primary">OFFICIAL</span><span class="badge">PRIVATE</span><span class="badge badge-info">PUBLIC</span>
+      <span class="badge badge-success">ACTIVE</span><span class="badge badge-danger">LOCKED</span><span class="badge badge-count">3</span>
+    </div>
+    <div class="stack mt-4">
+      <div class="alert alert-danger" role="alert">⚠ Email hoặc mật khẩu không đúng.</div>
+      <div class="alert alert-warning">⏳ Bạn đã đạt giới hạn 20 thẻ mới hôm nay.</div>
+      <div class="alert alert-info">ℹ Deck này chỉ đọc vì bạn đang học theo đăng ký.</div>
+      <div class="alert alert-success">✓ Đã nhập 48 thẻ.</div>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-card">
+    <h2 id="sg-card">DeckCard, StatTile, Progress</h2>
+    <div class="grid grid-3">
+      <a class="card card-link deck-card" href="deck-detail.html">
+        <div class="row-between"><span class="badge badge-primary">OFFICIAL</span><span class="due">18 thẻ đến hạn</span></div>
+        <h3>IELTS Academic Core</h3>
+        <div class="meta"><span>600 thẻ</span><span>1.240 người học</span></div>
+        <div class="progress" aria-label="Đã thuộc 35%"><span style="width:35%"></span></div>
+      </a>
+      <div class="card stat-tile"><span class="label">Chuỗi ngày học</span><span class="value">🔥 12</span><span class="delta">Kỷ lục: 21 ngày</span></div>
+      <div class="card row" style="justify-content:center"><div class="ring" style="--value:72"><div><strong style="font-size:var(--text-xl)">72%</strong><span class="small muted">tỷ lệ nhớ</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-rate">
+    <h2 id="sg-rate">RatingBar</h2>
+    <div class="rating-bar" style="max-width:560px">
+      <button class="rate-btn rate-again">Quên <small>Ôn lại ngay</small><kbd>1</kbd></button>
+      <button class="rate-btn rate-hard">Khó <small>1 ngày</small><kbd>2</kbd></button>
+      <button class="rate-btn rate-good">Nhớ <small>6 ngày</small><kbd>3</kbd></button>
+      <button class="rate-btn rate-easy">Dễ <small>6 ngày</small><kbd>4</kbd></button>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-heat">
+    <h2 id="sg-heat">Heatmap</h2>
+    <div class="card"><div class="heatmap" data-days="140" aria-label="Lượt ôn 20 tuần gần nhất"></div></div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-tabs">
+    <h2 id="sg-tabs">Tabs, Table, List</h2>
+    <div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="true" aria-controls="sg-p1">Bảng</button><button class="tab" role="tab" aria-selected="false" aria-controls="sg-p2">Danh sách</button></div>
+    <div id="sg-p1" role="tabpanel">
+      <div class="table-wrap"><table class="table"><thead><tr><th>Từ</th><th>Nghĩa</th><th>Trạng thái</th><th>Ôn tiếp</th></tr></thead>
+        <tbody><tr><td class="content-en" lang="en"><strong>mitigate</strong></td><td>giảm nhẹ</td><td><span class="badge badge-learning">LEARNING</span></td><td>Ngày mai</td></tr>
+        <tr><td class="content-en" lang="en"><strong>resilient</strong></td><td>kiên cường</td><td><span class="badge badge-review">REVIEW</span></td><td>6 ngày nữa</td></tr></tbody></table></div>
+    </div>
+    <div id="sg-p2" role="tabpanel" hidden>
+      <div class="list"><div class="list-item"><div class="grow"><div class="word" lang="en">mitigate</div><div class="muted small truncate">giảm nhẹ, làm dịu bớt</div></div><span class="badge badge-learning">LEARNING</span></div></div>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-feedback">
+    <h2 id="sg-feedback">Modal, Toast, Empty, Skeleton, Dropzone</h2>
+    <div class="row">
+      <button class="btn btn-secondary" data-open="sg-modal">Mở ConfirmDialog</button>
+      <button class="btn btn-secondary" data-toast="Đã lưu thẻ." data-toast-action="Hoàn tác">Hiện Toast</button>
+    </div>
+    <div class="grid grid-3 mt-4">
+      <div class="empty-state"><div class="art" aria-hidden="true">🎉</div><h3>Hôm nay xong rồi!</h3><p>Thẻ tiếp theo đến hạn lúc 08:00 sáng mai.</p><a class="btn btn-secondary" href="explore.html">Khám phá deck mới</a></div>
+      <div class="card"><div class="skeleton skeleton-line" style="width:60%"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line" style="width:80%"></div><div class="skeleton" style="height:80px;margin-top:12px"></div></div>
+      <label class="dropzone"><span class="art" aria-hidden="true">📄</span><strong>Kéo thả file CSV vào đây</strong><span class="muted small">hoặc bấm để chọn file (tối đa 2MB)</span><input type="file" accept=".csv" class="sr-only"></label>
+    </div>
+  </section>
+
+  <dialog class="modal" id="sg-modal" aria-labelledby="sg-modal-title">
+    <div class="modal-body"><div class="confirm-icon" aria-hidden="true">!</div><h2 id="sg-modal-title">Xóa deck "Phrasal verbs"?</h2><p class="muted">140 thẻ và tiến độ học của bạn trong deck này sẽ bị xóa. Hành động này không thể hoàn tác.</p></div>
+    <div class="modal-footer"><button class="btn btn-secondary" data-close>Hủy</button><button class="btn btn-danger" data-toast="Đã xóa deck.">Xóa deck</button></div>
+  </dialog>
+</main>
+</body>
+</html>
