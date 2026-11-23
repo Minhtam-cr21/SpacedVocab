@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D7 Dashboard · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="learner" data-active="dashboard" data-page="dashboard">
+<main class="page">
+  <div class="page-header"><div><p class="muted mt-0" style="margin-bottom:4px">Chào buổi sáng, Minh Anh 👋</p><h1>Hôm nay</h1></div></div>
+
+  <div class="row small muted"><span>Trạng thái demo:</span>
+    <select class="select" style="width:auto;min-height:32px" data-state-switch="today" aria-label="Chọn trạng thái hiển thị">
+      <option value="due">Có thẻ cần ôn</option><option value="done">Đã ôn xong</option><option value="new-user">Người dùng mới (chưa có deck)</option>
+    </select>
+  </div>
+
+  <div id="today" class="mt-4">
+    <section data-state="due" class="card stack" aria-labelledby="due-title" style="background:var(--primary-soft);border-color:transparent">
+      <div class="row-between">
+        <div>
+          <h2 id="due-title" class="mt-0" style="font-size:var(--text-3xl);margin-bottom:4px">32 thẻ</h2>
+          <p class="muted mt-0">cần ôn hôm nay · 14 ôn lại + 18 thẻ mới · ≈ 9 phút</p>
+        </div>
+        <div class="ring" style="--value:40" aria-label="Đã hoàn thành 40% mục tiêu hôm nay"><div><strong style="font-size:var(--text-xl)">8/20</strong><span class="small muted">từ mới</span></div></div>
+      </div>
+      <a class="btn btn-primary btn-lg btn-block" href="review.html">▶ Bắt đầu ôn</a>
+    </section>
+    <section data-state="done" class="empty-state"><div class="art" aria-hidden="true">🎉</div><h3>Hôm nay xong rồi!</h3><p>Bạn đã ôn 32 thẻ. Thẻ tiếp theo đến hạn vào sáng mai.</p><div class="row" style="justify-content:center"><a class="btn btn-secondary" href="explore.html">Khám phá deck mới</a><a class="btn btn-ghost" href="stats.html">Xem thống kê</a></div></section>
+    <section data-state="new-user" class="empty-state"><div class="art" aria-hidden="true">📚</div><h3>Thư viện còn trống</h3><p>Thêm một bộ thẻ có sẵn hoặc tự tạo để bắt đầu học.</p><div class="row" style="justify-content:center"><a class="btn btn-primary" href="explore.html">Khám phá bộ thẻ</a><a class="btn btn-secondary" href="deck-form.html">+ Tạo deck</a></div></section>
+  </div>
+
+  <div class="grid grid-3 mt-6">
+    <div class="card stat-tile"><span class="label">Chuỗi ngày học</span><span class="value">🔥 12 ngày</span><span class="delta">Kỷ lục: 21 ngày</span></div>
+    <div class="card stat-tile"><span class="label">Tỷ lệ nhớ (7 ngày)</span><span class="value">86%</span><span class="delta">▲ 4% so với tuần trước</span></div>
+    <div class="card stat-tile"><span class="label">Từ đã thuộc</span><span class="value">412</span><span class="muted small">trạng thái REVIEW</span></div>
+  </div>
+
+  <div class="row-between mt-6"><h2 class="mt-0">Ôn theo bộ thẻ</h2><a href="library.html">Thư viện →</a></div>
+  <div class="grid grid-3 mt-4">
+    <a class="card card-link deck-card" href="deck-detail.html?view=subscriber"><div class="row-between"><span class="badge badge-primary">OFFICIAL</span><span class="due">18 đến hạn</span></div><h3>IELTS Academic Core</h3><div class="progress" aria-label="Đã thuộc 35%"><span style="width:35%"></span></div><div class="meta"><span>35% đã thuộc</span><span>600 thẻ</span></div></a>
+    <a class="card card-link deck-card" href="deck-detail.html"><div class="row-between"><span class="badge">PRIVATE</span><span class="due">9 đến hạn</span></div><h3>Từ vựng Spring Boot</h3><div class="progress" aria-label="Đã thuộc 62%"><span style="width:62%"></span></div><div class="meta"><span>62% đã thuộc</span><span>86 thẻ</span></div></a>
+    <a class="card card-link deck-card" href="deck-detail.html"><div class="row-between"><span class="badge badge-info">PUBLIC</span><span class="due">5 đến hạn</span></div><h3>Phrasal verbs hằng ngày</h3><div class="progress" aria-label="Đã thuộc 48%"><span style="width:48%"></span></div><div class="meta"><span>48% đã thuộc</span><span>140 thẻ</span></div></a>
+  </div>
+</main>
+</body>
+</html>

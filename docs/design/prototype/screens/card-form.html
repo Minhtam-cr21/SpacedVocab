@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D11 Thêm / sửa thẻ · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="learner" data-active="library" data-page="card-form">
+<main class="page page-narrow">
+  <p class="breadcrumb"><a href="library.html">Thư viện</a> / <a href="deck-detail.html">Từ vựng Spring Boot</a> / Thêm thẻ</p>
+  <h1>Thêm thẻ</h1>
+
+  <form class="card stack mt-4" data-proto data-toast-ok="Đã lưu thẻ “idempotent”. Nhập từ tiếp theo.">
+    <div class="grid grid-2">
+      <div class="field has-error">
+        <label class="label" for="word">Từ / cụm từ (tiếng Anh) <span class="req">*</span></label>
+        <input class="input content-en" id="word" lang="en" value="deploy" autofocus aria-describedby="word-err">
+        <span class="error-text" id="word-err">⚠ "deploy" đã có trong deck này. <a href="card-form.html">Sửa thẻ cũ?</a></span>
+      </div>
+      <div class="field">
+        <label class="label" for="pos">Từ loại</label>
+        <select class="select" id="pos"><option>—</option><option>noun</option><option selected>verb</option><option>adj</option><option>adv</option><option>phrase</option></select>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label" for="meaning">Nghĩa tiếng Việt <span class="req">*</span></label>
+      <input class="input" id="meaning" value="triển khai (ứng dụng, lực lượng)">
+    </div>
+    <div class="field">
+      <label class="label" for="ipa">Phiên âm IPA</label>
+      <input class="input content-en" id="ipa" lang="en" value="/dɪˈplɔɪ/" placeholder="/…/">
+    </div>
+    <div class="field">
+      <label class="label" for="example">Câu ví dụ</label>
+      <textarea class="textarea content-en" id="example" lang="en">We deploy the API with Docker Compose.</textarea>
+      <span class="hint">Câu ví dụ giúp nhớ ngữ cảnh — hiển thị ở mặt sau thẻ.</span>
+    </div>
+    <div class="field">
+      <label class="label" for="note">Ghi chú</label>
+      <textarea class="textarea" id="note" placeholder="Mẹo nhớ, từ đồng nghĩa…"></textarea>
+    </div>
+
+    <details>
+      <summary class="small muted">Xem trước thẻ</summary>
+      <div class="card center mt-4" style="background:var(--surface-2)"><div class="content-en" lang="en" style="font-size:var(--text-2xl);font-weight:700">deploy</div><div class="muted content-en">/dɪˈplɔɪ/ · verb</div><div class="mt-4"><strong>triển khai (ứng dụng, lực lượng)</strong></div></div>
+    </details>
+
+    <div class="row-between">
+      <a class="btn btn-ghost" href="deck-detail.html">Hủy</a>
+      <div class="row"><button class="btn btn-secondary" type="submit">Lưu &amp; thêm tiếp</button><a class="btn btn-primary" href="deck-detail.html">Lưu</a></div>
+    </div>
+  </form>
+  <p class="small muted center mt-4">Mẹo: nhấn <kbd>Ctrl</kbd> + <kbd>Enter</kbd> để "Lưu &amp; thêm tiếp".</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D6 Onboarding · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="focus" data-page="onboarding">
+<main class="page page-narrow" style="padding-bottom:var(--space-10)">
+  <ol class="stepper mt-4" aria-label="Các bước thiết lập">
+    <li class="done">Mục tiêu</li><li aria-current="step">Bộ thẻ đầu tiên</li>
+  </ol>
+
+  <form class="stack" data-proto data-next="dashboard.html" data-toast-ok="Thiết lập xong! Bắt đầu thôi 🎉">
+    <section class="stack" aria-labelledby="goal">
+      <h1 id="goal">Mỗi ngày bạn muốn học bao nhiêu từ mới?</h1>
+      <p class="muted mt-0">Có thể đổi bất cứ lúc nào trong Cài đặt. Thẻ cần ôn lại không bị giới hạn.</p>
+      <div class="choice-group">
+        <label class="choice"><input type="radio" name="limit" value="10"><span><strong>10 từ · Nhẹ nhàng</strong><br><span class="muted small">≈ 5 phút mỗi ngày</span></span></label>
+        <label class="choice"><input type="radio" name="limit" value="20" checked><span><strong>20 từ · Đều đặn</strong> <span class="badge badge-primary">Khuyên dùng</span><br><span class="muted small">≈ 10 phút mỗi ngày</span></span></label>
+        <label class="choice"><input type="radio" name="limit" value="40"><span><strong>40 từ · Tăng tốc</strong><br><span class="muted small">≈ 20 phút mỗi ngày</span></span></label>
+      </div>
+      <div class="field"><label class="label" for="tz">Múi giờ</label>
+        <select class="select" id="tz"><option selected>(GMT+7) Hà Nội, TP. Hồ Chí Minh</option><option>(GMT+9) Tokyo</option><option>(GMT+0) London</option></select>
+        <span class="hint">Dùng để tính "một ngày học" và chuỗi ngày học (streak). Tự phát hiện từ trình duyệt.</span></div>
+    </section>
+
+    <hr>
+
+    <section class="stack" aria-labelledby="first-deck">
+      <h2 id="first-deck">Chọn bộ thẻ đầu tiên</h2>
+      <div class="choice-group">
+        <label class="choice"><input type="checkbox" checked><span><strong>IELTS Academic Core</strong> <span class="badge badge-primary">OFFICIAL</span><br><span class="muted small">600 thẻ · phù hợp ôn thi IELTS</span></span></label>
+        <label class="choice"><input type="checkbox"><span><strong>Oxford 3000</strong> <span class="badge badge-primary">OFFICIAL</span><br><span class="muted small">3.000 thẻ · từ vựng nền tảng</span></span></label>
+        <label class="choice"><input type="checkbox"><span><strong>Academic Word List</strong> <span class="badge badge-primary">OFFICIAL</span><br><span class="muted small">570 thẻ · từ học thuật</span></span></label>
+      </div>
+    </section>
+
+    <div class="row-between mt-4">
+      <a class="btn btn-ghost" href="dashboard.html">Bỏ qua</a>
+      <button class="btn btn-primary btn-lg" type="submit">Bắt đầu học</button>
+    </div>
+  </form>
+</main>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D12 Import CSV · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="learner" data-active="library" data-page="import">
+<main class="page" style="max-width:820px">
+  <p class="breadcrumb"><a href="library.html">Thư viện</a> / <a href="deck-detail.html">Từ vựng Spring Boot</a> / Import CSV</p>
+  <h1>Import thẻ từ CSV</h1>
+
+  <ol class="stepper mt-4" aria-label="Các bước import">
+    <li>Chọn file</li><li>Kiểm tra</li><li>Hoàn tất</li>
+  </ol>
+
+  <!-- Bước 1 -->
+  <section data-step="1" class="stack">
+    <label class="dropzone">
+      <span class="art" aria-hidden="true">📄</span>
+      <strong>Kéo thả file CSV vào đây</strong>
+      <span class="muted small">hoặc bấm để chọn file · tối đa 2MB · 1.000 dòng</span>
+      <input type="file" accept=".csv,text/csv" class="sr-only">
+    </label>
+    <div class="card">
+      <h2 style="font-size:var(--text-lg)">Định dạng file</h2>
+      <p class="muted small">Dòng đầu là tiêu đề. Bắt buộc có cột <code>word</code> và <code>meaning</code>; các cột còn lại có thể bỏ trống. Mã hóa UTF-8.</p>
+      <pre class="small" style="overflow-x:auto;background:var(--surface-2);padding:var(--space-3);border-radius:var(--radius-md);margin:0">word,meaning,ipa,partOfSpeech,example,note
+deploy,triển khai,/dɪˈplɔɪ/,verb,We deploy the API.,
+idempotent,lũy đẳng,,adj,,gọi nhiều lần cùng kết quả</pre>
+      <a class="btn btn-ghost btn-sm mt-4" href="#" aria-disabled="true">⇩ Tải file mẫu</a>
+    </div>
+    <div class="row-between"><a class="btn btn-ghost" href="deck-detail.html">Hủy</a><button class="btn btn-primary" type="button" data-go="2">Tiếp tục (demo) →</button></div>
+  </section>
+
+  <!-- Bước 2 -->
+  <section data-step="2" class="stack" hidden>
+    <div class="card row-between"><div><strong>vocab-spring.csv</strong><p class="muted small mt-0">52 dòng · 18 KB</p></div><button class="btn btn-ghost btn-sm" type="button" data-go="1">Đổi file</button></div>
+    <div class="grid grid-3">
+      <div class="card stat-tile"><span class="label">Hợp lệ</span><span class="value" style="color:var(--success)">48</span></div>
+      <div class="card stat-tile"><span class="label">Trùng (sẽ bỏ qua)</span><span class="value" style="color:var(--warning)">2</span></div>
+      <div class="card stat-tile"><span class="label">Lỗi</span><span class="value" style="color:var(--danger)">2</span></div>
+    </div>
+    <div class="alert alert-warning">⚠ 4 dòng sẽ không được nhập. Bạn có thể sửa file và tải lại, hoặc tiếp tục với 48 dòng hợp lệ.</div>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Dòng</th><th>word</th><th>meaning</th><th>Kết quả</th></tr></thead>
+        <tbody>
+          <tr><td>2</td><td class="content-en" lang="en">deploy</td><td>triển khai</td><td><span class="badge badge-warning">Trùng — đã có trong deck</span></td></tr>
+          <tr><td>7</td><td class="content-en" lang="en">—</td><td>giao dịch</td><td><span class="badge badge-danger">Thiếu cột word</span></td></tr>
+          <tr><td>15</td><td class="content-en" lang="en">bean</td><td>—</td><td><span class="badge badge-danger">Thiếu cột meaning</span></td></tr>
+          <tr><td>31</td><td class="content-en" lang="en">Bean</td><td>đối tượng do Spring quản lý</td><td><span class="badge badge-warning">Trùng dòng 15 (không phân biệt hoa thường)</span></td></tr>
+          <tr><td>3</td><td class="content-en" lang="en">idempotent</td><td>lũy đẳng</td><td><span class="badge badge-success">Hợp lệ</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <label class="row small"><input type="checkbox" checked style="accent-color:var(--primary)"> Chỉ hiện các dòng có vấn đề</label>
+    <div class="row-between"><button class="btn btn-ghost" type="button" data-go="1">← Quay lại</button><button class="btn btn-primary" type="button" data-go="3">Nhập 48 thẻ</button></div>
+  </section>
+
+  <!-- Bước 3 -->
+  <section data-step="3" hidden>
+    <div class="empty-state" style="border-style:solid">
+      <div class="art" aria-hidden="true">✅</div>
+      <h2>Đã nhập 48 thẻ</h2>
+      <p>Các thẻ mới ở trạng thái NEW và sẽ xuất hiện dần theo giới hạn 20 thẻ mới mỗi ngày.</p>
+      <div class="row" style="justify-content:center"><a class="btn btn-primary" href="deck-detail.html">Xem deck</a><a class="btn btn-secondary" href="review.html">Ôn ngay</a></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

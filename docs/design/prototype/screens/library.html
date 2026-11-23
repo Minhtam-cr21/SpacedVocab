@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D8 Thư viện · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="learner" data-active="library" data-page="library">
+<main class="page">
+  <div class="page-header">
+    <h1>Thư viện</h1>
+    <div class="row"><a class="btn btn-secondary" href="explore.html">🔎 Khám phá</a><a class="btn btn-primary" href="deck-form.html">+ Tạo deck</a></div>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Loại bộ thẻ">
+    <button class="tab" role="tab" aria-selected="true" aria-controls="tab-owned" id="t-owned">Deck của tôi (2)</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="tab-sub" id="t-sub">Đã đăng ký (2)</button>
+  </div>
+
+  <section id="tab-owned" role="tabpanel" aria-labelledby="t-owned">
+    <div class="grid grid-3">
+      <a class="card card-link deck-card" href="deck-detail.html"><div class="row-between"><span class="badge">PRIVATE</span><span class="due">9 đến hạn</span></div><h3>Từ vựng Spring Boot</h3><div class="meta"><span>86 thẻ</span><span>Sửa 2 ngày trước</span></div></a>
+      <a class="card card-link deck-card" href="deck-detail.html"><div class="row-between"><span class="badge badge-info">PUBLIC</span><span class="due">5 đến hạn</span></div><h3>Phrasal verbs hằng ngày</h3><div class="meta"><span>140 thẻ</span><span>👥 37 người học</span></div></a>
+      <a class="card card-link deck-card" href="deck-form.html" style="border-style:dashed;align-items:center;justify-content:center;text-align:center;min-height:140px"><span style="font-size:28px" aria-hidden="true">＋</span><strong>Tạo deck mới</strong><span class="muted small">hoặc import từ CSV</span></a>
+    </div>
+  </section>
+
+  <section id="tab-sub" role="tabpanel" aria-labelledby="t-sub" hidden>
+    <div class="grid grid-3">
+      <a class="card card-link deck-card" href="deck-detail.html?view=subscriber"><div class="row-between"><span class="badge badge-primary">OFFICIAL</span><span class="due">18 đến hạn</span></div><h3>IELTS Academic Core</h3><div class="meta"><span>600 thẻ</span><span>Tác giả: SpacedVocab</span></div></a>
+      <a class="card card-link deck-card" href="deck-detail.html?view=subscriber"><div class="row-between"><span class="badge badge-primary">OFFICIAL</span><span class="muted small">Không có thẻ đến hạn</span></div><h3>Oxford 3000</h3><div class="meta"><span>3.000 thẻ</span><span>Tác giả: SpacedVocab</span></div></a>
+    </div>
+  </section>
+</main>
+</body>
+</html>

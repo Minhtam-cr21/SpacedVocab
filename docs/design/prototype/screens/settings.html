@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D16 Hồ sơ &amp; cài đặt · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="learner" data-active="settings" data-page="settings">
+<main class="page page-narrow">
+  <h1>Hồ sơ &amp; cài đặt</h1>
+
+  <form class="card stack mt-4" data-proto data-toast-ok="Đã lưu hồ sơ." aria-labelledby="profile-h">
+    <h2 id="profile-h" style="font-size:var(--text-lg)">Hồ sơ</h2>
+    <div class="field"><label class="label" for="name">Tên hiển thị</label><input class="input" id="name" value="Minh Anh"></div>
+    <div class="field"><label class="label" for="email">Email</label><input class="input" id="email" value="minhanh@example.com" readonly aria-describedby="email-hint"><span class="hint" id="email-hint">Email dùng để đăng nhập, chưa hỗ trợ đổi.</span></div>
+    <div><button class="btn btn-primary" type="submit">Lưu hồ sơ</button></div>
+  </form>
+
+  <form class="card stack mt-4" data-proto data-toast-ok="Đã lưu cài đặt học tập." aria-labelledby="learn-h">
+    <h2 id="learn-h" style="font-size:var(--text-lg)">Học tập</h2>
+    <div class="field"><label class="label" for="limit">Số thẻ mới mỗi ngày</label><input class="input" id="limit" type="number" min="0" max="200" value="20" aria-describedby="limit-hint"><span class="hint" id="limit-hint">0–200. Không giới hạn số thẻ cần ôn lại (R7).</span></div>
+    <div class="field"><label class="label" for="tz">Múi giờ</label><select class="select" id="tz"><option selected>(GMT+7) Hà Nội, TP. Hồ Chí Minh</option><option>(GMT+9) Tokyo</option></select><span class="hint">Một "ngày học" bắt đầu lúc 00:00 theo múi giờ này.</span></div>
+    <div><button class="btn btn-primary" type="submit">Lưu cài đặt</button></div>
+  </form>
+
+  <form class="card stack mt-4" data-proto data-toast-ok="Đã đổi mật khẩu." aria-labelledby="pw-h">
+    <h2 id="pw-h" style="font-size:var(--text-lg)">Đổi mật khẩu</h2>
+    <div class="field"><label class="label" for="cur">Mật khẩu hiện tại</label><input class="input" id="cur" type="password" autocomplete="current-password"></div>
+    <div class="field"><label class="label" for="new">Mật khẩu mới</label><input class="input" id="new" type="password" autocomplete="new-password"><span class="hint">Ít nhất 8 ký tự.</span></div>
+    <div class="field"><label class="label" for="new2">Nhập lại mật khẩu mới</label><input class="input" id="new2" type="password" autocomplete="new-password"></div>
+    <div><button class="btn btn-primary" type="submit">Đổi mật khẩu</button></div>
+  </form>
+
+  <div class="card row-between mt-4">
+    <div><strong>Giao diện</strong><p class="muted small mt-0">Theo hệ thống, hoặc chọn sáng/tối.</p></div>
+    <select class="select" style="width:auto" aria-label="Giao diện"><option>Theo hệ thống</option><option>Sáng</option><option>Tối</option></select>
+  </div>
+
+  <a class="btn btn-danger-outline btn-block mt-6" href="login.html">Đăng xuất</a>
+</main>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D15 Thống kê · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="learner" data-active="stats" data-page="stats">
+<main class="page">
+  <div class="page-header">
+    <h1>Thống kê</h1>
+    <label class="sr-only" for="range">Khoảng thời gian</label>
+    <select class="select" id="range" style="width:auto"><option>7 ngày qua</option><option selected>30 ngày qua</option><option>Từ trước tới nay</option></select>
+  </div>
+
+  <div class="grid grid-4">
+    <div class="card stat-tile"><span class="label">Chuỗi ngày học</span><span class="value">🔥 12</span><span class="muted small">Kỷ lục: 21</span></div>
+    <div class="card stat-tile"><span class="label">Lượt ôn</span><span class="value">1.284</span><span class="delta">▲ 12%</span></div>
+    <div class="card stat-tile"><span class="label">Tỷ lệ nhớ</span><span class="value">86%</span><span class="delta">▲ 4%</span></div>
+    <div class="card stat-tile"><span class="label">Thời gian học</span><span class="value">4,6 giờ</span><span class="muted small">≈ 9 phút/ngày</span></div>
+  </div>
+
+  <section class="card mt-6" aria-labelledby="heat-title">
+    <div class="row-between"><h2 id="heat-title" class="mt-0" style="font-size:var(--text-lg)">Hoạt động 20 tuần</h2>
+      <div class="heat-legend" aria-hidden="true">Ít <span style="background:var(--heat-0)"></span><span style="background:var(--heat-1)"></span><span style="background:var(--heat-2)"></span><span style="background:var(--heat-3)"></span><span style="background:var(--heat-4)"></span> Nhiều</div>
+    </div>
+    <div class="heatmap mt-4" data-days="140" role="img" aria-label="Biểu đồ số lượt ôn mỗi ngày trong 20 tuần gần nhất. Học đều 12 ngày gần đây."></div>
+  </section>
+
+  <div class="grid grid-2 mt-6">
+    <section class="card" aria-labelledby="dist-title">
+      <h2 id="dist-title" style="font-size:var(--text-lg)">Phân bố thẻ</h2>
+      <div class="bars">
+        <div class="bar-row"><span><span class="badge badge-new">NEW</span></span><div class="progress"><span style="width:38%;background:var(--state-new)"></span></div><span>318</span></div>
+        <div class="bar-row"><span><span class="badge badge-learning">LEARNING</span></span><div class="progress"><span style="width:12%;background:var(--state-learning)"></span></div><span>96</span></div>
+        <div class="bar-row"><span><span class="badge badge-review">REVIEW</span></span><div class="progress"><span style="width:50%;background:var(--state-review)"></span></div><span>412</span></div>
+      </div>
+    </section>
+    <section class="card" aria-labelledby="forecast-title">
+      <h2 id="forecast-title" style="font-size:var(--text-lg)">Dự báo 7 ngày tới</h2>
+      <div class="bars">
+        <div class="bar-row"><span>Mai</span><div class="progress"><span style="width:70%"></span></div><span>35</span></div>
+        <div class="bar-row"><span>T5</span><div class="progress"><span style="width:44%"></span></div><span>22</span></div>
+        <div class="bar-row"><span>T6</span><div class="progress"><span style="width:56%"></span></div><span>28</span></div>
+        <div class="bar-row"><span>T7</span><div class="progress"><span style="width:30%"></span></div><span>15</span></div>
+        <div class="bar-row"><span>CN</span><div class="progress"><span style="width:62%"></span></div><span>31</span></div>
+      </div>
+      <p class="muted small mt-4">Số thẻ đến hạn mỗi ngày (chưa gồm thẻ mới).</p>
+    </section>
+  </div>
+</main>
+</body>
+</html>

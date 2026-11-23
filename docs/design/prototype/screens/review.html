@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D13 Phiên ôn tập · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="focus" data-page="review">
+<main class="review-layout">
+  <header class="review-top">
+    <a class="btn btn-ghost btn-icon" href="dashboard.html" aria-label="Thoát phiên ôn (Esc)">✕</a>
+    <div class="progress" role="progressbar" aria-label="Tiến độ phiên ôn"><span id="review-progress" style="width:0"></span></div>
+    <span class="small muted" id="review-count" aria-live="polite">0/5</span>
+  </header>
+
+  <div class="flashcard-scene">
+    <button class="flashcard" id="flashcard" type="button">
+      <span class="face front">
+        <span class="badge card-state" id="front-state">NEW</span>
+        <span class="word" id="front-word" lang="en">ubiquitous</span>
+        <span class="hint-flip">Chạm để lật · <kbd>Space</kbd></span>
+      </span>
+      <span class="face back">
+        <span class="word" id="back-word" lang="en" style="font-size:var(--text-2xl)">ubiquitous</span>
+        <span class="ipa" id="back-ipa" lang="en"></span>
+        <span class="meaning" id="back-meaning"></span>
+        <span class="example" id="back-example" lang="en"></span>
+      </span>
+    </button>
+  </div>
+  <p class="sr-only" id="review-live" aria-live="polite"></p>
+
+  <div id="reveal-bar" class="reveal-bar">
+    <button class="btn btn-primary btn-block" id="reveal-btn" type="button">Hiện đáp án</button>
+  </div>
+  <div class="rating-bar" id="rating-bar" role="group" aria-label="Bạn nhớ từ này thế nào?" hidden>
+    <button class="rate-btn rate-again" id="rate-1" type="button">Quên <small></small><kbd>1</kbd></button>
+    <button class="rate-btn rate-hard" id="rate-2" type="button">Khó <small></small><kbd>2</kbd></button>
+    <button class="rate-btn rate-good" id="rate-3" type="button">Nhớ <small></small><kbd>3</kbd></button>
+    <button class="rate-btn rate-easy" id="rate-4" type="button">Dễ <small></small><kbd>4</kbd></button>
+  </div>
+  <p class="shortcut-hint"><kbd>Space</kbd> lật thẻ · <kbd>1</kbd>–<kbd>4</kbd> chấm điểm · <kbd>Esc</kbd> thoát</p>
+</main>
+</body>
+</html>

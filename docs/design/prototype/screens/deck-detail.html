@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D10 Chi tiết deck · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="learner" data-active="library" data-page="deck-detail">
+<main class="page">
+  <div class="row small muted"><span>Xem như:</span>
+    <select class="select" id="view-as" style="width:auto;min-height:32px" aria-label="Chọn vai trò người xem">
+      <option value="owner">Chủ sở hữu</option><option value="subscriber">Người đã đăng ký (chỉ đọc)</option>
+    </select>
+  </div>
+
+  <p class="breadcrumb mt-4"><a href="library.html">Thư viện</a> / <span data-view="owner">Từ vựng Spring Boot</span><span data-view="subscriber">IELTS Academic Core</span></p>
+
+  <div class="page-header">
+    <div data-view="owner"><span class="badge">PRIVATE</span><h1 class="mt-4">Từ vựng Spring Boot</h1><p class="muted mt-0">Thuật ngữ gặp khi đọc tài liệu Spring.</p></div>
+    <div data-view="subscriber"><span class="badge badge-primary">OFFICIAL</span><h1 class="mt-4">IELTS Academic Core</h1><p class="muted mt-0">Tác giả: SpacedVocab · đã đăng ký 03/11/2026</p></div>
+    <div class="row">
+      <a class="btn btn-primary" href="review.html">▶ Ôn deck này (9)</a>
+      <a class="btn btn-secondary" href="deck-form.html" data-view="owner">Sửa</a>
+      <button class="btn btn-secondary btn-icon" data-view="subscriber" data-open="report-modal" aria-label="Báo cáo deck">🚩</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info" data-view="subscriber">ℹ Bạn đang học deck này theo đăng ký nên không sửa được thẻ. <button class="btn btn-ghost btn-sm" data-toast="Đã bỏ deck khỏi thư viện. Tiến độ vẫn được giữ.">Bỏ khỏi thư viện</button></div>
+
+  <div class="grid grid-4 mt-4">
+    <div class="card stat-tile"><span class="label">Tổng số thẻ</span><span class="value">86</span></div>
+    <div class="card stat-tile"><span class="label"><span class="badge badge-new">NEW</span></span><span class="value">20</span></div>
+    <div class="card stat-tile"><span class="label"><span class="badge badge-learning">LEARNING</span></span><span class="value">13</span></div>
+    <div class="card stat-tile"><span class="label"><span class="badge badge-review">REVIEW</span></span><span class="value">53</span></div>
+  </div>
+
+  <div class="row-between mt-6">
+    <div class="search" style="max-width:360px"><label class="sr-only" for="q">Tìm thẻ</label><input class="input" id="q" type="search" placeholder="Tìm từ hoặc nghĩa…"></div>
+    <div class="row" data-view="owner"><a class="btn btn-secondary" href="import.html">⇪ Import CSV</a><a class="btn btn-primary" href="card-form.html">+ Thêm thẻ</a></div>
+  </div>
+
+  <div class="table-wrap mt-4">
+    <table class="table">
+      <thead><tr><th>Từ</th><th>Nghĩa</th><th>Trạng thái</th><th>Ôn tiếp</th><th data-view="owner"><span class="sr-only">Thao tác</span></th></tr></thead>
+      <tbody>
+        <tr><td><strong class="content-en" lang="en">dependency injection</strong></td><td class="wrap">tiêm phụ thuộc</td><td><span class="badge badge-review">REVIEW</span></td><td>6 ngày nữa</td><td data-view="owner"><a class="btn btn-ghost btn-sm" href="card-form.html">Sửa</a></td></tr>
+        <tr><td><strong class="content-en" lang="en">deploy</strong></td><td class="wrap">triển khai</td><td><span class="badge badge-review">REVIEW</span></td><td><strong>Hôm nay</strong></td><td data-view="owner"><a class="btn btn-ghost btn-sm" href="card-form.html">Sửa</a></td></tr>
+        <tr><td><strong class="content-en" lang="en">idempotent</strong></td><td class="wrap">lũy đẳng (gọi nhiều lần cho cùng kết quả)</td><td><span class="badge badge-learning">LEARNING</span></td><td>Ngày mai</td><td data-view="owner"><a class="btn btn-ghost btn-sm" href="card-form.html">Sửa</a></td></tr>
+        <tr><td><strong class="content-en" lang="en">transaction</strong></td><td class="wrap">giao dịch</td><td><span class="badge badge-new">NEW</span></td><td>—</td><td data-view="owner"><a class="btn btn-ghost btn-sm" href="card-form.html">Sửa</a></td></tr>
+        <tr><td><strong class="content-en" lang="en">mitigate</strong></td><td class="wrap">giảm nhẹ</td><td><span class="badge badge-learning">LEARNING</span></td><td><strong>Hôm nay</strong></td><td data-view="owner"><a class="btn btn-ghost btn-sm" href="card-form.html">Sửa</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <nav class="pagination" aria-label="Phân trang"><span class="muted">1–5 trong 86 thẻ</span><div class="row"><button class="btn btn-secondary btn-sm" disabled>← Trước</button><button class="btn btn-secondary btn-sm">Sau →</button></div></nav>
+
+  <!-- D17 · Modal báo cáo deck (dùng chung với D5) -->
+  <dialog class="modal" id="report-modal" aria-labelledby="report-title">
+    <div class="modal-header"><h2 id="report-title">Báo cáo bộ thẻ</h2><button class="btn btn-ghost btn-icon" type="button" data-close aria-label="Đóng">✕</button></div>
+    <div class="modal-body stack">
+      <fieldset class="choice-group" style="border:0;padding:0;margin:0">
+        <legend class="label">Lý do <span class="req">*</span></legend>
+        <label class="choice"><input type="radio" name="reason" checked><span>Nội dung sai nghĩa / sai chính tả</span></label>
+        <label class="choice"><input type="radio" name="reason"><span>Nội dung phản cảm, không phù hợp</span></label>
+        <label class="choice"><input type="radio" name="reason"><span>Spam / quảng cáo</span></label>
+        <label class="choice"><input type="radio" name="reason"><span>Vi phạm bản quyền</span></label>
+      </fieldset>
+      <div class="field"><label class="label" for="detail">Mô tả thêm</label><textarea class="textarea" id="detail" maxlength="500"></textarea></div>
+    </div>
+    <div class="modal-footer"><button class="btn btn-secondary" type="button" data-close>Hủy</button><button class="btn btn-primary" type="button" data-toast="Cảm ơn bạn! Admin sẽ xem xét báo cáo.">Gửi báo cáo</button></div>
+  </dialog>
+</main>
+</body>
+</html>

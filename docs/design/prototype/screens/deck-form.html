@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D9 Tạo / sửa deck · SpacedVocab</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-shell="learner" data-active="library" data-page="deck-form">
+<main class="page page-narrow">
+  <p class="breadcrumb"><a href="library.html">Thư viện</a> / Tạo deck</p>
+  <h1>Tạo deck mới</h1>
+
+  <form class="card stack mt-4" data-proto data-next="deck-detail.html" data-toast-ok="Đã tạo deck.">
+    <div class="field has-error">
+      <label class="label" for="name">Tên deck <span class="req">*</span></label>
+      <input class="input" id="name" maxlength="100" value="Phrasal verbs hằng ngày" aria-describedby="name-err">
+      <span class="error-text" id="name-err">⚠ Bạn đã có deck tên "Phrasal verbs hằng ngày". Hãy đặt tên khác.</span>
+    </div>
+    <div class="field">
+      <label class="label" for="desc">Mô tả</label>
+      <textarea class="textarea" id="desc" maxlength="500" placeholder="Bộ thẻ này dùng để làm gì?"></textarea>
+      <span class="hint">Tối đa 500 ký tự. Hiển thị cho người khác nếu deck công khai.</span>
+    </div>
+    <fieldset class="choice-group" style="border:0;padding:0;margin:0">
+      <legend class="label" style="margin-bottom:var(--space-2)">Ai có thể thấy deck này?</legend>
+      <label class="choice"><input type="radio" name="vis" checked><span><strong>🔒 Riêng tư</strong><br><span class="muted small">Chỉ mình bạn thấy và học.</span></span></label>
+      <label class="choice"><input type="radio" name="vis"><span><strong>🌐 Công khai</strong><br><span class="muted small">Mọi người tìm thấy trong Khám phá và có thể thêm vào thư viện để học. Họ không sửa được thẻ của bạn.</span></span></label>
+    </fieldset>
+    <div class="alert alert-info">ℹ Trong màn Admin, ô này được cố định là <strong>OFFICIAL</strong> (chỉ Admin tạo được — R3).</div>
+    <div class="row-between">
+      <a class="btn btn-ghost" href="library.html">Hủy</a>
+      <button class="btn btn-primary" type="submit">Tạo deck</button>
+    </div>
+  </form>
+
+  <section class="card mt-6" aria-labelledby="danger" style="border-color:color-mix(in srgb,var(--danger) 40%,transparent)">
+    <h2 id="danger" style="font-size:var(--text-lg)">Vùng nguy hiểm <span class="muted small">(chỉ hiện khi sửa deck)</span></h2>
+    <p class="muted small">Xóa deck sẽ xóa toàn bộ thẻ. Nếu đang có người học theo, deck sẽ được ẩn thay vì xóa hẳn (R8).</p>
+    <button class="btn btn-danger-outline" type="button" data-open="confirm-delete">Xóa deck</button>
+  </section>
+
+  <dialog class="modal" id="confirm-delete" aria-labelledby="del-title">
+    <div class="modal-body"><div class="confirm-icon" aria-hidden="true">!</div><h2 id="del-title">Xóa deck "Phrasal verbs hằng ngày"?</h2><p class="muted">140 thẻ sẽ bị xóa. <strong>37 người</strong> đang học deck này — họ sẽ không thấy deck nữa, nhưng lịch sử ôn của họ vẫn được giữ.</p></div>
+    <div class="modal-footer"><button class="btn btn-secondary" data-close>Hủy</button><button class="btn btn-danger" data-toast="Đã xóa deck.">Xóa deck</button></div>
+  </dialog>
+</main>
+</body>
+</html>
