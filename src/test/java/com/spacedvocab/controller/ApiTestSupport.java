@@ -36,8 +36,35 @@ abstract class ApiTestSupport {
                 .contentType(MediaType.APPLICATION_JSON).content(json).exchange();
     }
 
+    MvcTestResult postJson(String uri, String accessToken, String json) {
+        return mvc.post().uri(uri).header("Authorization", "Bearer " + accessToken)
+                .contentType(MediaType.APPLICATION_JSON).content(json).exchange();
+    }
+
     MvcTestResult getWithToken(String uri, String accessToken) {
         return mvc.get().uri(uri).header("Authorization", "Bearer " + accessToken).exchange();
+    }
+
+    MvcTestResult deleteWithToken(String uri, String accessToken) {
+        return mvc.delete().uri(uri).header("Authorization", "Bearer " + accessToken).exchange();
+    }
+
+    /** Creates a deck and returns its id. */
+    long createDeck(String accessToken, String name, String visibility) {
+        MvcTestResult result = postJson("/api/decks", accessToken, """
+                {"name": "%s", "visibility": "%s"}
+                """.formatted(name, visibility));
+        assertThat(result).hasStatus(HttpStatus.CREATED);
+        return ((Number) JsonPath.read(body(result), "$.id")).longValue();
+    }
+
+    /** Adds a card with only word and meaning and returns its id. */
+    long createCard(String accessToken, long deckId, String word, String meaning) {
+        MvcTestResult result = postJson("/api/decks/%d/cards".formatted(deckId), accessToken, """
+                {"word": "%s", "meaning": "%s"}
+                """.formatted(word, meaning));
+        assertThat(result).hasStatus(HttpStatus.CREATED);
+        return ((Number) JsonPath.read(body(result), "$.id")).longValue();
     }
 
     Session register(String email, String password) {
