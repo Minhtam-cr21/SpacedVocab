@@ -15,7 +15,7 @@ flowchart TD
     D --> D1{Hợp lệ?}
     D1 -->|Email đã tồn tại - R1| D2[Báo lỗi tại ô email + link 'Đăng nhập']
     D2 --> E
-    D1 -->|Mật khẩu < 8 ký tự| D
+    D1 -->|Mật khẩu dưới 8 ký tự| D
     D1 -->|OK| F[D6 Onboarding]
     E --> E1{Kết quả}
     E1 -->|Sai email/mật khẩu| E
