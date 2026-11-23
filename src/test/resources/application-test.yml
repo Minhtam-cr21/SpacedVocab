@@ -1,0 +1,7 @@
+# Test-only values (not real secrets).
+app:
+  jwt:
+    secret: test-only-jwt-secret-that-is-long-enough-for-hs256
+  admin:
+    email: admin@test.local
+    password: admin-test-password
