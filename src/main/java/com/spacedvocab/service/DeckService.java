@@ -3,12 +3,14 @@ package com.spacedvocab.service;
 import com.spacedvocab.config.security.AuthenticatedUser;
 import com.spacedvocab.dto.DeckRequest;
 import com.spacedvocab.dto.DeckResponse;
+import com.spacedvocab.entity.CardState;
 import com.spacedvocab.entity.Deck;
 import com.spacedvocab.entity.DeckVisibility;
 import com.spacedvocab.entity.Role;
 import com.spacedvocab.exception.DuplicateResourceException;
 import com.spacedvocab.exception.ErrorCode;
 import com.spacedvocab.exception.ForbiddenOperationException;
+import com.spacedvocab.repository.CardProgressRepository;
 import com.spacedvocab.repository.CardRepository;
 import com.spacedvocab.repository.DeckRepository;
 import com.spacedvocab.repository.UserRepository;
@@ -19,7 +21,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Clock;
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
 
 /** UC-L4: a learner's own decks (D8, D9, D10). OFFICIAL decks are managed by admins in M4. */
 @Service
@@ -29,14 +33,17 @@ public class DeckService {
 
     private final DeckRepository deckRepository;
     private final CardRepository cardRepository;
+    private final CardProgressRepository progressRepository;
     private final UserRepository userRepository;
     private final DeckAccessService deckAccess;
     private final Clock clock;
 
-    public DeckService(DeckRepository deckRepository, CardRepository cardRepository, UserRepository userRepository,
+    public DeckService(DeckRepository deckRepository, CardRepository cardRepository,
+                       CardProgressRepository progressRepository, UserRepository userRepository,
                        DeckAccessService deckAccess, Clock clock) {
         this.deckRepository = deckRepository;
         this.cardRepository = cardRepository;
+        this.progressRepository = progressRepository;
         this.userRepository = userRepository;
         this.deckAccess = deckAccess;
         this.clock = clock;
@@ -98,7 +105,17 @@ public class DeckService {
 
     private DeckResponse toResponse(Deck deck, AuthenticatedUser me) {
         long cardCount = cardRepository.countByDeckIdAndDeletedAtIsNull(deck.getId());
-        return DeckResponse.from(deck, cardCount, deckAccess.isEditable(deck, me));
+        return DeckResponse.from(deck, cardCount, deckAccess.isEditable(deck, me), progress(deck, me, cardCount));
+    }
+
+    /** D10: the viewer's NEW / LEARNING / REVIEW counts. Cards without progress are NEW. */
+    private DeckResponse.Progress progress(Deck deck, AuthenticatedUser me, long cardCount) {
+        Map<CardState, Long> counts = new EnumMap<>(CardState.class);
+        progressRepository.countByState(me.id(), deck.getId())
+                .forEach(row -> counts.merge(row.state(), row.count(), Long::sum));
+        long learning = counts.getOrDefault(CardState.LEARNING, 0L);
+        long review = counts.getOrDefault(CardState.REVIEW, 0L);
+        return new DeckResponse.Progress(cardCount - learning - review, learning, review);
     }
 
     /** R3: OFFICIAL is reserved for admins. */

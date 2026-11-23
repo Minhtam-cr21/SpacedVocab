@@ -22,8 +22,11 @@ public enum ErrorCode {
     EMAIL_TAKEN("Email này đã được đăng ký. Bạn muốn đăng nhập?"),
     DECK_NAME_TAKEN("Bạn đã có deck với tên này. Hãy đặt tên khác."),
     CARD_WORD_TAKEN("Từ này đã có trong deck."),
+    REVIEW_CONFLICT("Thẻ này vừa được chấm ở nơi khác. Hãy tải lại phiên ôn."),
     // 422
     WRONG_CURRENT_PASSWORD("Mật khẩu hiện tại không đúng."),
+    CARD_NOT_IN_LIBRARY("Thẻ này không thuộc thư viện của bạn."),
+    DAILY_NEW_LIMIT_REACHED("Bạn đã học đủ số thẻ mới hôm nay. Hẹn bạn ngày mai nhé!"),
     // 500
     INTERNAL_ERROR("Đã có lỗi xảy ra. Vui lòng thử lại sau.");
 

@@ -40,4 +40,12 @@ public class DeckAccessService {
     public boolean isEditable(Deck deck, AuthenticatedUser me) {
         return deck.isEditableBy(me.id(), me.role());
     }
+
+    /**
+     * R6: the learner may study this deck. For now that means owning it; M4 adds subscribed decks
+     * (and must update the library queries in {@code CardProgressRepository} / {@code CardRepository}).
+     */
+    public boolean isInLibrary(Deck deck, AuthenticatedUser me) {
+        return !deck.isDeleted() && deck.isOwnedBy(me.id());
+    }
 }
