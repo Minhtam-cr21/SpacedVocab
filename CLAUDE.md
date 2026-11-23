@@ -47,6 +47,10 @@ controller  service  repository  entity  dto  config  exception  algorithm
 - `ReviewLog` bất biến, không bao giờ xóa (R8).
 - Inject `java.time.Clock` để test được logic ngày giờ; "ngày học" tính theo `timezone` của user (R7, R9).
 - Kiểm tra quyền sở hữu qua interface `Ownable#isOwnedBy(userId)`. Deck PRIVATE của người khác trả **404**, không trả 403.
+  - Mọi truy cập deck đi qua `DeckAccessService`: `requireVisible` (404) và `requireEditable` (403). Quy tắc nằm trong `Deck#isVisibleTo` / `Deck#isEditableBy` (OFFICIAL chỉ Admin sửa).
+- Deck và Card **xóa mềm** (`deletedAt`); mọi query phải lọc `deletedAt is null`. Unique R2 là partial index `lower(...) WHERE deleted_at IS NULL`.
+- Nội dung thẻ là value object `CardContent` (`@Embeddable record`).
+- Danh sách phân trang trả `PageResponse` (`page` tính từ 0), không trả thẳng `Page` của Spring.
 
 ## Database
 - Schema do **Flyway** quản lý, Hibernate chỉ `ddl-auto: validate`.
@@ -69,7 +73,7 @@ controller  service  repository  entity  dto  config  exception  algorithm
 | M0 ✅ | Setup Maven, Docker, Flyway, CI | — |
 | Design ✅ | Tài liệu UX/UI + prototype | D1–D22 |
 | M1 ✅ | User, đăng ký/đăng nhập JWT, phân quyền | D2, D3, D6, D16 |
-| M2 | CRUD deck & card, quyền sở hữu | D8–D11 |
+| M2 ✅ | CRUD deck & card, quyền sở hữu | D8–D11 |
 | M3 | **SM-2**, thẻ đến hạn, chấm điểm, ReviewLog | D7, D13, D14 |
 | M4 | Deck public/official, subscribe, import CSV, admin | D4, D5, D12, D17–D21 |
 | M5 | Thống kê, streak, Swagger | D15 |

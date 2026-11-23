@@ -42,7 +42,7 @@ docker compose down -v        # stop and wipe the database
 1. `docker compose up -d db` — start only the database.
 2. Run `SpacedVocabApplication` with env vars `DB_PASSWORD` and `JWT_SECRET` set to the values in `.env`.
 
-Sample requests for IntelliJ's HTTP client: [`http/auth.http`](http/auth.http).
+Sample requests for IntelliJ's HTTP client: [`http/auth.http`](http/auth.http), [`http/decks.http`](http/decks.http).
 
 ## API
 
@@ -57,8 +57,16 @@ All errors share one shape: `{ "code": "EMAIL_TAKEN", "message": "...", "field":
 | `GET/PUT /api/me` | Bearer | Read / update own profile |
 | `PUT /api/me/settings` | Bearer | Daily new-card limit and timezone |
 | `PUT /api/me/password` | Bearer | Change password (ends other sessions) |
+| `GET /api/decks?scope=owned` | Bearer | Own decks with card counts |
+| `POST /api/decks`, `GET/PUT/DELETE /api/decks/{id}` | Bearer | Deck CRUD (`PRIVATE` / `PUBLIC`) |
+| `GET /api/decks/{id}/cards?q=&page=&size=` | Bearer | Search a deck's cards (paged, 0-based) |
+| `POST /api/decks/{id}/cards`, `GET/PUT/DELETE .../cards/{cardId}` | Bearer | Card CRUD |
 
 Refresh tokens are stored as SHA-256 hashes and rotated on every use; re-using an old one revokes all of that user's sessions.
+
+Ownership rules: only the owner edits a deck and its cards; someone else's `PRIVATE` deck answers **404** (its existence is not revealed), a `PUBLIC` one is read-only (**403** on writes).
+Deck names are unique per owner and words unique per deck, case-insensitively (partial unique indexes on `lower(...)`).
+Decks and cards are soft-deleted so learning history is never lost.
 
 ## Domain overview
 
@@ -86,7 +94,7 @@ The UI (Vietnamese, mobile-first) is designed before implementation and serves a
 - [x] **M0** Project setup — Maven, Docker Compose, Flyway, CI
 - [x] **Design** UX/UI docs and clickable prototype
 - [x] **M1** Users & JWT authentication
-- [ ] **M2** Deck & card CRUD with ownership rules
+- [x] **M2** Deck & card CRUD with ownership rules
 - [ ] **M3** SM-2 scheduling, due cards, review logs
 - [ ] **M4** Public/official decks, subscriptions, CSV import, admin
 - [ ] **M5** Statistics, streaks, Swagger docs

@@ -102,10 +102,10 @@ Ký hiệu: ✅ được · 👁 chỉ xem · ❌ không · — không áp dụn
 | D2 | `POST /api/auth/register` `{email, password, displayName?, timezone?}` → 201 `AuthResponse` | M1 ✅ |
 | D3 | `POST /api/auth/login` `{email, password}`, `POST /api/auth/refresh` `{refreshToken}`, `POST /api/auth/logout` `{refreshToken}` → 204 | M1 ✅ |
 | D6, D16 | `GET /api/me`, `PUT /api/me` `{displayName}`, `PUT /api/me/settings` `{dailyNewLimit, timezone}`, `PUT /api/me/password` `{currentPassword, newPassword}` → 204 | M1 ✅ |
-| D8 | `GET /api/decks?scope=owned|subscribed` | M2 / M4 |
-| D9 | `POST /api/decks`, `PUT /api/decks/{id}`, `DELETE /api/decks/{id}` | M2 |
-| D10 | `GET /api/decks/{id}`, `GET /api/decks/{id}/cards?q=&page=&size=` | M2 |
-| D11 | `POST /api/decks/{id}/cards`, `PUT/DELETE /api/decks/{id}/cards/{cardId}` | M2 |
+| D8 | `GET /api/decks?scope=owned` → `DeckResponse[]` (kèm `cardCount`, `editable`); `scope=subscribed` ở M4 | M2 ✅ / M4 |
+| D9 | `POST /api/decks` `{name, description?, visibility: PRIVATE|PUBLIC}` → 201, `PUT /api/decks/{id}`, `DELETE /api/decks/{id}` → 204 (xóa mềm) | M2 ✅ |
+| D10 | `GET /api/decks/{id}`, `GET /api/decks/{id}/cards?q=&page=0&size=20` → `{items, page, size, totalElements, totalPages}` (`page` tính từ 0, `size` ≤ 100, sắp theo `word`) | M2 ✅ |
+| D11 | `POST /api/decks/{id}/cards` `{word, meaning, ipa?, partOfSpeech?, example?, note?}` → 201, `GET/PUT/DELETE /api/decks/{id}/cards/{cardId}` (DELETE → 204, xóa mềm) | M2 ✅ |
 | D12 | `POST /api/decks/{id}/cards/import?dryRun=true|false` (multipart) | M4 |
 | D7, D13 | `GET /api/reviews/due?deckId=&limit=` — mỗi thẻ kèm `previewIntervals` cho 4 nút | M3 |
 | D13 | `POST /api/reviews` `{cardId, quality}` → trả `ScheduleResult` | M3 |

@@ -1,0 +1,72 @@
+### Requests for IntelliJ's HTTP client. Run "Login" in auth.http first to set {{accessToken}}.
+@host = http://localhost:8090
+
+### Create deck (D9)
+POST {{host}}/api/decks
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "name": "IELTS Band 7",
+  "description": "Từ vựng học thuật",
+  "visibility": "PRIVATE"
+}
+
+> {% client.global.set("deckId", response.body.id); %}
+
+### My decks (D8)
+GET {{host}}/api/decks?scope=owned
+Authorization: Bearer {{accessToken}}
+
+### Deck detail (D10)
+GET {{host}}/api/decks/{{deckId}}
+Authorization: Bearer {{accessToken}}
+
+### Edit deck (D9)
+PUT {{host}}/api/decks/{{deckId}}
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "name": "IELTS Band 7",
+  "description": "Từ vựng học thuật, chia theo chủ đề",
+  "visibility": "PUBLIC"
+}
+
+### Add card (D11)
+POST {{host}}/api/decks/{{deckId}}/cards
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "word": "abandon",
+  "meaning": "từ bỏ",
+  "ipa": "/əˈbændən/",
+  "partOfSpeech": "verb",
+  "example": "They had to abandon the car."
+}
+
+> {% client.global.set("cardId", response.body.id); %}
+
+### Search cards (D10) — page is 0-based
+GET {{host}}/api/decks/{{deckId}}/cards?q=aban&page=0&size=20
+Authorization: Bearer {{accessToken}}
+
+### Edit card (D11)
+PUT {{host}}/api/decks/{{deckId}}/cards/{{cardId}}
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "word": "abandon",
+  "meaning": "từ bỏ, bỏ rơi",
+  "partOfSpeech": "verb"
+}
+
+### Delete card (soft delete)
+DELETE {{host}}/api/decks/{{deckId}}/cards/{{cardId}}
+Authorization: Bearer {{accessToken}}
+
+### Delete deck (soft delete)
+DELETE {{host}}/api/decks/{{deckId}}
+Authorization: Bearer {{accessToken}}

@@ -64,12 +64,12 @@
 ### D10 · Chi tiết deck — `deck-detail.html` — `/app/decks/:id`
 - **Thành phần:** header + nút ôn deck này; 4 `StatTile` (tổng, NEW, LEARNING, REVIEW); tìm kiếm; `DataTable` thẻ (mobile: `List`); phân trang.
 - **Theo người xem:** chủ → nút Sửa, Thêm thẻ, Import, Sửa từng thẻ. Subscriber → `Alert` chỉ đọc, nút 🚩 báo cáo, "Bỏ khỏi thư viện".
-- **API:** `GET /api/decks/{id}`, `GET /api/decks/{id}/cards?q=&page=&size=20`. Deck PRIVATE của người khác → **404** (không lộ sự tồn tại).
+- **API:** `GET /api/decks/{id}`, `GET /api/decks/{id}/cards?q=&page=&size=20`. Deck PRIVATE của người khác → **404** (không lộ sự tồn tại). Hiện nút chủ deck theo `editable` trong response. Đếm NEW/LEARNING/REVIEW cần `CardProgress` nên có từ M3.
 
 ### D11 · Thêm / sửa thẻ — `card-form.html` — `/app/decks/:id/cards/new`
 - **Thành phần:** word* (font nội dung, `lang="en"`), từ loại, nghĩa*, IPA, ví dụ, ghi chú, xem trước thẻ; "Lưu & thêm tiếp" (giữ focus ở ô word) và "Lưu".
 - **Trạng thái:** trùng từ (**R2**, không phân biệt hoa thường) → lỗi + link tới thẻ cũ.
-- **API:** `POST /api/decks/{id}/cards`, `PUT/DELETE /api/decks/{id}/cards/{cardId}`.
+- **API:** `POST /api/decks/{id}/cards`, `GET/PUT/DELETE /api/decks/{id}/cards/{cardId}` (màn sửa tải thẻ bằng `GET`). Link tới thẻ cũ khi trùng: tìm bằng `GET .../cards?q={word}`.
 
 ### D12 · Import CSV — `import.html` — `/app/decks/:id/import`
 - **Bước 1:** `FileDropzone` (≤ 2MB, ≤ 1.000 dòng, UTF-8), mô tả định dạng, file mẫu.

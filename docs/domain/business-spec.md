@@ -61,8 +61,8 @@ erDiagram
 | Thực thể | Vai trò | Thuộc tính chính |
 |---|---|---|
 | **User** | Tài khoản | `email` (unique), `passwordHash`, `displayName`, `role` LEARNER/ADMIN, `status` ACTIVE/LOCKED, `dailyNewLimit`, `timezone` |
-| **Deck** | Bộ thẻ | `owner`, `name`, `description`, `visibility` PRIVATE/PUBLIC/OFFICIAL, `hidden`, `deleted` |
-| **Card** | **Nội dung** thẻ (dùng chung) | `word`, `meaning`, `ipa`, `partOfSpeech`, `example`, `note` |
+| **Deck** | Bộ thẻ | `owner`, `name`, `description`, `visibility` PRIVATE/PUBLIC/OFFICIAL, `hidden`, `deletedAt` |
+| **Card** | **Nội dung** thẻ (dùng chung) | `word`, `meaning`, `ipa`, `partOfSpeech`, `example`, `note`, `deletedAt` |
 | **CardProgress** | **Tiến độ riêng** của 1 user với 1 card | `easinessFactor`, `repetitions`, `intervalDays`, `nextReviewAt`, `state` NEW/LEARNING/REVIEW, `lapses` — unique (`user`, `card`) |
 | **ReviewLog** | Nhật ký mỗi lần ôn (bất biến) | `quality`, `reviewedAt`, EF trước/sau, interval trước/sau |
 | **DeckSubscription** | User đăng ký học deck | `user`, `deck`, `subscribedAt` |
@@ -75,13 +75,13 @@ erDiagram
 | Mã | Quy tắc |
 |---|---|
 | **R1** | Email không trùng (không phân biệt hoa thường). Mật khẩu 8–72 ký tự. Tài khoản `LOCKED` không đăng nhập, không refresh được, và token đang có bị chặn ngay. Đổi mật khẩu → đăng xuất mọi phiên khác. |
-| **R2** | Tên deck không trùng trong cùng một chủ sở hữu. `word` không trùng trong cùng một deck (không phân biệt hoa thường). |
+| **R2** | Tên deck không trùng trong cùng một chủ sở hữu. `word` không trùng trong cùng một deck. Cả hai so sánh không phân biệt hoa thường, chỉ xét deck/card chưa bị xóa. |
 | **R3** | Chỉ chủ sở hữu được sửa deck/card. Deck `OFFICIAL` chỉ Admin tạo và sửa. |
 | **R4** | Chỉ subscribe được deck `PUBLIC`/`OFFICIAL` và không phải của chính mình. |
 | **R5** | `quality` ∈ [0..5], `EF ≥ 1.3`, `interval ≥ 1` ngày. |
 | **R6** | Chỉ chấm điểm thẻ thuộc deck mình sở hữu hoặc đã subscribe. |
 | **R7** | Số thẻ **mới** mỗi ngày ≤ `dailyNewLimit`. "Ngày" tính theo timezone của người học. |
-| **R8** | Deck đang có người subscribe thì chỉ **xóa mềm**. Không bao giờ xóa `ReviewLog`. |
+| **R8** | Xóa deck và card luôn là **xóa mềm** (`deletedAt`), vì deck có thể đang có người subscribe và card có lịch sử ôn. Không bao giờ xóa `ReviewLog`. |
 | **R9** | Streak +1 khi trong ngày có ≥ 1 lượt ôn. Bỏ một ngày thì streak về 0. |
 
 ## 5. Thuật toán SM-2

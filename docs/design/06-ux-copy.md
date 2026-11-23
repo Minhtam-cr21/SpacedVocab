@@ -32,7 +32,7 @@ Backend trả lỗi dạng `{ code, message, field?, errors? }` từ `@RestContr
 | Chưa đăng nhập / token không hợp lệ | 401 | `UNAUTHORIZED` | Vui lòng đăng nhập để tiếp tục. |
 | Access token hết hạn → gọi `/api/auth/refresh`; refresh token hết hạn / bị thu hồi | 401 | `TOKEN_EXPIRED` | Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại. |
 | `ForbiddenOperationException` (tài khoản bị khóa) | 403 | `ACCOUNT_LOCKED` | Tài khoản của bạn đang bị tạm khóa. Liên hệ quản trị viên để được hỗ trợ. |
-| `ForbiddenOperationException` | 403 | `FORBIDDEN` | Bạn không có quyền thực hiện thao tác này. |
+| `ForbiddenOperationException` (sửa deck công khai của người khác, chọn `OFFICIAL` khi không phải Admin) | 403 | `FORBIDDEN` | Bạn không có quyền thực hiện thao tác này. |
 | `ResourceNotFoundException` | 404 | `NOT_FOUND` | Không tìm thấy nội dung này, có thể nó đã bị xóa. |
 | `BusinessRuleViolationException` (đổi mật khẩu) | 422 | `WRONG_CURRENT_PASSWORD` | Mật khẩu hiện tại không đúng. (hiện tại ô `currentPassword`) |
 | Sai HTTP method | 405 | `METHOD_NOT_ALLOWED` | Thao tác này không được hỗ trợ. |
