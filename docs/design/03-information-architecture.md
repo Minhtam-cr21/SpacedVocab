@@ -104,11 +104,11 @@ Ký hiệu: ✅ được · 👁 chỉ xem · ❌ không · — không áp dụn
 | D6, D16 | `GET /api/me`, `PUT /api/me` `{displayName}`, `PUT /api/me/settings` `{dailyNewLimit, timezone}`, `PUT /api/me/password` `{currentPassword, newPassword}` → 204 | M1 ✅ |
 | D8 | `GET /api/decks?scope=owned` → `DeckResponse[]` (kèm `cardCount`, `editable`); `scope=subscribed` ở M4 | M2 ✅ / M4 |
 | D9 | `POST /api/decks` `{name, description?, visibility: PRIVATE|PUBLIC}` → 201, `PUT /api/decks/{id}`, `DELETE /api/decks/{id}` → 204 (xóa mềm) | M2 ✅ |
-| D10 | `GET /api/decks/{id}`, `GET /api/decks/{id}/cards?q=&page=0&size=20` → `{items, page, size, totalElements, totalPages}` (`page` tính từ 0, `size` ≤ 100, sắp theo `word`) | M2 ✅ |
+| D10 | `GET /api/decks/{id}` (kèm `progress {newCount, learningCount, reviewCount}` của người xem — chỉ ở GET chi tiết, `null` trong danh sách), `GET /api/decks/{id}/cards?q=&page=0&size=20` → `{items, page, size, totalElements, totalPages}` (`page` tính từ 0, `size` ≤ 100, sắp theo `word`) | M2 ✅ / M3 ✅ |
 | D11 | `POST /api/decks/{id}/cards` `{word, meaning, ipa?, partOfSpeech?, example?, note?}` → 201, `GET/PUT/DELETE /api/decks/{id}/cards/{cardId}` (DELETE → 204, xóa mềm) | M2 ✅ |
 | D12 | `POST /api/decks/{id}/cards/import?dryRun=true|false` (multipart) | M4 |
-| D7, D13 | `GET /api/reviews/due?deckId=&limit=` — mỗi thẻ kèm `previewIntervals` cho 4 nút | M3 |
-| D13 | `POST /api/reviews` `{cardId, quality}` → trả `ScheduleResult` | M3 |
+| D7, D13 | `GET /api/reviews/due?deckId=&limit=50` (`limit` 0–200; `0` = chỉ lấy số đếm) → `{reviewCount, newCount, nextDueAt, cards[]}`; thẻ đến hạn trước, rồi thẻ mới trong hạn mức ngày (R7); mỗi thẻ có `state` và `previewIntervals` `{"1","3","4","5" → số ngày}` cho 4 nút | M3 ✅ |
+| D13 | `POST /api/reviews` `{cardId, quality: 0..5}` → 200 `{cardId, quality, state, easinessFactor, repetitions, intervalDays, lapses, nextReviewAt, nextReviewDate}`; 422 `CARD_NOT_IN_LIBRARY` (R6), 422 `DAILY_NEW_LIMIT_REACHED` (R7) | M3 ✅ |
 | D4, D5 | `GET /api/public/decks?q=&sort=&page=`, `GET /api/public/decks/{id}` | M4 |
 | D5, D10 | `POST/DELETE /api/decks/{id}/subscription` | M4 |
 | D17 | `POST /api/decks/{id}/reports` `{reason, detail}` | M4 |

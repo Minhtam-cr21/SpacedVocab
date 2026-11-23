@@ -28,6 +28,7 @@ Backend trả lỗi dạng `{ code, message, field?, errors? }` từ `@RestContr
 | `DuplicateResourceException` (email) | 409 | `EMAIL_TAKEN` | Email này đã được đăng ký. Bạn muốn **đăng nhập**? |
 | `DuplicateResourceException` (deck) | 409 | `DECK_NAME_TAKEN` | Bạn đã có deck tên "{name}". Hãy đặt tên khác. |
 | `DuplicateResourceException` (card) | 409 | `CARD_WORD_TAKEN` | "{word}" đã có trong deck này. |
+| `DuplicateResourceException` (chấm cùng một thẻ mới hai lần cùng lúc) | 409 | `REVIEW_CONFLICT` | Thẻ này vừa được chấm ở nơi khác. Hãy tải lại phiên ôn. |
 | `UnauthorizedException` (sai đăng nhập) | 401 | `BAD_CREDENTIALS` | Email hoặc mật khẩu không đúng. Vui lòng thử lại. |
 | Chưa đăng nhập / token không hợp lệ | 401 | `UNAUTHORIZED` | Vui lòng đăng nhập để tiếp tục. |
 | Access token hết hạn → gọi `/api/auth/refresh`; refresh token hết hạn / bị thu hồi | 401 | `TOKEN_EXPIRED` | Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại. |
@@ -40,6 +41,7 @@ Backend trả lỗi dạng `{ code, message, field?, errors? }` từ `@RestContr
 | `BusinessRuleViolationException` (R4) | 422 | `CANNOT_SUBSCRIBE_OWN_DECK` | Đây là deck của bạn nên không cần thêm vào thư viện. |
 | `BusinessRuleViolationException` (R4) | 422 | `DECK_NOT_PUBLIC` | Deck này không còn công khai. |
 | `BusinessRuleViolationException` (R6) | 422 | `CARD_NOT_IN_LIBRARY` | Thẻ này không thuộc thư viện của bạn. |
+| `BusinessRuleViolationException` (R7) | 422 | `DAILY_NEW_LIMIT_REACHED` | Bạn đã học đủ số thẻ mới hôm nay. Hẹn bạn ngày mai nhé! |
 | `BusinessRuleViolationException` (tự khóa) | 422 | `CANNOT_LOCK_SELF` | Bạn không thể tự khóa tài khoản của mình. |
 | Validation (`@Valid`) | 400 | `VALIDATION_FAILED` | Hiện lỗi theo từng ô (xem bảng dưới). |
 | Lỗi mạng / 5xx | — | — | Không kết nối được tới máy chủ. Kiểm tra mạng rồi thử lại. |

@@ -1,0 +1,26 @@
+### Requests for IntelliJ's HTTP client. Run "Login" in auth.http first to set {{accessToken}}.
+@host = http://localhost:8090
+
+### Dashboard counts only (D7)
+GET {{host}}/api/reviews/due?limit=0
+Authorization: Bearer {{accessToken}}
+
+### Review session (D13) — due cards first, then new ones
+GET {{host}}/api/reviews/due?limit=50
+Authorization: Bearer {{accessToken}}
+
+> {% client.global.set("cardId", response.body.cards[0].cardId); %}
+
+### Review one deck
+GET {{host}}/api/reviews/due?deckId={{deckId}}
+Authorization: Bearer {{accessToken}}
+
+### Grade a card: 1 Quên · 3 Khó · 4 Nhớ · 5 Dễ
+POST {{host}}/api/reviews
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "cardId": {{cardId}},
+  "quality": 4
+}

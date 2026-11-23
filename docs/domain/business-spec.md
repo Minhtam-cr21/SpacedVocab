@@ -115,3 +115,9 @@ API vẫn nhận đủ 0–5; giao diện chỉ dùng 4 mức cho đơn giản.
 - `NEW`: chưa ôn lần nào.
 - `LEARNING`: `repetitions < 2` (đang trong 2 bước đầu 1 → 6 ngày, hoặc vừa quên).
 - `REVIEW`: `repetitions ≥ 2`.
+
+### Quy ước khi lưu lịch ôn
+- `nextReviewAt` = **00:00** của ngày "hôm nay + interval" theo timezone người học (lưu UTC), nên thẻ đến hạn suốt cả ngày đó.
+- `lapses` +1 khi thẻ **đã từng nhớ** (`repetitions > 0`) bị quên (`repetitions` về 0). Thẻ mới bấm Quên không tính.
+- Thẻ **mới** = chưa có `CardProgress`; lần chấm đầu tiên tạo `CardProgress` và tính vào hạn mức `dailyNewLimit` của ngày đó (R7). Chấm lại thẻ đã bắt đầu thì không bị giới hạn.
+- Mỗi lần chấm ghi 1 `ReviewLog` (EF, interval, state trước/sau). DB có trigger chặn `UPDATE`/`DELETE` trên `review_logs` (R8).

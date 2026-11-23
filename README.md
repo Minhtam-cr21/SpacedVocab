@@ -42,7 +42,7 @@ docker compose down -v        # stop and wipe the database
 1. `docker compose up -d db` — start only the database.
 2. Run `SpacedVocabApplication` with env vars `DB_PASSWORD` and `JWT_SECRET` set to the values in `.env`.
 
-Sample requests for IntelliJ's HTTP client: [`http/auth.http`](http/auth.http), [`http/decks.http`](http/decks.http).
+Sample requests for IntelliJ's HTTP client: [`http/auth.http`](http/auth.http), [`http/decks.http`](http/decks.http), [`http/reviews.http`](http/reviews.http).
 
 ## API
 
@@ -61,12 +61,17 @@ All errors share one shape: `{ "code": "EMAIL_TAKEN", "message": "...", "field":
 | `POST /api/decks`, `GET/PUT/DELETE /api/decks/{id}` | Bearer | Deck CRUD (`PRIVATE` / `PUBLIC`) |
 | `GET /api/decks/{id}/cards?q=&page=&size=` | Bearer | Search a deck's cards (paged, 0-based) |
 | `POST /api/decks/{id}/cards`, `GET/PUT/DELETE .../cards/{cardId}` | Bearer | Card CRUD |
+| `GET /api/reviews/due?deckId=&limit=` | Bearer | Today's due + new cards (daily new-card limit), each with the interval every rating button would give |
+| `POST /api/reviews` | Bearer | Grade a card (`quality` 0–5) → new schedule; appends an immutable review log |
 
 Refresh tokens are stored as SHA-256 hashes and rotated on every use; re-using an old one revokes all of that user's sessions.
 
 Ownership rules: only the owner edits a deck and its cards; someone else's `PRIVATE` deck answers **404** (its existence is not revealed), a `PUBLIC` one is read-only (**403** on writes).
 Deck names are unique per owner and words unique per deck, case-insensitively (partial unique indexes on `lower(...)`).
 Decks and cards are soft-deleted so learning history is never lost.
+
+Scheduling is a Strategy (`SpacedRepetitionAlgorithm` → `Sm2Algorithm`); `CardProgress.applyReview(...)` is the only way to change a card's schedule.
+The next review is midnight of "today + interval" in the learner's timezone. `review_logs` is append-only, enforced by a database trigger.
 
 ## Domain overview
 

@@ -48,7 +48,7 @@
 - **Mục đích:** trả lời ngay "hôm nay học bao nhiêu" và bắt đầu ôn trong ≤ 2 chạm.
 - **Thành phần:** khối "Hôm nay" (số thẻ đến hạn, tách ôn lại/mới, thời gian ước tính, `ProgressRing` thẻ mới), nút **Bắt đầu ôn**, 3 `StatTile`, danh sách deck có thẻ đến hạn.
 - **Trạng thái:** có thẻ · đã xong ("Hôm nay xong rồi!") · người dùng mới (thư viện trống).
-- **API:** `GET /api/reviews/due?limit=0` (chỉ lấy số đếm), `GET /api/stats/overview`, `GET /api/decks?scope=all&withDue=true`.
+- **API:** `GET /api/reviews/due?limit=0` (chỉ lấy số đếm; `nextDueAt` cho trạng thái "đã xong"), `GET /api/stats/overview`, `GET /api/decks?scope=all&withDue=true`.
 
 ### D8 · Thư viện — `library.html` — `/app/library`
 - **Thành phần:** `Tabs` "Deck của tôi" / "Đã đăng ký"; lưới `DeckCard`; thẻ "+ Tạo deck mới".
@@ -64,7 +64,7 @@
 ### D10 · Chi tiết deck — `deck-detail.html` — `/app/decks/:id`
 - **Thành phần:** header + nút ôn deck này; 4 `StatTile` (tổng, NEW, LEARNING, REVIEW); tìm kiếm; `DataTable` thẻ (mobile: `List`); phân trang.
 - **Theo người xem:** chủ → nút Sửa, Thêm thẻ, Import, Sửa từng thẻ. Subscriber → `Alert` chỉ đọc, nút 🚩 báo cáo, "Bỏ khỏi thư viện".
-- **API:** `GET /api/decks/{id}`, `GET /api/decks/{id}/cards?q=&page=&size=20`. Deck PRIVATE của người khác → **404** (không lộ sự tồn tại). Hiện nút chủ deck theo `editable` trong response. Đếm NEW/LEARNING/REVIEW cần `CardProgress` nên có từ M3.
+- **API:** `GET /api/decks/{id}`, `GET /api/decks/{id}/cards?q=&page=&size=20`. Deck PRIVATE của người khác → **404** (không lộ sự tồn tại). Hiện nút chủ deck theo `editable` trong response. 4 `StatTile` lấy từ `progress` trong response của `GET /api/decks/{id}` (tổng = `cardCount`).
 
 ### D11 · Thêm / sửa thẻ — `card-form.html` — `/app/decks/:id/cards/new`
 - **Thành phần:** word* (font nội dung, `lang="en"`), từ loại, nghĩa*, IPA, ví dụ, ghi chú, xem trước thẻ; "Lưu & thêm tiếp" (giữ focus ở ô word) và "Lưu".
@@ -84,7 +84,7 @@
 - **Quy tắc phiên:** bấm **Quên** → thẻ quay lại cuối hàng đợi trong phiên; hết hàng đợi → D14.
 - **Trạng thái:** không có thẻ → empty "Hôm nay xong rồi!"; gửi điểm lỗi mạng → `Toast` "Chưa lưu được, thử lại", **giữ nguyên thẻ**, không mất điểm đã chấm.
 - **A11y:** focus sẵn nút "Nhớ" sau khi lật; `aria-live` đọc nghĩa; tắt hiệu ứng lật khi giảm chuyển động.
-- **API:** `GET /api/reviews/due?deckId=&limit=50` (kèm `previewIntervals`), `POST /api/reviews {cardId, quality}`. Quy tắc: **R5, R6, R7**.
+- **API:** `GET /api/reviews/due?deckId=&limit=50` (kèm `previewIntervals`), `POST /api/reviews {cardId, quality}`. Quy tắc: **R5, R6, R7**. Chấm lại thẻ đã bấm "Quên" trong phiên thì gửi `POST` thêm lần nữa (mỗi lần là 1 `ReviewLog`); thẻ mới thứ `dailyNewLimit + 1` trong ngày → 422 `DAILY_NEW_LIMIT_REACHED`.
 
 ### D14 · Tổng kết phiên — `review-summary.html` — `/app/review/summary`
 - **Thành phần:** lời khen, streak mới, `ProgressRing` tỷ lệ nhớ, 3 `StatTile` (đã ôn, thẻ mới, thời gian), danh sách từ bấm "Quên".

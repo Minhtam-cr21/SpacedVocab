@@ -37,7 +37,9 @@ controller  service  repository  entity  dto  config  exception  algorithm
 - `exception`: `AppException` (abstract, mang `ErrorCode`) → `ResourceNotFoundException` 404, `DuplicateResourceException` 409, `ForbiddenOperationException` 403, `BusinessRuleViolationException` 422, `UnauthorizedException` 401. `GlobalExceptionHandler` (`@RestControllerAdvice`) trả `{ code, message, field?, errors? }` (`errors` chỉ có khi `VALIDATION_FAILED`). Thêm `code` mới → thêm vào enum `ErrorCode` **và** bảng trong [docs/design/06-ux-copy.md](docs/design/06-ux-copy.md).
 - `config/security`: JWT HS256 qua OAuth2 Resource Server. `UserJwtAuthenticationConverter` đọc lại user mỗi request (khóa tài khoản có hiệu lực ngay). Lỗi 401/403 của filter được chuyển về `GlobalExceptionHandler` qua `SecurityErrorHandler`. Controller lấy user bằng `@AuthenticationPrincipal AuthenticatedUser me`.
 - Token: access JWT 15 phút; refresh token ngẫu nhiên 14 ngày, **chỉ lưu SHA-256**, xoay vòng mỗi lần refresh, dùng lại token cũ → thu hồi mọi phiên của user.
-- `algorithm`: `SpacedRepetitionAlgorithm` (interface, Strategy) → `Sm2Algorithm`.
+- `algorithm`: `SpacedRepetitionAlgorithm#next(SchedulingState, Quality)` (interface, Strategy, hàm thuần) → `Sm2Algorithm`. Value object `Quality`, `EasinessFactor`, `SchedulingState` nằm cùng package.
+- Ôn tập (M3): `ReviewService` + `CardProgressRepository`. Thẻ **mới** = chưa có `CardProgress` (tạo ở lần chấm đầu). "Thư viện" (R6) hiện = deck mình sở hữu — **M4 thêm deck đã subscribe** ở `DeckAccessService#isInLibrary` **và** các query `findDue`/`countDue`/`findNextReviewAt`/`findNewForLearner`/`countNewForLearner`.
+- Integration test review dùng **algorithm giả** (`@TestConfiguration` + `@Primary` trong `ReviewControllerTests`), không phụ thuộc SM-2. Muốn dời thời gian trong test thì sửa `card_progress.next_review_at` bằng `JdbcTemplate` (không thay `Clock` vì JWT dùng chung Clock).
 
 ## Quy tắc OOP / thiết kế
 - **Constructor injection**, không dùng `@Autowired` trên field. Log bằng **SLF4J**.
