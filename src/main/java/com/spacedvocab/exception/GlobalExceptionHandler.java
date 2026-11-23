@@ -16,6 +16,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.HandlerMethodValidationException;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.util.List;
@@ -50,6 +51,12 @@ public class GlobalExceptionHandler {
                                 result.getMethodParameter().getParameterName(), error.getDefaultMessage())))
                 .toList();
         return validationFailed(errors);
+    }
+
+    /** e.g. {@code /api/decks/abc} where a numeric id is expected. */
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    ResponseEntity<ErrorResponse> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
+        return validationFailed(List.of(new ErrorResponse.FieldError(ex.getName(), "Giá trị không hợp lệ.")));
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)

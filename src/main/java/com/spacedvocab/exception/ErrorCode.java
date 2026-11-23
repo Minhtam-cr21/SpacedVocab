@@ -20,6 +20,8 @@ public enum ErrorCode {
     METHOD_NOT_ALLOWED("Thao tác này không được hỗ trợ."),
     // 409
     EMAIL_TAKEN("Email này đã được đăng ký. Bạn muốn đăng nhập?"),
+    DECK_NAME_TAKEN("Bạn đã có deck với tên này. Hãy đặt tên khác."),
+    CARD_WORD_TAKEN("Từ này đã có trong deck."),
     // 422
     WRONG_CURRENT_PASSWORD("Mật khẩu hiện tại không đúng."),
     // 500
