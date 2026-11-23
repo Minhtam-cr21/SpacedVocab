@@ -21,6 +21,19 @@ spring:
 server:
   port: ${SERVER_PORT:8080}
 
+app:
+  jwt:
+    secret: ${JWT_SECRET:}          # required, ≥ 32 characters; the app fails fast without it
+    issuer: spacedvocab
+    access-token-ttl: 15m
+    refresh-token-ttl: 14d
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173}
+  admin:
+    # optional: first ADMIN account created on startup if it does not exist yet
+    email: ${ADMIN_EMAIL:}
+    password: ${ADMIN_PASSWORD:}
+
 management:
   endpoints:
     web:
