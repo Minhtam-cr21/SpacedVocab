@@ -1,0 +1,52 @@
+name: spacedvocab
+
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-spacedvocab}
+      POSTGRES_USER: ${DB_USERNAME:-spacedvocab}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env (copy .env.example)}
+      TZ: UTC
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/${DB_NAME:-spacedvocab}
+      DB_USERNAME: ${DB_USERNAME:-spacedvocab}
+      DB_PASSWORD: ${DB_PASSWORD}
+      TZ: UTC
+    ports:
+      - "${APP_PORT:-8090}:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/actuator/health/readiness | grep -q UP"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+      start_period: 20s
+
+  # Optional web UI for the database: docker compose --profile tools up -d
+  adminer:
+    image: adminer:latest
+    profiles: ["tools"]
+    ports:
+      - "${ADMINER_PORT:-8081}:8080"
+    depends_on:
+      - db
+
+volumes:
+  db-data:
