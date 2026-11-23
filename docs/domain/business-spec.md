@@ -74,7 +74,7 @@ erDiagram
 
 | Mã | Quy tắc |
 |---|---|
-| **R1** | Email không trùng. Mật khẩu ≥ 8 ký tự. Tài khoản `LOCKED` không đăng nhập được. |
+| **R1** | Email không trùng (không phân biệt hoa thường). Mật khẩu 8–72 ký tự. Tài khoản `LOCKED` không đăng nhập, không refresh được, và token đang có bị chặn ngay. Đổi mật khẩu → đăng xuất mọi phiên khác. |
 | **R2** | Tên deck không trùng trong cùng một chủ sở hữu. `word` không trùng trong cùng một deck (không phân biệt hoa thường). |
 | **R3** | Chỉ chủ sở hữu được sửa deck/card. Deck `OFFICIAL` chỉ Admin tạo và sửa. |
 | **R4** | Chỉ subscribe được deck `PUBLIC`/`OFFICIAL` và không phải của chính mình. |

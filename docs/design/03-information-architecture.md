@@ -99,9 +99,9 @@ Ký hiệu: ✅ được · 👁 chỉ xem · ❌ không · — không áp dụn
 
 | Màn | Endpoint | Milestone |
 |---|---|---|
-| D2 | `POST /api/auth/register` | M1 |
-| D3 | `POST /api/auth/login`, `POST /api/auth/refresh`, `POST /api/auth/logout` | M1 |
-| D6, D16 | `GET /api/me`, `PUT /api/me`, `PUT /api/me/settings`, `PUT /api/me/password` | M1 |
+| D2 | `POST /api/auth/register` `{email, password, displayName?, timezone?}` → 201 `AuthResponse` | M1 ✅ |
+| D3 | `POST /api/auth/login` `{email, password}`, `POST /api/auth/refresh` `{refreshToken}`, `POST /api/auth/logout` `{refreshToken}` → 204 | M1 ✅ |
+| D6, D16 | `GET /api/me`, `PUT /api/me` `{displayName}`, `PUT /api/me/settings` `{dailyNewLimit, timezone}`, `PUT /api/me/password` `{currentPassword, newPassword}` → 204 | M1 ✅ |
 | D8 | `GET /api/decks?scope=owned|subscribed` | M2 / M4 |
 | D9 | `POST /api/decks`, `PUT /api/decks/{id}`, `DELETE /api/decks/{id}` | M2 |
 | D10 | `GET /api/decks/{id}`, `GET /api/decks/{id}/cards?q=&page=&size=` | M2 |

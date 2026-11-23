@@ -25,6 +25,8 @@ python -m http.server 5500 --directory docs/design/prototype   # xem prototype U
 - Máy không có `java`/`mvn` trong PATH → build/test qua Docker hoặc IntelliJ. Chạy test trong container trên Windows:
   `docker run --rm -v "<repo>:/w" -v spacedvocab-m2:/root/.m2 -v //var/run/docker.sock:/var/run/docker.sock -e TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal -w /w maven:3.9-eclipse-temurin-21 mvn -B verify`
 - Secret (mật khẩu DB, JWT secret…) chỉ để trong `.env` / biến môi trường. `.env` **không commit**; thêm biến mới thì cập nhật `.env.example`.
+  - `JWT_SECRET` bắt buộc (≥ 32 ký tự), thiếu thì app không khởi động. `ADMIN_EMAIL` / `ADMIN_PASSWORD` tạo admin đầu tiên khi khởi động — **không seed admin bằng migration**.
+  - Giá trị cho test nằm ở `src/test/resources/application-test.yml` (giá trị giả, không phải secret thật).
 
 ## Cấu trúc code
 Package gốc `com.spacedvocab`, chia theo layer:
@@ -32,7 +34,9 @@ Package gốc `com.spacedvocab`, chia theo layer:
 controller  service  repository  entity  dto  config  exception  algorithm
 ```
 - `dto`: Java `record`, **tách khỏi entity**; validate bằng `@Valid` + Bean Validation.
-- `exception`: `AppException` (abstract) → `ResourceNotFoundException`, `DuplicateResourceException`, `ForbiddenOperationException`, `BusinessRuleViolationException`. Một `@RestControllerAdvice` trả `{ code, message, field? }`; danh sách `code` ở [docs/design/06-ux-copy.md](docs/design/06-ux-copy.md).
+- `exception`: `AppException` (abstract, mang `ErrorCode`) → `ResourceNotFoundException` 404, `DuplicateResourceException` 409, `ForbiddenOperationException` 403, `BusinessRuleViolationException` 422, `UnauthorizedException` 401. `GlobalExceptionHandler` (`@RestControllerAdvice`) trả `{ code, message, field?, errors? }` (`errors` chỉ có khi `VALIDATION_FAILED`). Thêm `code` mới → thêm vào enum `ErrorCode` **và** bảng trong [docs/design/06-ux-copy.md](docs/design/06-ux-copy.md).
+- `config/security`: JWT HS256 qua OAuth2 Resource Server. `UserJwtAuthenticationConverter` đọc lại user mỗi request (khóa tài khoản có hiệu lực ngay). Lỗi 401/403 của filter được chuyển về `GlobalExceptionHandler` qua `SecurityErrorHandler`. Controller lấy user bằng `@AuthenticationPrincipal AuthenticatedUser me`.
+- Token: access JWT 15 phút; refresh token ngẫu nhiên 14 ngày, **chỉ lưu SHA-256**, xoay vòng mỗi lần refresh, dùng lại token cũ → thu hồi mọi phiên của user.
 - `algorithm`: `SpacedRepetitionAlgorithm` (interface, Strategy) → `Sm2Algorithm`.
 
 ## Quy tắc OOP / thiết kế
@@ -51,7 +55,7 @@ controller  service  repository  entity  dto  config  exception  algorithm
 
 ## Test
 - Unit test SM-2 bằng `@ParameterizedTest` với các bộ (trạng thái, quality) → kết quả mong đợi theo `business-spec.md` §5.
-- Integration test dùng `@Import(TestcontainersConfiguration.class)` (Postgres thật), không dùng H2.
+- Integration test gắn meta-annotation `@IntegrationTest` (SpringBootTest + MockMvc + profile `test` + `TestcontainersConfiguration`, Postgres thật), không dùng H2. Gọi API bằng `MockMvcTester`; helper chung ở `controller/ApiTestSupport`; mỗi test dùng email ngẫu nhiên nên không cần dọn DB.
 - Mỗi ràng buộc R1–R9 nên có ít nhất 1 test.
 
 ## Git
@@ -64,7 +68,7 @@ controller  service  repository  entity  dto  config  exception  algorithm
 |---|---|---|
 | M0 ✅ | Setup Maven, Docker, Flyway, CI | — |
 | Design ✅ | Tài liệu UX/UI + prototype | D1–D22 |
-| M1 | User, đăng ký/đăng nhập JWT, phân quyền | D2, D3, D6, D16 |
+| M1 ✅ | User, đăng ký/đăng nhập JWT, phân quyền | D2, D3, D6, D16 |
 | M2 | CRUD deck & card, quyền sở hữu | D8–D11 |
 | M3 | **SM-2**, thẻ đến hạn, chấm điểm, ReviewLog | D7, D13, D14 |
 | M4 | Deck public/official, subscribe, import CSV, admin | D4, D5, D12, D17–D21 |

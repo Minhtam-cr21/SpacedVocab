@@ -21,18 +21,22 @@
 
 ## Thông báo lỗi ↔ lỗi backend
 
-Backend trả lỗi dạng `{ code, message, field? }` từ `@RestControllerAdvice`. Frontend map theo `code`:
+Backend trả lỗi dạng `{ code, message, field?, errors? }` từ `@RestControllerAdvice` (`errors` = danh sách `{field, message}`, chỉ có với `VALIDATION_FAILED`). Frontend map theo `code`. Các `code` nằm trong enum `ErrorCode` của backend.
 
 | Exception backend | HTTP | `code` | Câu hiển thị |
 |---|---|---|---|
 | `DuplicateResourceException` (email) | 409 | `EMAIL_TAKEN` | Email này đã được đăng ký. Bạn muốn **đăng nhập**? |
 | `DuplicateResourceException` (deck) | 409 | `DECK_NAME_TAKEN` | Bạn đã có deck tên "{name}". Hãy đặt tên khác. |
 | `DuplicateResourceException` (card) | 409 | `CARD_WORD_TAKEN` | "{word}" đã có trong deck này. |
-| Sai thông tin đăng nhập | 401 | `BAD_CREDENTIALS` | Email hoặc mật khẩu không đúng. Vui lòng thử lại. |
-| Tài khoản bị khóa | 403 | `ACCOUNT_LOCKED` | Tài khoản của bạn đang bị tạm khóa. Liên hệ quản trị viên để được hỗ trợ. |
-| Hết hạn token | 401 | `TOKEN_EXPIRED` | Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại. |
+| `UnauthorizedException` (sai đăng nhập) | 401 | `BAD_CREDENTIALS` | Email hoặc mật khẩu không đúng. Vui lòng thử lại. |
+| Chưa đăng nhập / token không hợp lệ | 401 | `UNAUTHORIZED` | Vui lòng đăng nhập để tiếp tục. |
+| Access token hết hạn → gọi `/api/auth/refresh`; refresh token hết hạn / bị thu hồi | 401 | `TOKEN_EXPIRED` | Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại. |
+| `ForbiddenOperationException` (tài khoản bị khóa) | 403 | `ACCOUNT_LOCKED` | Tài khoản của bạn đang bị tạm khóa. Liên hệ quản trị viên để được hỗ trợ. |
 | `ForbiddenOperationException` | 403 | `FORBIDDEN` | Bạn không có quyền thực hiện thao tác này. |
 | `ResourceNotFoundException` | 404 | `NOT_FOUND` | Không tìm thấy nội dung này, có thể nó đã bị xóa. |
+| `BusinessRuleViolationException` (đổi mật khẩu) | 422 | `WRONG_CURRENT_PASSWORD` | Mật khẩu hiện tại không đúng. (hiện tại ô `currentPassword`) |
+| Sai HTTP method | 405 | `METHOD_NOT_ALLOWED` | Thao tác này không được hỗ trợ. |
+| Lỗi không lường trước | 500 | `INTERNAL_ERROR` | Đã có lỗi xảy ra. Vui lòng thử lại sau. |
 | `BusinessRuleViolationException` (R4) | 422 | `CANNOT_SUBSCRIBE_OWN_DECK` | Đây là deck của bạn nên không cần thêm vào thư viện. |
 | `BusinessRuleViolationException` (R4) | 422 | `DECK_NOT_PUBLIC` | Deck này không còn công khai. |
 | `BusinessRuleViolationException` (R6) | 422 | `CARD_NOT_IN_LIBRARY` | Thẻ này không thuộc thư viện của bạn. |

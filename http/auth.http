@@ -1,0 +1,67 @@
+### Requests for IntelliJ's HTTP client (open this file and click ▶). API runs on port 8090.
+@host = http://localhost:8090
+
+### Register (D2)
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "minh.anh@example.com",
+  "password": "password123",
+  "displayName": "Minh Anh",
+  "timezone": "Asia/Ho_Chi_Minh"
+}
+
+> {%
+    client.global.set("accessToken", response.body.accessToken);
+    client.global.set("refreshToken", response.body.refreshToken);
+%}
+
+### Login (D3)
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "minh.anh@example.com",
+  "password": "password123"
+}
+
+> {%
+    client.global.set("accessToken", response.body.accessToken);
+    client.global.set("refreshToken", response.body.refreshToken);
+%}
+
+### Current user
+GET {{host}}/api/me
+Authorization: Bearer {{accessToken}}
+
+### Study settings (D6 / D16) — also completes onboarding
+PUT {{host}}/api/me/settings
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "dailyNewLimit": 20,
+  "timezone": "Asia/Ho_Chi_Minh"
+}
+
+### Refresh (rotates the refresh token)
+POST {{host}}/api/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+> {%
+    client.global.set("accessToken", response.body.accessToken);
+    client.global.set("refreshToken", response.body.refreshToken);
+%}
+
+### Logout
+POST {{host}}/api/auth/logout
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
