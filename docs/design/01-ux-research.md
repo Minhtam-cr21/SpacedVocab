@@ -31,6 +31,24 @@
 | **Kịch bản** | Mở **Hàng đợi report** → xem deck bị báo cáo → **Ẩn deck** → chuyển sang **Quản lý user** → khóa tài khoản spam (có hộp thoại xác nhận). |
 | **Cần từ app** | Bảng dữ liệu có lọc, thao tác hàng loạt rõ ràng, hành động nguy hiểm luôn cần xác nhận. |
 
+### P4 · Bé Na — học sinh tiểu học (Learner, bổ sung 11/2026)
+| | |
+|---|---|
+| **Bối cảnh** | 7 tuổi, học tiếng Anh ở trường, dùng **máy tính bảng** của bố mẹ. Đọc tiếng Việt chưa nhanh. |
+| **Mục tiêu** | Nhớ từ vựng theo chủ đề (con vật, màu sắc, đồ ăn) và thấy vui khi học. |
+| **Nỗi đau** | Chữ nhỏ, nhiều nút khó hiểu, giao diện "người lớn" nhàm chán. |
+| **Kịch bản** | Mở app → robot chào "Good morning!" → bấm **Bắt đầu ôn** → bấm 🔊 nghe phát âm → chọn **Dễ** → thấy sao bay lên. |
+| **Cần từ app** | Chữ và nút to, icon kèm chữ, nghe phát âm, phản hồi vui (linh vật, hiệu ứng), ít chữ. |
+
+### P5 · Cô Lan — người trung niên tự học (Learner, bổ sung 11/2026)
+| | |
+|---|---|
+| **Bối cảnh** | 52 tuổi, chuẩn bị đi du lịch nước ngoài, mắt kém, học trên **điện thoại** buổi tối. |
+| **Mục tiêu** | Học vài từ giao tiếp mỗi ngày mà không bị áp lực. |
+| **Nỗi đau** | Chữ nhỏ, tương phản thấp, thao tác nhiều bước, sợ bấm nhầm xóa dữ liệu. |
+| **Kịch bản** | Mở app → đọc số thẻ hôm nay → ôn 10 thẻ → robot hỏi "Are you sleepy yet?" → nghỉ. |
+| **Cần từ app** | Cỡ chữ ≥ 18px, tương phản cao, nút lớn, xác nhận trước khi xóa, giọng điệu thân thiện. |
+
 ## Hành trình chính của Learner (P1)
 
 | Giai đoạn | Hành động | Cảm xúc | Cơ hội cho thiết kế |

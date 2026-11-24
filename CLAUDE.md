@@ -11,11 +11,14 @@ REST API học từ vựng tiếng Anh bằng flashcard, lên lịch ôn bằng 
 - Java 21, **Spring Boot 4.1** (Web MVC, Data JPA, Validation, Actuator), Maven Wrapper.
 - PostgreSQL 17 + **Flyway**. Test: JUnit 5, Testcontainers.
 - Chạy bằng **Docker Compose**. CI: GitHub Actions (`.github/workflows/ci.yml`).
-- Frontend (sau này): **React + Vite**, giao diện **tiếng Việt**, mobile-first, dùng lại `docs/design/prototype/assets/tokens.css`.
+- Frontend ở `web/`: **React 19 + Vite** (JavaScript), giao diện **tiếng Việt**, mobile-first. Docker build ra nginx ở **cổng 3000**, nginx proxy `/api` → service `app` (cùng origin, không cần CORS).
+  - Phong cách **"trà sữa vẽ tay"**: màu phẳng, **không gradient**, không nền trắng/đen thuần, viền mực + bóng khối. Token ở `web/src/styles/tokens.css` (thay cho `tokens.css` của prototype). Đối tượng: **mọi lứa tuổi từ 5+** → chữ gốc 18px, nút ≥ 52px.
+  - Linh vật **robot "Bit"** (nhân vật tự vẽ, `web/src/mascot/`) **chỉ nói tiếng Anh**, câu chào theo giờ ở `greeting.js`. Không dùng linh vật/thương hiệu của bên khác.
 
 ## Lệnh thường dùng
 ```bash
-docker compose up -d --build          # Postgres + API (API ở http://localhost:8090)
+docker compose up -d --build          # Postgres + API (http://localhost:8090) + web (http://localhost:3000)
+cd web && npm run dev                 # frontend dev server http://localhost:5173 (proxy /api → 8090)
 docker compose logs -f app            # xem log API
 docker compose down                   # dừng (giữ dữ liệu); thêm -v để xóa DB
 docker compose --profile tools up -d  # thêm Adminer ở http://localhost:8081

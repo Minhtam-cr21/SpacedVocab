@@ -1,8 +1,26 @@
 # 04 · Design system
 
-> Code tham chiếu: [`prototype/assets/tokens.css`](prototype/assets/tokens.css), [`components.css`](prototype/assets/components.css).
+## 0. Hướng giao diện mới: "Trà sữa vẽ tay" (11/2026, áp dụng cho app React)
+
+> **Nguồn chính:** [`web/src/styles/tokens.css`](../../web/src/styles/tokens.css) và [`web/src/styles/app.css`](../../web/src/styles/app.css).
+> Các mục 1–5 bên dưới là bộ token cũ của prototype (indigo); vẫn giữ để tham chiếu hành vi, **màu và hình khối thì theo mục 0**.
+
+| Nguyên tắc | Cụ thể |
+|---|---|
+| Đối tượng | Mọi lứa tuổi **từ 5 tuổi** (persona P4, P5 trong `01-ux-research.md`) → vui, dễ hiểu, ít chữ |
+| Màu | **Phẳng, không gradient.** Nền trà sữa `#e9d8c4`, giấy kem `#f7ede1`, mực nâu `#3b2a20` (thay cho đen), nhấn mật ong `#f2c46d`, matcha `#a9cb8f`, xanh trời `#9cc7de`, san hô `#f4a190`. **Không nền trắng/đen thuần**, không có dark mode |
+| Hình khối | Viền mực 2.5px, bo góc **lệch như vẽ tay**, bóng đổ khối `4px 4px 0` (không blur) |
+| Nền | Hình vẽ tay lặp lại (sao, trân châu, xoáy, lá, tim) bằng SVG nhẹ |
+| Chữ | Tiêu đề / từ tiếng Anh: **Baloo 2**; nội dung: **Nunito** (cả hai có đủ dấu tiếng Việt). Cỡ gốc **18px** |
+| Vùng chạm | Nút ≥ **52px**, nút chấm điểm 76px, luôn có **icon + chữ** |
+| 4 nút chấm điểm | Quên 😵 san hô · Khó 😅 mật ong · Nhớ 😊 matcha · Dễ 🤩 xanh trời; chữ mực trên nền màu (đạt AA) |
+| Linh vật | Robot **Bit** (nhân vật tự vẽ, SVG trong `web/src/mascot/Robot.jsx`): nổi bồng bềnh, chớp mắt, vẫy tay, đèn ăng-ten nhấp nháy; biểu cảm `happy / wow / sleepy / oops / proud`. Khung chat trên đầu, **chỉ nói tiếng Anh** |
+| Lời chào theo giờ | 5–11h "Good morning!" · 11–14h "What did you have for lunch?" · 14–18h "Good afternoon!" · 18–5h "How are you? Are you sleepy yet?" (`greeting.js`, tự đổi mỗi phút) |
+| Phản hồi | Chấm Nhớ/Dễ → sao bay lên + robot khen; Quên → robot động viên. Tắt hết hiệu ứng khi `prefers-reduced-motion` |
+| Phát âm | Nút 🔊 dùng Web Speech API của trình duyệt (`en-US`, tốc độ 0.85) |
+
+> Code tham chiếu (bộ cũ): [`prototype/assets/tokens.css`](prototype/assets/tokens.css), [`components.css`](prototype/assets/components.css).
 > Xem trực quan: [`prototype/screens/style-guide.html`](prototype/screens/style-guide.html).
-> Khi làm React + Vite: copy `tokens.css` sang `src/styles/tokens.css`, mỗi nhóm class dưới đây thành 1 component.
 
 ## 1. Màu sắc
 

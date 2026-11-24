@@ -20,13 +20,14 @@ Requirements: Docker Desktop (JDK 21 only needed if you run outside Docker).
 
 ```bash
 cp .env.example .env          # then set DB_PASSWORD and JWT_SECRET (openssl rand -base64 48)
-docker compose up -d --build  # starts PostgreSQL + the API
+docker compose up -d --build  # starts PostgreSQL + the API + the web app
 ```
 
 Set `ADMIN_EMAIL` / `ADMIN_PASSWORD` in `.env` to create the first admin account on startup.
 
 | Service | URL |
 |---|---|
+| **Web app** (learners) | **http://localhost:3000** |
 | API health | http://localhost:8090/actuator/health |
 | Adminer (DB UI, optional) | `docker compose --profile tools up -d` → http://localhost:8081 |
 
@@ -94,7 +95,9 @@ The UI (Vietnamese, mobile-first) is designed before implementation and serves a
 
 - **Design docs**: [docs/design](docs/design/README.md) — personas, user flows, sitemap & permission matrix, design system, 22 screen specs, UX copy.
 - **Clickable prototype**: `python -m http.server 5500 --directory docs/design/prototype` → http://localhost:5500
-- Planned frontend: **React + Vite**, reusing `docs/design/prototype/assets/tokens.css`.
+- **Web app** in [`web/`](web): **React 19 + Vite**, served by nginx in Docker (`/api` is proxied to the API).
+  Visual style "milk tea sketchbook": flat colours, ink outlines, hand-drawn background, and **Bit**, a small robot mascot
+  that greets learners in English depending on the time of day. Dev server: `cd web && npm install && npm run dev` → http://localhost:5173.
 
 ## Roadmap
 
@@ -103,6 +106,7 @@ The UI (Vietnamese, mobile-first) is designed before implementation and serves a
 - [x] **M1** Users & JWT authentication
 - [x] **M2** Deck & card CRUD with ownership rules
 - [ ] **M3** SM-2 scheduling, due cards, review logs
+- [x] **Web** first learner screens: sign up / log in, home, library, deck & cards, review session
 - [ ] **M4** Public/official decks, subscriptions, CSV import, admin
 - [ ] **M5** Statistics, streaks, Swagger docs
 

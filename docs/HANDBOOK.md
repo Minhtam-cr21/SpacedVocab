@@ -46,7 +46,7 @@
 
 **Lệnh nhanh (chạy ở thư mục gốc repo):**
 ```bash
-docker compose up -d --build        # DB + API → http://localhost:8090
+docker compose up -d --build        # DB + API → http://localhost:8090 + web → http://localhost:3000
 docker compose ps                   # cả hai phải "healthy"
 docker compose logs -f app          # log API
 curl http://localhost:8090/actuator/health   # {"status":"UP"}
@@ -67,7 +67,7 @@ curl http://localhost:8090/actuator/health   # {"status":"UP"}
 
 **Quyết định thiết kế cốt lõi:** tách **`Card`** (nội dung dùng chung) khỏi **`CardProgress`** (tiến độ SM-2 riêng của từng người), để nhiều người học chung một deck mà không phải copy thẻ.
 
-**Frontend** chưa có. Đã có bộ **thiết kế UX/UI 22 màn (D1–D22)** và **prototype HTML** trong `docs/design/` làm "hợp đồng". Frontend dự kiến dùng React + Vite, giao diện tiếng Việt, mobile-first.
+**Frontend** ở `web/` (React 19 + Vite), mở tại **<http://localhost:3000>** sau `docker compose up -d --build`. Đã có các màn D2, D3, D7, D8, D9, D10, D11, D13, D14, D22; phong cách "trà sữa vẽ tay" (không gradient) với linh vật robot **Bit** chào bằng tiếng Anh theo giờ. Bộ **thiết kế 22 màn (D1–D22)** và **prototype HTML** trong `docs/design/` vẫn là "hợp đồng" về hành vi; về màu sắc thì `web/src/styles/tokens.css` là bản mới nhất.
 
 ---
 
@@ -171,12 +171,13 @@ erDiagram
 SpacedVocab/
 ├── CLAUDE.md                  # quy tắc cho AI agent (bắt buộc đọc)
 ├── README.md                  # giới thiệu (tiếng Anh, cho GitHub)
-├── docker-compose.yml         # db + app + adminer (profile tools)
+├── docker-compose.yml         # db + app + web + adminer (profile tools)
 ├── Dockerfile                 # build multi-stage → JRE 21 alpine
 ├── .env.example               # mẫu biến môi trường (commit)  |  .env (KHÔNG commit)
 ├── pom.xml, mvnw, mvnw.cmd, .mvn/
 ├── .github/workflows/ci.yml
 ├── http/                      # auth.http, decks.http, reviews.http (IntelliJ HTTP Client)
+├── web/                       # frontend React + Vite (Dockerfile → nginx, nginx.conf proxy /api)
 ├── docs/
 │   ├── HANDBOOK.md            # file này
 │   ├── domain/business-spec.md        # nghiệp vụ, R1–R9, công thức SM-2
@@ -226,6 +227,7 @@ cp .env.example .env
 | `DB_PASSWORD` | ✅ | — | db, app | Compose dừng với lỗi `Set DB_PASSWORD in .env` nếu thiếu |
 | `DB_PORT` | | `5432` | db | Cổng **trên máy host** để kết nối DB |
 | `APP_PORT` | | `8090` | app | Cổng host → cổng 8080 trong container |
+| `WEB_PORT` | | `3000` | web | Cổng mở giao diện web trên máy host |
 | `ADMINER_PORT` | | `8081` | adminer | Cổng UI quản lý DB |
 | `JWT_SECRET` | ✅ | — | app | Khóa ký HS256, **≥ 32 ký tự**; thiếu thì app không khởi động |
 | `CORS_ALLOWED_ORIGINS` | | `http://localhost:5173` | app | Danh sách origin, cách nhau bằng dấu phẩy |
@@ -249,9 +251,10 @@ cp .env.example .env
 |---|---|---|---|---|
 | `db` | `postgres:17-alpine` | `${DB_PORT:-5432}` → 5432 | `pg_isready` mỗi 5s | Volume **`spacedvocab_db-data`**, `TZ=UTC` |
 | `app` | build từ `Dockerfile` | `${APP_PORT:-8090}` → 8080 | `/actuator/health/readiness` = UP | Chỉ khởi động khi `db` healthy |
+| `web` | build từ `web/Dockerfile` (nginx) | `${WEB_PORT:-3000}` → 80 | trang chủ trả về `index.html` | Chỉ khởi động khi `app` healthy; proxy `/api` → `app:8080` |
 | `adminer` | `adminer:latest` | `${ADMINER_PORT:-8081}` → 8080 | — | Chỉ chạy với `--profile tools` |
 
-Tên project Compose là `spacedvocab`, nên container tên `spacedvocab-db-1`, `spacedvocab-app-1`, `spacedvocab-adminer-1`; network `spacedvocab_default`. Trong network này, các service gọi nhau bằng **tên service** (`db`, `app`).
+Tên project Compose là `spacedvocab`, nên container tên `spacedvocab-db-1`, `spacedvocab-app-1`, `spacedvocab-web-1`, `spacedvocab-adminer-1`; network `spacedvocab_default`. Trong network này, các service gọi nhau bằng **tên service** (`db`, `app`).
 
 ### 8.2 Lệnh vòng đời
 
