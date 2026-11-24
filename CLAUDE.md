@@ -2,6 +2,7 @@
 
 REST API học từ vựng tiếng Anh bằng flashcard, lên lịch ôn bằng thuật toán **SM-2**. Dự án luyện tập để đưa lên GitHub làm portfolio.
 
+- **Tiếp nhận dự án / setup Docker & DB:** [docs/HANDBOOK.md](docs/HANDBOOK.md) — đọc đầu tiên nếu mới vào.
 - **Nghiệp vụ (nguồn sự thật):** [docs/domain/business-spec.md](docs/domain/business-spec.md) — actors, use case, entity, ràng buộc **R1–R9**, công thức SM-2.
 - **Thiết kế UX/UI:** [docs/design/](docs/design/README.md) — màn **D1–D22**, ma trận quyền, ánh xạ màn hình ↔ API, UX copy.
 - Đổi nghiệp vụ → sửa `business-spec.md` trước, rồi mới sửa code và tài liệu design.

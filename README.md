@@ -14,6 +14,8 @@ Reviews are scheduled with the **SM-2 spaced repetition algorithm**: the better 
 
 ## Getting started
 
+> New to the project (human or AI agent)? Read the onboarding handbook first (Vietnamese): [docs/HANDBOOK.md](docs/HANDBOOK.md) — stack, Docker, database connections, rules and troubleshooting.
+
 Requirements: Docker Desktop (JDK 21 only needed if you run outside Docker).
 
 ```bash
