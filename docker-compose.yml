@@ -43,6 +43,21 @@ services:
       retries: 12
       start_period: 20s
 
+  # Learner web app (React build served by nginx; /api is proxied to `app`) → http://localhost:3000
+  web:
+    build: ./web
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-3000}:80"
+    depends_on:
+      app:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ | grep -q SpacedVocab"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+
   # Optional web UI for the database: docker compose --profile tools up -d
   adminer:
     image: adminer:latest
