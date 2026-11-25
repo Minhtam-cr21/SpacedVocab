@@ -29,4 +29,16 @@ public interface DeckRepository extends JpaRepository<Deck, Long> {
             order by d.updatedAt desc, d.id desc
             """)
     List<DeckWithCardCount> findOwnedWithCardCount(@Param("ownerId") Long ownerId);
+
+    /** D20 / D26: every OFFICIAL deck with its card count and, if it is a lesson, the lesson and stage. */
+    @Query("""
+            select new com.spacedvocab.repository.OfficialDeckRow(d.id, d.name, count(c), l.id, l.stage.id)
+            from Deck d
+              left join Card c on c.deck = d and c.deletedAt is null
+              left join PathLesson l on l.deck = d
+            where d.visibility = com.spacedvocab.entity.DeckVisibility.OFFICIAL and d.deletedAt is null
+            group by d.id, d.name, l.id, l.stage.id
+            order by lower(d.name), d.id
+            """)
+    List<OfficialDeckRow> findOfficialWithLesson();
 }

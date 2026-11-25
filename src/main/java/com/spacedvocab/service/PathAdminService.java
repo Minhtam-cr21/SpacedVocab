@@ -1,6 +1,7 @@
 package com.spacedvocab.service;
 
 import com.spacedvocab.dto.AddLessonRequest;
+import com.spacedvocab.dto.OfficialDeckResponse;
 import com.spacedvocab.dto.PathLessonResponse;
 import com.spacedvocab.dto.RenameStageRequest;
 import com.spacedvocab.entity.Deck;
@@ -14,6 +15,7 @@ import com.spacedvocab.exception.ResourceNotFoundException;
 import com.spacedvocab.repository.DeckRepository;
 import com.spacedvocab.repository.PathLessonRepository;
 import com.spacedvocab.repository.PathStageRepository;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -38,6 +40,12 @@ public class PathAdminService {
         this.stageRepository = stageRepository;
         this.lessonRepository = lessonRepository;
         this.deckRepository = deckRepository;
+    }
+
+    /** Every OFFICIAL deck, marking those already used as a lesson (R10: a deck is at most one lesson). */
+    @Transactional(readOnly = true)
+    public List<OfficialDeckResponse> listOfficialDecks() {
+        return deckRepository.findOfficialWithLesson().stream().map(OfficialDeckResponse::from).toList();
     }
 
     @Transactional

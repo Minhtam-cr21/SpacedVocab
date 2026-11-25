@@ -9,9 +9,12 @@ const NAV = [
   { to: '/app/review', label: 'Ôn tập', icon: '🃏' },
 ];
 
-/** Learner shell: top bar (desktop nav) + bottom nav on phones. */
+const ADMIN_NAV = [{ to: '/admin/path', label: 'Quản trị', icon: '🛠️' }];
+
+/** Learner shell: top bar (desktop nav) + bottom nav on phones. Admins also get the admin pages. */
 export default function Layout() {
   const { user, logout } = useAuth();
+  const nav = user?.role === 'ADMIN' ? [...NAV, ...ADMIN_NAV] : NAV;
   return (
     <div className="shell">
       <header className="topbar">
@@ -21,7 +24,7 @@ export default function Layout() {
             SpacedVocab
           </Link>
           <nav className="topnav" aria-label="Điều hướng chính">
-            {NAV.map((item) => (
+            {nav.map((item) => (
               <NavLink key={item.to} to={item.to} end={item.end} className="navlink">
                 <span aria-hidden="true">{item.icon}</span> {item.label}
               </NavLink>
@@ -39,7 +42,7 @@ export default function Layout() {
       </main>
 
       <nav className="bottomnav" aria-label="Điều hướng chính">
-        {NAV.map((item) => (
+        {nav.map((item) => (
           <NavLink key={item.to} to={item.to} end={item.end}>
             <span className="nav-icon" aria-hidden="true">{item.icon}</span>
             {item.label}

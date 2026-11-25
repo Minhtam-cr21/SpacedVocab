@@ -44,3 +44,11 @@ export const pathApi = {
   startTest: (stageId) => api(`/api/stages/${stageId}/test-attempts`, json('POST', {})),
   submitTest: (attemptId, answers) => api(`/api/stage-test-attempts/${attemptId}/submit`, json('POST', { answers })),
 };
+
+export const adminPathApi = {
+  officialDecks: () => api('/api/admin/decks'),
+  renameStage: (stageId, title) => api(`/api/admin/stages/${stageId}`, json('PUT', { title })),
+  addLesson: (stageId, deckId, position) => api(`/api/admin/stages/${stageId}/lessons`, json('POST', { deckId, position })),
+  moveLesson: (lessonId, position) => api(`/api/admin/lessons/${lessonId}`, json('PUT', { position })),
+  removeLesson: (lessonId) => api(`/api/admin/lessons/${lessonId}`, { method: 'DELETE' }),
+};

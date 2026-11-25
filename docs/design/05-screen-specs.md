@@ -149,6 +149,7 @@
 ### D26 · Lộ trình — `/admin/path`
 - **Thành phần:** 6 chặng cố định A1–C2 (chỉ sửa tên); trong mỗi chặng là bảng bài (deck, số thẻ, thứ tự) với nút Thêm bài (chọn deck `OFFICIAL` chưa thuộc bài nào), Lên/Xuống, Gỡ (`ConfirmDialog`).
 - **Cảnh báo:** chặng có < 20 thẻ thì hiện "Chưa đủ thẻ cho bài vượt chặng".
+- **Điều hướng:** Admin thấy thêm mục "Quản trị" trên thanh điều hướng; Learner vào `/admin/*` thấy trang 404.
 - **API:** xem bảng ánh xạ D26 ở [03](03-information-architecture.md). Quy tắc: **R10**.
 
 ## Chung

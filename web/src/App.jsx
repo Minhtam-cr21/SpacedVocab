@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from './auth/AuthContext.jsx';
+import AdminPathPage from './pages/AdminPathPage.jsx';
 import Layout from './components/Layout.jsx';
 import Loading from './components/Loading.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
@@ -18,6 +19,13 @@ function RequireUser({ children }) {
   const { user, loading } = useAuth();
   if (loading) return <Loading />;
   return user ? children : <Navigate to="/login" replace />;
+}
+
+function RequireAdmin({ children }) {
+  const { user, loading } = useAuth();
+  if (loading) return <Loading />;
+  if (!user) return <Navigate to="/login" replace />;
+  return user.role === 'ADMIN' ? children : <NotFoundPage />;
 }
 
 function GuestOnly({ children }) {
@@ -40,6 +48,10 @@ export default function App() {
         <Route path="path" element={<PathPage />} />
         <Route path="path/stages/:stageId" element={<StagePage />} />
         <Route path="path/stages/:stageId/test" element={<StageTestPage />} />
+      </Route>
+      <Route path="/admin" element={<RequireAdmin><Layout /></RequireAdmin>}>
+        <Route index element={<Navigate to="/admin/path" replace />} />
+        <Route path="path" element={<AdminPathPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

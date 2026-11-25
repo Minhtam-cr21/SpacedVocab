@@ -402,6 +402,23 @@ class PathControllerTests extends ApiTestSupport {
     // ---------- R10: admin ----------
 
     @Test
+    void adminListsOfficialDecksWithTheLessonUsingThem() {
+        long free = officialDeck(2).get(0);
+        long used = officialDeck(1).get(0);
+        long lessonId = addLesson(1, used, 1);
+
+        List<Map<String, Object>> decks = JsonPath.read(body(getWithToken("/api/admin/decks", adminToken)), "$");
+
+        Map<String, Object> freeRow = decks.stream().filter(d -> ((Number) d.get("id")).longValue() == free).findFirst().orElseThrow();
+        Map<String, Object> usedRow = decks.stream().filter(d -> ((Number) d.get("id")).longValue() == used).findFirst().orElseThrow();
+        assertThat(freeRow.get("cardCount")).isEqualTo(2);
+        assertThat(freeRow.get("lessonId")).isNull();
+        assertThat(((Number) usedRow.get("lessonId")).longValue()).isEqualTo(lessonId);
+        assertThat(((Number) usedRow.get("stageId")).longValue()).isEqualTo(stageIds.get(1));
+        assertThat(getWithToken("/api/admin/decks", registerNew().accessToken())).hasStatus(HttpStatus.FORBIDDEN);
+    }
+
+    @Test
     void onlyOfficialDecksCanBeLessons() {
         Session learner = registerNew();
         long publicDeck = createDeck(learner.accessToken(), "Public " + UUID.randomUUID(), "PUBLIC");

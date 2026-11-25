@@ -50,7 +50,7 @@ a { color: var(--ink); font-weight: 700; text-decoration-thickness: 2px; text-un
   border-bottom: var(--stroke) solid var(--ink);
 }
 .topbar__inner {
-  max-width: var(--content-max); margin: 0 auto;
+  max-width: 1240px; margin: 0 auto; /* wider than the content so 5 admin links + name fit */
   padding: var(--space-2) var(--space-4);
   display: flex; align-items: center; gap: var(--space-4);
 }
@@ -432,6 +432,15 @@ a { color: var(--ink); font-weight: 700; text-decoration-thickness: 2px; text-un
 .test-dot.is-current { box-shadow: var(--shadow-hard-sm); outline: 3px solid var(--honey); }
 .score { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 800; }
 .score__num { font-size: var(--text-word); }
+
+/* ---------- Admin: path (D26) ---------- */
+.admin-stage__title { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+.admin-stage__title .input { flex: 1; min-width: 180px; }
+.admin-stage__actions { flex: none; gap: var(--space-2); }
+.admin-stage__add { margin-top: var(--space-4); }
+.admin-stage__add .select { flex: 1; min-width: 220px; }
+.admin-warn { color: var(--danger-ink); font-weight: 700; }
+.icon-btn:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
 
 /* ---------- Robot mascot ---------- */
 .mascot { display: inline-flex; flex-direction: column; align-items: center; }
