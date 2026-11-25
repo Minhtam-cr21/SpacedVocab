@@ -23,10 +23,17 @@ public enum ErrorCode {
     DECK_NAME_TAKEN("Bạn đã có deck với tên này. Hãy đặt tên khác."),
     CARD_WORD_TAKEN("Từ này đã có trong deck."),
     REVIEW_CONFLICT("Thẻ này vừa được chấm ở nơi khác. Hãy tải lại phiên ôn."),
+    DECK_ALREADY_IN_PATH("Deck này đã là một bài trong lộ trình."),
+    STAGE_TEST_ALREADY_SUBMITTED("Bài này đã nộp rồi."),
     // 422
     WRONG_CURRENT_PASSWORD("Mật khẩu hiện tại không đúng."),
     CARD_NOT_IN_LIBRARY("Thẻ này không thuộc thư viện của bạn."),
     DAILY_NEW_LIMIT_REACHED("Bạn đã học đủ số thẻ mới hôm nay. Hẹn bạn ngày mai nhé!"),
+    LESSON_DECK_NOT_OFFICIAL("Bài trong lộ trình phải là deck chính thức."),
+    STAGE_LOCKED("Chặng này chưa mở. Hoàn thành chặng trước hoặc làm bài vượt chặng nhé!"),
+    STAGE_TEST_NOT_AVAILABLE("Chặng này không cần làm bài vượt chặng nữa."),
+    STAGE_TEST_TOO_FEW_CARDS("Chặng này chưa đủ từ để làm bài vượt chặng."),
+    STAGE_TEST_COOLDOWN("Nghỉ một chút rồi thử lại nhé! Bạn làm lại được sau 24 giờ kể từ lần trượt."),
     // 500
     INTERNAL_ERROR("Đã có lỗi xảy ra. Vui lòng thử lại sau.");
 

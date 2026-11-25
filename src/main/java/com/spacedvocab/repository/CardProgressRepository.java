@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * "In the learner's library" (R6) currently means a deck they own; M4 adds subscribed decks to these queries.
+ * "In the learner's library" (R6) means a deck they own, or a PUBLIC / OFFICIAL deck they subscribed to.
  * Cards and decks that are soft-deleted are never due. {@code deckId} is optional (null = whole library).
  */
 public interface CardProgressRepository extends JpaRepository<CardProgress, Long> {
@@ -27,7 +27,8 @@ public interface CardProgressRepository extends JpaRepository<CardProgress, Long
     @Query("""
             select p from CardProgress p join fetch p.card c join fetch c.deck d
             where p.user.id = :userId and p.nextReviewAt < :before
-              and c.deletedAt is null and d.deletedAt is null and d.owner.id = :userId
+              and c.deletedAt is null and d.deletedAt is null and (d.owner.id = :userId or (d.visibility <> com.spacedvocab.entity.DeckVisibility.PRIVATE
+                   and exists (select s.id from DeckSubscription s where s.deck = d and s.user.id = :userId)))
               and (:deckId is null or d.id = :deckId)
             order by p.nextReviewAt, p.id
             """)
@@ -37,7 +38,8 @@ public interface CardProgressRepository extends JpaRepository<CardProgress, Long
     @Query("""
             select count(p) from CardProgress p join p.card c join c.deck d
             where p.user.id = :userId and p.nextReviewAt < :before
-              and c.deletedAt is null and d.deletedAt is null and d.owner.id = :userId
+              and c.deletedAt is null and d.deletedAt is null and (d.owner.id = :userId or (d.visibility <> com.spacedvocab.entity.DeckVisibility.PRIVATE
+                   and exists (select s.id from DeckSubscription s where s.deck = d and s.user.id = :userId)))
               and (:deckId is null or d.id = :deckId)
             """)
     long countDue(@Param("userId") Long userId, @Param("deckId") Long deckId, @Param("before") Instant before);
@@ -46,7 +48,8 @@ public interface CardProgressRepository extends JpaRepository<CardProgress, Long
     @Query("""
             select min(p.nextReviewAt) from CardProgress p join p.card c join c.deck d
             where p.user.id = :userId and p.nextReviewAt >= :from
-              and c.deletedAt is null and d.deletedAt is null and d.owner.id = :userId
+              and c.deletedAt is null and d.deletedAt is null and (d.owner.id = :userId or (d.visibility <> com.spacedvocab.entity.DeckVisibility.PRIVATE
+                   and exists (select s.id from DeckSubscription s where s.deck = d and s.user.id = :userId)))
               and (:deckId is null or d.id = :deckId)
             """)
     Optional<Instant> findNextReviewAt(@Param("userId") Long userId, @Param("deckId") Long deckId,

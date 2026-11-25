@@ -119,7 +119,7 @@
 - **API:** `GET /api/stages/{id}`, `POST /api/lessons/{id}/start` → chuyển D13 `?deckId=`. Quy tắc: **R10, R11, R12**.
 
 ### D25 · Bài vượt chặng — `/app/path/stages/:stageId/test`
-- **Layout:** giống D13, ẩn điều hướng; trên cùng: ✕ thoát (`ConfirmDialog` "Thoát thì lần này tính là trượt"), đồng hồ đếm ngược, đếm `n/20`.
+- **Layout:** giống D13, ẩn điều hướng; trên cùng: ✕ thoát (`ConfirmDialog` "Đồng hồ vẫn chạy khi bạn thoát. Hết giờ mà chưa nộp thì tính là trượt."), đồng hồ đếm ngược, đếm `n/20`.
 - **Mỗi câu:** nghĩa tiếng Việt cỡ lớn + từ loại; một ô nhập (tắt tự sửa chính tả, tự viết hoa); nút "Tiếp" và "Bỏ qua". Được quay lại sửa câu trước khi nộp.
 - **Nộp:** nút "Nộp bài" ở câu 20, hoặc tự nộp khi hết giờ.
 - **Kết quả:** `ProgressRing` x/20. **Qua** → Bit ăn mừng, nút "Tới chặng {sau}". **Trượt** → lời động viên, giờ được làm lại, danh sách câu sai (nghĩa, bạn gõ, đáp án đúng), nút "Học tiếp chặng này".
@@ -147,7 +147,7 @@
 - **API:** `GET /api/admin/reports?status=OPEN`, `PATCH /api/admin/reports/{id} {action}`.
 
 ### D26 · Lộ trình — `/admin/path`
-- **Thành phần:** danh sách chặng (sửa tên, thứ tự); trong mỗi chặng là bảng bài (deck, số thẻ, thứ tự) với nút Thêm bài (chọn deck `OFFICIAL` chưa thuộc bài nào), Lên/Xuống, Gỡ (`ConfirmDialog`).
+- **Thành phần:** 6 chặng cố định A1–C2 (chỉ sửa tên); trong mỗi chặng là bảng bài (deck, số thẻ, thứ tự) với nút Thêm bài (chọn deck `OFFICIAL` chưa thuộc bài nào), Lên/Xuống, Gỡ (`ConfirmDialog`).
 - **Cảnh báo:** chặng có < 20 thẻ thì hiện "Chưa đủ thẻ cho bài vượt chặng".
 - **API:** xem bảng ánh xạ D26 ở [03](03-information-architecture.md). Quy tắc: **R10**.
 

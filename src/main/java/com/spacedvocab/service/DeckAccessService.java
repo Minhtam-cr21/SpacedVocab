@@ -2,9 +2,11 @@ package com.spacedvocab.service;
 
 import com.spacedvocab.config.security.AuthenticatedUser;
 import com.spacedvocab.entity.Deck;
+import com.spacedvocab.entity.DeckVisibility;
 import com.spacedvocab.exception.ForbiddenOperationException;
 import com.spacedvocab.exception.ResourceNotFoundException;
 import com.spacedvocab.repository.DeckRepository;
+import com.spacedvocab.repository.DeckSubscriptionRepository;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,9 +20,11 @@ import org.springframework.stereotype.Service;
 public class DeckAccessService {
 
     private final DeckRepository deckRepository;
+    private final DeckSubscriptionRepository subscriptionRepository;
 
-    public DeckAccessService(DeckRepository deckRepository) {
+    public DeckAccessService(DeckRepository deckRepository, DeckSubscriptionRepository subscriptionRepository) {
         this.deckRepository = deckRepository;
+        this.subscriptionRepository = subscriptionRepository;
     }
 
     public Deck requireVisible(Long deckId, AuthenticatedUser me) {
@@ -42,10 +46,15 @@ public class DeckAccessService {
     }
 
     /**
-     * R6: the learner may study this deck. For now that means owning it; M4 adds subscribed decks
-     * (and must update the library queries in {@code CardProgressRepository} / {@code CardRepository}).
+     * R6: the learner may study this deck: they own it, or subscribed to it while it is PUBLIC / OFFICIAL.
+     * Keep in sync with the library queries in {@code CardProgressRepository} / {@code CardRepository}.
      */
     public boolean isInLibrary(Deck deck, AuthenticatedUser me) {
-        return !deck.isDeleted() && deck.isOwnedBy(me.id());
+        if (deck.isDeleted()) {
+            return false;
+        }
+        return deck.isOwnedBy(me.id())
+                || (deck.getVisibility() != DeckVisibility.PRIVATE
+                    && subscriptionRepository.existsByUserIdAndDeckId(me.id(), deck.getId()));
     }
 }

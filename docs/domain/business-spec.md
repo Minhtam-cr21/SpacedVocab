@@ -38,7 +38,7 @@ Người học tạo hoặc đăng ký các **bộ thẻ từ vựng (deck)**. M
 - **UC-A2** Tạo, sửa, xóa deck `OFFICIAL` (ví dụ Oxford 3000, IELTS).
 - **UC-A3** Xử lý report: **ẩn deck** hoặc **bỏ qua** report.
 - **UC-A4** Xem thống kê toàn hệ thống.
-- **UC-A5** Quản lý lộ trình: tạo/sửa chặng, gắn deck `OFFICIAL` vào chặng làm bài, sắp xếp thứ tự bài.
+- **UC-A5** Quản lý lộ trình: đổi tên chặng, gắn deck `OFFICIAL` vào chặng làm bài, sắp xếp và gỡ bài. Sáu chặng A1–C2 là dữ liệu gốc do migration tạo, không thêm/xóa chặng.
 
 ### 2.4 System
 - **UC-S1** Chạy SM-2 mỗi khi Learner chấm điểm.
@@ -154,7 +154,7 @@ API vẫn nhận đủ 0–5; giao diện chỉ dùng 4 mức cho đơn giản.
 - Khóa chặng chỉ áp dụng trong lộ trình. Người học vẫn subscribe được deck `OFFICIAL` từ trang Khám phá, và tiến độ đó vẫn được tính khi chặng mở.
 
 ### Mở chặng (R11)
-- Sau mỗi lần chấm điểm (UC-L9), nếu thẻ thuộc một bài của lộ trình, hệ thống kiểm tra chặng đó. Đủ 100% thì ghi `StageUnlock` cho chặng kế tiếp với `method = LESSONS`.
+- Mỗi khi người học xem lộ trình/chặng, bắt đầu bài hoặc bài vượt chặng, hệ thống kiểm tra lại các chặng. Chặng nào đã mở và đủ 100% thì ghi `StageUnlock` cho chặng kế tiếp với `method = LESSONS`. Nhờ vậy luồng chấm điểm (UC-L9) không cần biết tới lộ trình.
 - Qua bài vượt chặng thì ghi `StageUnlock` cho chặng kế tiếp với `method = TEST`. Các bài của chặng vừa vượt **không** bị đánh dấu hoàn thành, người học vẫn học lại được.
 - Muốn nhảy nhiều chặng (ví dụ A1 → B2) thì làm lần lượt bài vượt chặng A1, A2, B1.
 
@@ -162,8 +162,9 @@ API vẫn nhận đủ 0–5; giao diện chỉ dùng 4 mức cho đơn giản.
 - **Dạng câu hỏi ("cực khó"):** hiện **nghĩa tiếng Việt** và **từ loại**, người học **gõ từ tiếng Anh**. Không có trắc nghiệm, không có IPA, không có ví dụ.
 - **Chấm:** so sánh sau khi bỏ khoảng trắng đầu cuối, không phân biệt hoa thường. Câu bỏ trống = sai.
 - **Chống gian lận:** server sinh đề và giữ đáp án. Client chỉ nhận đề **không kèm đáp án**; đáp án đúng chỉ trả về **sau khi nộp**.
-- **Thời gian:** `expiresAt = startedAt + 10 phút`. Nộp sau khi hết giờ thì các câu chưa trả lời bị tính sai. Một attempt hết giờ mà chưa nộp thì tính là **trượt**.
-- Mỗi người chỉ có **1 attempt đang làm** cho mỗi chặng. Gọi bắt đầu lần nữa khi đang làm thì trả lại chính attempt đó.
+- **Thời gian:** `expiresAt = startedAt + 10 phút`. Nộp trễ trong vòng **30 giây** (bù mạng chậm) vẫn được chấm; trễ hơn thì **mọi câu bị tính sai**. Một attempt hết giờ mà chưa nộp thì tính là **trượt**, thời gian chờ 24 giờ tính từ `expiresAt`.
+- Mỗi người chỉ có **1 attempt đang làm** cho mỗi chặng. Gọi bắt đầu lần nữa khi đang làm thì trả lại chính attempt đó, nên thoát ra rồi vào lại vẫn làm tiếp được (đồng hồ vẫn chạy).
+- Nếu các bài trong chặng có từ trùng nhau thì chỉ lấy mỗi từ một lần. Chặng cần ≥ 20 từ khác nhau.
 - Bài vượt chặng **không ảnh hưởng SM-2**: không tạo `CardProgress`, không ghi `ReviewLog`, không tính streak.
 
 ### Mã lỗi
@@ -172,5 +173,7 @@ API vẫn nhận đủ 0–5; giao diện chỉ dùng 4 mức cho đơn giản.
 | Bắt đầu bài hoặc làm bài vượt chặng ở chặng đang khóa | 422 | `STAGE_LOCKED` |
 | Làm bài vượt chặng ở chặng không phải chặng cao nhất đang mở, hoặc chặng sau đã mở | 422 | `STAGE_TEST_NOT_AVAILABLE` |
 | Chặng có < 20 card | 422 | `STAGE_TEST_TOO_FEW_CARDS` |
-| Trượt chưa đủ 24 giờ | 422 | `STAGE_TEST_COOLDOWN` (kèm `retryAt`) |
+| Trượt chưa đủ 24 giờ | 422 | `STAGE_TEST_COOLDOWN` (thời điểm làm lại xem ở `testRetryAt` của `GET /api/paths/{id}`) |
+| Admin gắn deck không phải `OFFICIAL` vào chặng | 422 | `LESSON_DECK_NOT_OFFICIAL` |
+| Admin gắn deck đã là bài khác | 409 | `DECK_ALREADY_IN_PATH` |
 | Nộp bài lần hai | 409 | `STAGE_TEST_ALREADY_SUBMITTED` |

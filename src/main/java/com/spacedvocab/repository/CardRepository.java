@@ -47,12 +47,13 @@ public interface CardRepository extends JpaRepository<Card, Long> {
     Optional<Card> findByIdAndDeletedAtIsNull(Long id);
 
     /**
-     * Cards in the learner's library (own decks; subscribed decks in M4) that they have never reviewed,
+     * Cards in the learner's library (own and subscribed decks) that they have never reviewed,
      * in the order they were added. {@code deckId} is optional.
      */
     @Query("""
             select c from Card c join fetch c.deck d
-            where d.owner.id = :userId and d.deletedAt is null and c.deletedAt is null
+            where (d.owner.id = :userId or (d.visibility <> com.spacedvocab.entity.DeckVisibility.PRIVATE
+                   and exists (select s.id from DeckSubscription s where s.deck = d and s.user.id = :userId))) and d.deletedAt is null and c.deletedAt is null
               and (:deckId is null or d.id = :deckId)
               and not exists (select p.id from CardProgress p where p.card = c and p.user.id = :userId)
             order by c.id
@@ -61,7 +62,8 @@ public interface CardRepository extends JpaRepository<Card, Long> {
 
     @Query("""
             select count(c) from Card c join c.deck d
-            where d.owner.id = :userId and d.deletedAt is null and c.deletedAt is null
+            where (d.owner.id = :userId or (d.visibility <> com.spacedvocab.entity.DeckVisibility.PRIVATE
+                   and exists (select s.id from DeckSubscription s where s.deck = d and s.user.id = :userId))) and d.deletedAt is null and c.deletedAt is null
               and (:deckId is null or d.id = :deckId)
               and not exists (select p.id from CardProgress p where p.card = c and p.user.id = :userId)
             """)

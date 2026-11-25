@@ -48,6 +48,8 @@ Backend trả lỗi dạng `{ code, message, field?, errors? }` từ `@RestContr
 | `BusinessRuleViolationException` (R12) | 422 | `STAGE_TEST_TOO_FEW_CARDS` | Chặng này chưa đủ từ để làm bài vượt chặng. |
 | `BusinessRuleViolationException` (R12) | 422 | `STAGE_TEST_COOLDOWN` | Nghỉ một chút rồi thử lại nhé! Bạn làm lại được lúc {retryAt}. |
 | `DuplicateResourceException` (R12) | 409 | `STAGE_TEST_ALREADY_SUBMITTED` | Bài này đã nộp rồi. |
+| `BusinessRuleViolationException` (R10, admin) | 422 | `LESSON_DECK_NOT_OFFICIAL` | Bài trong lộ trình phải là deck chính thức. |
+| `DuplicateResourceException` (R10, admin) | 409 | `DECK_ALREADY_IN_PATH` | Deck này đã là một bài trong lộ trình. |
 | Validation (`@Valid`) | 400 | `VALIDATION_FAILED` | Hiện lỗi theo từng ô (xem bảng dưới). |
 | Lỗi mạng / 5xx | — | — | Không kết nối được tới máy chủ. Kiểm tra mạng rồi thử lại. |
 
