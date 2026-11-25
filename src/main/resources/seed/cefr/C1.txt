@@ -30,7 +30,7 @@ stakeholder | /ˈsteɪkhəʊldə(r)/ | noun | bên liên quan | All stakeholders
 
 @lesson C1 · Tâm lý và hành vi | Nhận thức, động lực và cảm xúc
 cognitive | /ˈkɒɡnətɪv/ | adjective | thuộc nhận thức | Sleep improves cognitive performance.
-perception | /pəˈsepʃn/ | noun | nhận thức, cách nhìn nhận | Public perception of the brand improved.
+perception | /pəˈsepʃn/ | noun | sự cảm nhận, ấn tượng (của số đông) | Public perception of the brand improved.
 bias | /ˈbaɪəs/ | noun | thiên kiến | We all have some unconscious bias.
 resilience | /rɪˈzɪliəns/ | noun | khả năng phục hồi, sức bật | Children show amazing resilience.
 motivation | /ˌməʊtɪˈveɪʃn/ | noun | động lực | Her motivation comes from her family.
@@ -63,7 +63,7 @@ prioritise | /praɪˈɒrətaɪz/ | verb | ưu tiên | Prioritise the most urgent
 feedback | /ˈfiːdbæk/ | noun | phản hồi, góp ý | Thank you for your useful feedback.
 consensus | /kənˈsensəs/ | noun | sự đồng thuận | The team reached a consensus quickly.
 agenda | /əˈdʒendə/ | noun | chương trình nghị sự | The budget is first on the agenda.
-brief | /briːf/ | verb | tóm tắt, thông báo ngắn | The manager briefed us on the project.
+brief | /briːf/ | verb | dặn dò, phổ biến nhanh (trước khi làm việc) | The manager briefed us on the project.
 collaborate | /kəˈlæbəreɪt/ | verb | cộng tác | Two universities collaborated on the study.
 implement | /ˈɪmplɪment/ | verb | triển khai, thực hiện | The new system was implemented in May.
 objective | /əbˈdʒektɪv/ | noun | mục tiêu | Our main objective is to cut costs.

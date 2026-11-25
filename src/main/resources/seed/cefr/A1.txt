@@ -34,7 +34,7 @@ parents | /ˈpeərənts/ | noun | bố mẹ | My parents work in a hospital.
 home | /həʊm/ | noun | nhà, mái ấm | I go home after school.
 
 @lesson A1 · Màu sắc và số đếm | Gọi tên màu và đếm từ 1 đến 100
-color | /ˈkʌlə(r)/ | noun | màu sắc | What color is your bag?
+colour | /ˈkʌlə(r)/ | noun | màu sắc | What colour is your bag?
 red | /red/ | adjective | màu đỏ | The apple is red.
 blue | /bluː/ | adjective | màu xanh dương | The sky is blue today.
 green | /ɡriːn/ | adjective | màu xanh lá | Frogs are green.

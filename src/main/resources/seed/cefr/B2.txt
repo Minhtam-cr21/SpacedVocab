@@ -62,13 +62,13 @@ witness | /ˈwɪtnəs/ | noun | nhân chứng | The witness saw the car drive aw
 suspect | /ˈsʌspekt/ | noun | nghi phạm | Police questioned the suspect for hours.
 court | /kɔːt/ | noun | tòa án | The case will go to court next month.
 judge | /dʒʌdʒ/ | noun | thẩm phán | The judge listened to both sides.
-punishment | /ˈpʌnɪʃmənt/ | noun | hình phạt | The punishment should fit the crime.
+punishment | /ˈpʌnɪʃmənt/ | noun | sự trừng phạt | The punishment should fit the crime.
 guilty | /ˈɡɪlti/ | adjective | có tội | He was found guilty of theft.
 innocent | /ˈɪnəsnt/ | adjective | vô tội | She insisted that she was innocent.
 arrest | /əˈrest/ | verb | bắt giữ | The police arrested two men.
 sentence | /ˈsentəns/ | noun | bản án | He received a two-year sentence.
 victim | /ˈvɪktɪm/ | noun | nạn nhân | The victims received compensation.
-penalty | /ˈpenəlti/ | noun | tiền phạt, hình phạt | There is a heavy penalty for littering.
+penalty | /ˈpenəlti/ | noun | tiền phạt (vì vi phạm quy định) | There is a heavy penalty for littering.
 
 @lesson B2 · Các mối quan hệ | Tin tưởng, mâu thuẫn và thấu hiểu
 relationship | /rɪˈleɪʃnʃɪp/ | noun | mối quan hệ | They have a close relationship.
