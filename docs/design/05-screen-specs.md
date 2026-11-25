@@ -104,6 +104,28 @@
 - **Ẩn khi:** người xem là chủ deck hoặc Guest.
 - **API:** `POST /api/decks/{id}/reports`.
 
+### D23 · Lộ trình CEFR — `/app/path`
+- **Mục đích:** cho người học thấy mình đang ở chặng nào và việc cần làm tiếp theo.
+- **Thành phần:** tiêu đề "Chọn chặng học"; danh sách 6 `StageCard` A1 → C2. Mỗi thẻ có ô nhãn CEFR màu riêng, tên chặng, "n/N bài đã hoàn thành", `ProgressBar`, nút bên phải.
+- **Trạng thái `StageCard`:** **đang học** (nổi bật, nút →) · **đã xong** (dấu ✓, ghi "Vượt bằng bài kiểm tra" nếu `unlockMethod = TEST` của chặng sau) · **khóa** (mờ, icon ổ khóa, chạm vào → D24 ở chế độ chỉ xem).
+- **Bit:** đứng cạnh chặng đang học, nói tiếng Anh ("Let's go, A1!"). Vừa mở chặng mới → "Level up! B1 unlocked!".
+- **A11y:** chặng khóa vẫn focus được; `aria-label` "Chặng B1, đang khóa, 0 trên 21 bài".
+- **API:** `GET /api/paths/{id}`. Quy tắc: **R10, R11**.
+
+### D24 · Chi tiết chặng — `/app/path/stages/:stageId`
+- **Thành phần:** đầu trang có nhãn CEFR + tiến độ chặng; danh sách `LessonRow` (tên bài, "đã học x/y từ", dấu ✓ khi xong, nút "Bắt đầu" / "Học tiếp" / "Ôn lại").
+- **Khối "Nhảy chặng"** (chỉ hiện khi `testAvailable`): giải thích "20 câu, gõ từ tiếng Anh theo nghĩa, 10 phút, đúng 18 câu là qua" + nút **"Làm bài vượt chặng"** → `ConfirmDialog` → D25. Đang chờ 24 giờ thì nút disabled và ghi "Làm lại sau {giờ}".
+- **Chặng khóa:** danh sách bài chỉ xem, nút "Bắt đầu" bị ẩn; hiện dòng "Hoàn thành chặng {trước} hoặc làm bài vượt chặng để mở".
+- **API:** `GET /api/stages/{id}`, `POST /api/lessons/{id}/start` → chuyển D13 `?deckId=`. Quy tắc: **R10, R11, R12**.
+
+### D25 · Bài vượt chặng — `/app/path/stages/:stageId/test`
+- **Layout:** giống D13, ẩn điều hướng; trên cùng: ✕ thoát (`ConfirmDialog` "Thoát thì lần này tính là trượt"), đồng hồ đếm ngược, đếm `n/20`.
+- **Mỗi câu:** nghĩa tiếng Việt cỡ lớn + từ loại; một ô nhập (tắt tự sửa chính tả, tự viết hoa); nút "Tiếp" và "Bỏ qua". Được quay lại sửa câu trước khi nộp.
+- **Nộp:** nút "Nộp bài" ở câu 20, hoặc tự nộp khi hết giờ.
+- **Kết quả:** `ProgressRing` x/20. **Qua** → Bit ăn mừng, nút "Tới chặng {sau}". **Trượt** → lời động viên, giờ được làm lại, danh sách câu sai (nghĩa, bạn gõ, đáp án đúng), nút "Học tiếp chặng này".
+- **Trạng thái:** mất mạng khi nộp → giữ câu trả lời ở client, `Toast` "Chưa nộp được, thử lại".
+- **API:** `POST /api/stages/{id}/test-attempts`, `POST /api/stage-test-attempts/{id}/submit`. Quy tắc: **R12**.
+
 ## Admin
 
 ### D18 · Tổng quan — `admin-dashboard.html` — `/admin`
@@ -123,6 +145,11 @@
 - **Thành phần:** `Tabs` Đang chờ / Đã xử lý; desktop chia 2 cột (danh sách + chi tiết), mobile xếp chồng.
 - **Hành động:** **Bỏ qua** (report → DISMISSED) · **Ẩn deck** (`ConfirmDialog`; deck `hidden = true`, mọi report của deck → RESOLVED).
 - **API:** `GET /api/admin/reports?status=OPEN`, `PATCH /api/admin/reports/{id} {action}`.
+
+### D26 · Lộ trình — `/admin/path`
+- **Thành phần:** danh sách chặng (sửa tên, thứ tự); trong mỗi chặng là bảng bài (deck, số thẻ, thứ tự) với nút Thêm bài (chọn deck `OFFICIAL` chưa thuộc bài nào), Lên/Xuống, Gỡ (`ConfirmDialog`).
+- **Cảnh báo:** chặng có < 20 thẻ thì hiện "Chưa đủ thẻ cho bài vượt chặng".
+- **API:** xem bảng ánh xạ D26 ở [03](03-information-architecture.md). Quy tắc: **R10**.
 
 ## Chung
 

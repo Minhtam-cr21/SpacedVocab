@@ -4,7 +4,7 @@ REST API học từ vựng tiếng Anh bằng flashcard, lên lịch ôn bằng 
 
 - **Tiếp nhận dự án / setup Docker & DB:** [docs/HANDBOOK.md](docs/HANDBOOK.md) — đọc đầu tiên nếu mới vào.
 - **Nghiệp vụ (nguồn sự thật):** [docs/domain/business-spec.md](docs/domain/business-spec.md) — actors, use case, entity, ràng buộc **R1–R9**, công thức SM-2.
-- **Thiết kế UX/UI:** [docs/design/](docs/design/README.md) — màn **D1–D22**, ma trận quyền, ánh xạ màn hình ↔ API, UX copy.
+- **Thiết kế UX/UI:** [docs/design/](docs/design/README.md) — màn **D1–D26**, ma trận quyền, ánh xạ màn hình ↔ API, UX copy.
 - Đổi nghiệp vụ → sửa `business-spec.md` trước, rồi mới sửa code và tài liệu design.
 
 ## Stack
@@ -81,6 +81,7 @@ controller  service  repository  entity  dto  config  exception  algorithm
 | M1 ✅ | User, đăng ký/đăng nhập JWT, phân quyền | D2, D3, D6, D16 |
 | M2 ✅ | CRUD deck & card, quyền sở hữu | D8–D11 |
 | M3 | **SM-2**, thẻ đến hạn, chấm điểm, ReviewLog | D7, D13, D14 |
+| Lộ trình | Lộ trình CEFR A1–C2: chặng, bài (deck OFFICIAL), mở khóa 100% hoặc bài vượt chặng (§6 business-spec) | D23–D26 |
 | M4 | Deck public/official, subscribe, import CSV, admin | D4, D5, D12, D17–D21 |
 | M5 | Thống kê, streak, Swagger | D15 |
 

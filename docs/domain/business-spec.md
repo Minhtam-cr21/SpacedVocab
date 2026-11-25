@@ -31,12 +31,14 @@ Người học tạo hoặc đăng ký các **bộ thẻ từ vựng (deck)**. M
 | Ôn tập | **UC-L8** lấy danh sách thẻ đến hạn · **UC-L9** chấm điểm một thẻ → SM-2 cập nhật lịch ôn |
 | Thống kê | **UC-L10** xem số lượt ôn theo ngày, streak, tỷ lệ nhớ, phân bố trạng thái thẻ |
 | Kiểm duyệt | **UC-L11** report một deck công khai vi phạm |
+| Lộ trình | **UC-L12** xem lộ trình CEFR (các chặng, tiến độ, chặng nào đã mở) · **UC-L13** bắt đầu một bài trong chặng đã mở · **UC-L14** làm **bài vượt chặng** để mở chặng kế tiếp mà không cần xong hết bài (xem §6) |
 
 ### 2.3 Admin
 - **UC-A1** Xem danh sách user, **khóa / mở khóa** tài khoản.
 - **UC-A2** Tạo, sửa, xóa deck `OFFICIAL` (ví dụ Oxford 3000, IELTS).
 - **UC-A3** Xử lý report: **ẩn deck** hoặc **bỏ qua** report.
 - **UC-A4** Xem thống kê toàn hệ thống.
+- **UC-A5** Quản lý lộ trình: tạo/sửa chặng, gắn deck `OFFICIAL` vào chặng làm bài, sắp xếp thứ tự bài.
 
 ### 2.4 System
 - **UC-S1** Chạy SM-2 mỗi khi Learner chấm điểm.
@@ -56,6 +58,15 @@ erDiagram
     CARD_PROGRESS ||--o{ REVIEW_LOG : "lịch sử"
     USER ||--o{ REPORT : "gửi"
     DECK ||--o{ REPORT : "bị báo cáo"
+    LEARNING_PATH ||--o{ PATH_STAGE : "gồm các chặng"
+    PATH_STAGE ||--o{ PATH_LESSON : "gồm các bài"
+    DECK ||--o| PATH_LESSON : "là nội dung của"
+    USER ||--o{ STAGE_UNLOCK : "đã mở"
+    PATH_STAGE ||--o{ STAGE_UNLOCK : "được mở"
+    USER ||--o{ STAGE_TEST_ATTEMPT : "làm bài vượt chặng"
+    PATH_STAGE ||--o{ STAGE_TEST_ATTEMPT : "có bài vượt chặng"
+    STAGE_TEST_ATTEMPT ||--o{ STAGE_TEST_QUESTION : "gồm 20 câu"
+    CARD ||--o{ STAGE_TEST_QUESTION : "được hỏi"
 ```
 
 | Thực thể | Vai trò | Thuộc tính chính |
@@ -67,6 +78,12 @@ erDiagram
 | **ReviewLog** | Nhật ký mỗi lần ôn (bất biến) | `quality`, `reviewedAt`, EF trước/sau, interval trước/sau |
 | **DeckSubscription** | User đăng ký học deck | `user`, `deck`, `subscribedAt` |
 | **Report** | Báo cáo vi phạm | `reporter`, `deck`, `reason`, `status` OPEN/RESOLVED/DISMISSED |
+| **LearningPath** | Lộ trình (hiện có 1: "Lộ trình CEFR") | `name`, `description` |
+| **PathStage** | Chặng trong lộ trình | `path`, `cefrLevel` A1/A2/B1/B2/C1/C2, `title` (ví dụ "Trình độ căn bản"), `position` — unique (`path`, `position`) và (`path`, `cefrLevel`) |
+| **PathLesson** | Bài trong chặng, nội dung là 1 deck `OFFICIAL` | `stage`, `deck`, `position` — unique (`deck`): một deck chỉ thuộc một bài |
+| **StageUnlock** | Chặng đã mở của một user (ghi vĩnh viễn) | `user`, `stage`, `method` LESSONS/TEST, `unlockedAt` — unique (`user`, `stage`) |
+| **StageTestAttempt** | Một lần làm bài vượt chặng | `user`, `stage`, `startedAt`, `expiresAt`, `submittedAt`, `correctCount`, `passed` |
+| **StageTestQuestion** | Một câu trong bài vượt chặng | `attempt`, `card`, `position`, `answer`, `correct` |
 
 **Quyết định thiết kế:** tách **Card** (nội dung) khỏi **CardProgress** (tiến độ của từng người) để nhiều người học chung 1 deck mà không phải copy thẻ.
 
@@ -83,6 +100,9 @@ erDiagram
 | **R7** | Số thẻ **mới** mỗi ngày ≤ `dailyNewLimit`. "Ngày" tính theo timezone của người học. |
 | **R8** | Xóa deck và card luôn là **xóa mềm** (`deletedAt`), vì deck có thể đang có người subscribe và card có lịch sử ôn. Không bao giờ xóa `ReviewLog`. |
 | **R9** | Streak +1 khi trong ngày có ≥ 1 lượt ôn. Bỏ một ngày thì streak về 0. |
+| **R10** | Bài trong lộ trình chỉ dùng deck `OFFICIAL`. **Bài hoàn thành** khi mọi card chưa xóa của deck đều đã có `CardProgress` của người học (đã học ít nhất 1 lần). **Chặng hoàn thành** khi **100%** số bài của chặng hoàn thành. |
+| **R11** | Chặng đầu tiên luôn mở. Chặng kế tiếp mở khi chặng trước **hoàn thành 100%** (R10) **hoặc** đã **qua bài vượt chặng** (R12). Khi mở thì ghi `StageUnlock` và **không bao giờ khóa lại**, kể cả khi Admin thêm bài mới vào chặng trước. Không bắt đầu được bài thuộc chặng đang khóa. |
+| **R12** | Bài vượt chặng: chỉ làm được ở **chặng cao nhất đang mở** mà chặng sau nó còn khóa. Chặng phải có ≥ 20 card. Gồm **20 câu** lấy ngẫu nhiên từ card của **mọi bài trong chặng**. Làm trong **10 phút**, **đúng ≥ 18/20** thì qua. Trượt thì phải chờ **24 giờ** mới được làm lại. |
 
 ## 5. Thuật toán SM-2
 
@@ -121,3 +141,36 @@ API vẫn nhận đủ 0–5; giao diện chỉ dùng 4 mức cho đơn giản.
 - `lapses` +1 khi thẻ **đã từng nhớ** (`repetitions > 0`) bị quên (`repetitions` về 0). Thẻ mới bấm Quên không tính.
 - Thẻ **mới** = chưa có `CardProgress`; lần chấm đầu tiên tạo `CardProgress` và tính vào hạn mức `dailyNewLimit` của ngày đó (R7). Chấm lại thẻ đã bắt đầu thì không bị giới hạn.
 - Mỗi lần chấm ghi 1 `ReviewLog` (EF, interval, state trước/sau). DB có trigger chặn `UPDATE`/`DELETE` trên `review_logs` (R8).
+
+## 6. Lộ trình CEFR
+
+Ý tưởng: người học đi theo **6 chặng A1 → C2**. Mỗi chặng gồm nhiều **bài**, mỗi bài là một deck `OFFICIAL` khoảng 10–20 từ cùng chủ đề. Nội dung soạn từ **nguồn dữ liệu mở** (NGSL, Wiktionary, Tatoeba…), phải ghi nguồn theo giấy phép.
+
+### Học một bài (UC-L13)
+- Bấm **"Bắt đầu bài"** → hệ thống tự **subscribe** deck của bài (R4 thỏa vì deck là `OFFICIAL`) → vào phiên ôn D13 với `deckId` của bài.
+- Từ đó thẻ của bài đi theo SM-2 như mọi deck khác: thẻ mới tính vào `dailyNewLimit` (R7), các ngày sau đến hạn thì ôn lại.
+- Bài **hoàn thành** khi mọi thẻ đã học ít nhất 1 lần (R10). Hoàn thành **không** đồng nghĩa với đã thuộc; việc thuộc do SM-2 lo.
+- Trong một chặng đã mở, học các bài **theo thứ tự nào cũng được**; `position` chỉ là thứ tự gợi ý.
+- Khóa chặng chỉ áp dụng trong lộ trình. Người học vẫn subscribe được deck `OFFICIAL` từ trang Khám phá, và tiến độ đó vẫn được tính khi chặng mở.
+
+### Mở chặng (R11)
+- Sau mỗi lần chấm điểm (UC-L9), nếu thẻ thuộc một bài của lộ trình, hệ thống kiểm tra chặng đó. Đủ 100% thì ghi `StageUnlock` cho chặng kế tiếp với `method = LESSONS`.
+- Qua bài vượt chặng thì ghi `StageUnlock` cho chặng kế tiếp với `method = TEST`. Các bài của chặng vừa vượt **không** bị đánh dấu hoàn thành, người học vẫn học lại được.
+- Muốn nhảy nhiều chặng (ví dụ A1 → B2) thì làm lần lượt bài vượt chặng A1, A2, B1.
+
+### Bài vượt chặng (UC-L14, R12)
+- **Dạng câu hỏi ("cực khó"):** hiện **nghĩa tiếng Việt** và **từ loại**, người học **gõ từ tiếng Anh**. Không có trắc nghiệm, không có IPA, không có ví dụ.
+- **Chấm:** so sánh sau khi bỏ khoảng trắng đầu cuối, không phân biệt hoa thường. Câu bỏ trống = sai.
+- **Chống gian lận:** server sinh đề và giữ đáp án. Client chỉ nhận đề **không kèm đáp án**; đáp án đúng chỉ trả về **sau khi nộp**.
+- **Thời gian:** `expiresAt = startedAt + 10 phút`. Nộp sau khi hết giờ thì các câu chưa trả lời bị tính sai. Một attempt hết giờ mà chưa nộp thì tính là **trượt**.
+- Mỗi người chỉ có **1 attempt đang làm** cho mỗi chặng. Gọi bắt đầu lần nữa khi đang làm thì trả lại chính attempt đó.
+- Bài vượt chặng **không ảnh hưởng SM-2**: không tạo `CardProgress`, không ghi `ReviewLog`, không tính streak.
+
+### Mã lỗi
+| Tình huống | HTTP | `code` |
+|---|---|---|
+| Bắt đầu bài hoặc làm bài vượt chặng ở chặng đang khóa | 422 | `STAGE_LOCKED` |
+| Làm bài vượt chặng ở chặng không phải chặng cao nhất đang mở, hoặc chặng sau đã mở | 422 | `STAGE_TEST_NOT_AVAILABLE` |
+| Chặng có < 20 card | 422 | `STAGE_TEST_TOO_FEW_CARDS` |
+| Trượt chưa đủ 24 giờ | 422 | `STAGE_TEST_COOLDOWN` (kèm `retryAt`) |
+| Nộp bài lần hai | 409 | `STAGE_TEST_ALREADY_SUBMITTED` |

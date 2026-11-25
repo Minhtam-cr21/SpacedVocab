@@ -43,6 +43,11 @@ Backend trả lỗi dạng `{ code, message, field?, errors? }` từ `@RestContr
 | `BusinessRuleViolationException` (R6) | 422 | `CARD_NOT_IN_LIBRARY` | Thẻ này không thuộc thư viện của bạn. |
 | `BusinessRuleViolationException` (R7) | 422 | `DAILY_NEW_LIMIT_REACHED` | Bạn đã học đủ số thẻ mới hôm nay. Hẹn bạn ngày mai nhé! |
 | `BusinessRuleViolationException` (tự khóa) | 422 | `CANNOT_LOCK_SELF` | Bạn không thể tự khóa tài khoản của mình. |
+| `BusinessRuleViolationException` (R11) | 422 | `STAGE_LOCKED` | Chặng này chưa mở. Hoàn thành chặng trước hoặc làm bài vượt chặng nhé! |
+| `BusinessRuleViolationException` (R12) | 422 | `STAGE_TEST_NOT_AVAILABLE` | Chặng này không cần làm bài vượt chặng nữa. |
+| `BusinessRuleViolationException` (R12) | 422 | `STAGE_TEST_TOO_FEW_CARDS` | Chặng này chưa đủ từ để làm bài vượt chặng. |
+| `BusinessRuleViolationException` (R12) | 422 | `STAGE_TEST_COOLDOWN` | Nghỉ một chút rồi thử lại nhé! Bạn làm lại được lúc {retryAt}. |
+| `DuplicateResourceException` (R12) | 409 | `STAGE_TEST_ALREADY_SUBMITTED` | Bài này đã nộp rồi. |
 | Validation (`@Valid`) | 400 | `VALIDATION_FAILED` | Hiện lỗi theo từng ô (xem bảng dưới). |
 | Lỗi mạng / 5xx | — | — | Không kết nối được tới máy chủ. Kiểm tra mạng rồi thử lại. |
 

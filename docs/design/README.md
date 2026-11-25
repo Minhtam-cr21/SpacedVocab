@@ -11,7 +11,7 @@ Giao diện **tiếng Việt**, **responsive, mobile-first**. Nghiệp vụ gố
 | [02-user-flows.md](02-user-flows.md) | Luồng theo role (Guest, Learner, Admin) — Mermaid |
 | [03-information-architecture.md](03-information-architecture.md) | Sitemap, route React, ma trận quyền, ánh xạ màn hình ↔ API |
 | [04-design-system.md](04-design-system.md) | Màu, chữ, spacing, component, accessibility |
-| [05-screen-specs.md](05-screen-specs.md) | Đặc tả 22 màn hình D1–D22 |
+| [05-screen-specs.md](05-screen-specs.md) | Đặc tả 26 màn hình D1–D26 |
 | [06-ux-copy.md](06-ux-copy.md) | Thuật ngữ, thông báo lỗi ↔ exception backend, empty state, toast |
 | [prototype/](prototype/index.html) | Prototype HTML/CSS bấm thử được |
 
@@ -31,6 +31,6 @@ Rồi mở <http://localhost:5500>. Cũng có thể mở trực tiếp file `pro
 
 ## Quy ước
 
-- Mã màn **D1–D22** dùng thống nhất trong mọi tài liệu, issue và commit liên quan đến UI.
+- Mã màn **D1–D26** dùng thống nhất trong mọi tài liệu, issue và commit liên quan đến UI.
 - Đổi nghiệp vụ → sửa `business-spec.md` trước, rồi cập nhật tài liệu design và prototype tương ứng.
 - Prototype chỉ là tham chiếu hành vi và giao diện; app React viết lại component theo [04-design-system.md](04-design-system.md), **dùng lại nguyên `tokens.css`**.
