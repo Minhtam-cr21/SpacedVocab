@@ -35,3 +35,12 @@ export const reviewApi = {
   },
   grade: (cardId, quality) => api('/api/reviews', json('POST', { cardId, quality })),
 };
+
+export const pathApi = {
+  list: () => api('/api/paths'),
+  get: (id) => api(`/api/paths/${id}`),
+  stage: (id) => api(`/api/stages/${id}`),
+  startLesson: (lessonId) => api(`/api/lessons/${lessonId}/start`, json('POST', {})),
+  startTest: (stageId) => api(`/api/stages/${stageId}/test-attempts`, json('POST', {})),
+  submitTest: (attemptId, answers) => api(`/api/stage-test-attempts/${attemptId}/submit`, json('POST', { answers })),
+};

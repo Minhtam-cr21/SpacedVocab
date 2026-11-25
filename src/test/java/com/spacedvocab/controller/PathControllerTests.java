@@ -135,6 +135,23 @@ class PathControllerTests extends ApiTestSupport {
         return postJson("/api/stage-test-attempts/%d/submit".formatted(attemptId), session.accessToken(), answersJson);
     }
 
+    // ---------- seeded content ----------
+
+    @Test
+    void cefrPathComesWithSixStagesAndTheA1Lessons() {
+        Session learner = registerNew();
+        List<Map<String, Object>> paths = JsonPath.read(body(getWithToken("/api/paths", learner.accessToken())), "$");
+        Object cefrId = paths.stream().filter(p -> "Lộ trình CEFR".equals(p.get("name"))).findFirst().orElseThrow().get("id");
+
+        MvcTestResult result = getWithToken("/api/paths/" + cefrId, learner.accessToken());
+
+        assertThat(result).bodyJson().extractingPath("$.stages.length()").isEqualTo(6);
+        assertThat(result).bodyJson().extractingPath("$.stages[0].cefrLevel").isEqualTo("A1");
+        assertThat(result).bodyJson().extractingPath("$.stages[0].lessonCount").isEqualTo(7);
+        assertThat(result).bodyJson().extractingPath("$.stages[0].testAvailable").isEqualTo(true);
+        assertThat(result).bodyJson().extractingPath("$.stages[5].cefrLevel").isEqualTo("C2");
+    }
+
     // ---------- R11: opening stages ----------
 
     @Test

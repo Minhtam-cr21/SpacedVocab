@@ -4,6 +4,7 @@ import { RobotSvg } from '../mascot/Robot.jsx';
 
 const NAV = [
   { to: '/app', label: 'Trang chủ', icon: '🏠', end: true },
+  { to: '/app/path', label: 'Lộ trình', icon: '🗺️' },
   { to: '/app/library', label: 'Thư viện', icon: '📚' },
   { to: '/app/review', label: 'Ôn tập', icon: '🃏' },
 ];

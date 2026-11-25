@@ -7,8 +7,11 @@ import DeckDetailPage from './pages/DeckDetailPage.jsx';
 import LibraryPage from './pages/LibraryPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
+import PathPage from './pages/PathPage.jsx';
 import RegisterPage from './pages/RegisterPage.jsx';
 import ReviewPage from './pages/ReviewPage.jsx';
+import StagePage from './pages/StagePage.jsx';
+import StageTestPage from './pages/StageTestPage.jsx';
 
 /** Learner pages need a session; guest pages send signed-in users to /app (docs/design/03 routes). */
 function RequireUser({ children }) {
@@ -34,6 +37,9 @@ export default function App() {
         <Route path="library" element={<LibraryPage />} />
         <Route path="decks/:deckId" element={<DeckDetailPage />} />
         <Route path="review" element={<ReviewPage />} />
+        <Route path="path" element={<PathPage />} />
+        <Route path="path/stages/:stageId" element={<StagePage />} />
+        <Route path="path/stages/:stageId/test" element={<StageTestPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

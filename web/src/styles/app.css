@@ -351,6 +351,79 @@ a { color: var(--ink); font-weight: 700; text-decoration-thickness: 2px; text-un
   gap: var(--space-3); padding: var(--space-8) var(--space-4);
 }
 
+/* ---------- Learning path (D23–D25) ---------- */
+.path__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); }
+.path__eyebrow { margin: 0; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); font-size: var(--text-sm); }
+.stage-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-4); }
+.stage-card {
+  display: flex; align-items: center; gap: var(--space-4);
+  min-height: 88px; padding: var(--space-4);
+  background: var(--paper); color: var(--ink); text-decoration: none;
+  border: var(--stroke) solid var(--ink); border-radius: var(--radius-sketch);
+  box-shadow: var(--shadow-hard);
+  transition: transform var(--dur-fast) ease;
+}
+.stage-card:hover { transform: translate(-1px, -2px); }
+.stage-card:focus-visible { outline: 3px dashed var(--ink); outline-offset: 4px; }
+.stage-card.is-current { background: var(--honey); }
+.stage-card.is-locked { background: var(--paper-2); box-shadow: var(--shadow-hard-sm); }
+.stage-card.is-locked .stage-card__body, .stage-card.is-locked .level-badge { opacity: .6; }
+.stage-card__body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-1); }
+.stage-card__title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 800; }
+.stage-card__count { font-size: var(--text-sm); font-weight: 700; color: var(--ink-soft); }
+.stage-card__status {
+  flex: none; display: grid; place-items: center; width: var(--tap-min); height: var(--tap-min);
+  border: var(--stroke) solid var(--ink); border-radius: 14px; background: var(--paper);
+  font-size: 1.4rem; font-weight: 800;
+}
+.stage-card.is-done .stage-card__status { background: var(--matcha); }
+.progress--thin { height: 12px; flex: none; }
+
+.level-badge {
+  flex: none; display: grid; place-items: center; width: 60px; height: 60px;
+  border: var(--stroke) solid var(--ink); border-radius: var(--radius-sketch-2);
+  font-family: var(--font-display); font-size: var(--text-xl); font-weight: 800; color: var(--ink);
+}
+.level-badge--big { width: 80px; height: 80px; font-size: var(--text-2xl); }
+.level-badge--A1 { background: var(--matcha); }
+.level-badge--A2 { background: var(--sky); }
+.level-badge--B1 { background: var(--honey); }
+.level-badge--B2 { background: var(--pink); }
+.level-badge--C1 { background: var(--coral); }
+.level-badge--C2 { background: var(--caramel); }
+
+.stage-head { display: flex; align-items: center; gap: var(--space-4); }
+.skip-test { background: var(--sky); }
+.skip-test h2 { margin-top: 0; }
+.lesson-list { list-style: none; margin: 0; padding: 0; }
+.lesson-row {
+  display: flex; align-items: center; gap: var(--space-3);
+  padding: var(--space-3) 0; border-bottom: 2px dashed var(--bg-doodle);
+}
+.lesson-row:last-child { border-bottom: 0; }
+.lesson-row__num {
+  flex: none; display: grid; place-items: center; width: 44px; height: 44px;
+  border: var(--stroke) solid var(--ink); border-radius: 50%; background: var(--paper-2); font-weight: 800;
+}
+.lesson-row.is-done .lesson-row__num { background: var(--matcha); }
+.lesson-row__body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.lesson-row__name { font-weight: 800; }
+
+.timer { font-family: var(--font-display); font-weight: 800; font-size: var(--text-lg); white-space: nowrap; }
+.timer--low { color: var(--danger-ink); }
+.test-question { text-align: center; }
+.test-question__meaning { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 800; margin: var(--space-3) 0; }
+.test-question__input { margin-top: var(--space-4); text-align: center; font-size: var(--text-xl); }
+.test-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); margin-top: var(--space-5); }
+.test-dot {
+  width: 40px; height: 40px; border: 2px solid var(--ink); border-radius: 50%;
+  background: var(--paper); font: inherit; font-weight: 800; font-size: var(--text-sm); color: var(--ink); cursor: pointer;
+}
+.test-dot.is-answered { background: var(--matcha); }
+.test-dot.is-current { box-shadow: var(--shadow-hard-sm); outline: 3px solid var(--honey); }
+.score { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 800; }
+.score__num { font-size: var(--text-word); }
+
 /* ---------- Robot mascot ---------- */
 .mascot { display: inline-flex; flex-direction: column; align-items: center; }
 .mascot__bubble {

@@ -44,6 +44,7 @@ controller  service  repository  entity  dto  config  exception  algorithm
 - `algorithm`: `SpacedRepetitionAlgorithm#next(SchedulingState, Quality)` (interface, Strategy, hàm thuần) → `Sm2Algorithm`. Value object `Quality`, `EasinessFactor`, `SchedulingState` nằm cùng package.
 - Ôn tập (M3): `ReviewService` + `CardProgressRepository`. Thẻ **mới** = chưa có `CardProgress` (tạo ở lần chấm đầu). "Thư viện" (R6) = deck mình sở hữu **hoặc** deck PUBLIC/OFFICIAL đã subscribe (`DeckSubscription`). Đổi quy tắc thì sửa cùng lúc `DeckAccessService#isInLibrary` **và** các query `findDue`/`countDue`/`findNextReviewAt`/`findNewForLearner`/`countNewForLearner`. M4 chỉ còn thêm endpoint subscribe/hủy.
 - Lộ trình (§6): `PathService` (learner) + `PathAdminService` (admin). Chặng mở do xong bài được ghi **khi đọc** lộ trình (`loadProgress`), không móc vào `ReviewService`. Bài vượt chặng là `StageTestAttempt` (rich model: `submit`, `isFailed`, `retryAt`). `PathControllerTests` tự tạo path riêng bằng `JdbcTemplate` cho mỗi test.
+  - Nội dung bài: `src/main/resources/seed/cefr/<LEVEL>.txt` (nội dung **tự soạn**, không lấy từ site khác), `PathContentSeeder` nạp lúc khởi động thành deck OFFICIAL của admin (`ADMIN_EMAIL`); bài trùng tên deck thì bỏ qua. Hiện mới có **A1** (7 bài × 12 từ).
 - Integration test review dùng **algorithm giả** (`@TestConfiguration` + `@Primary` trong `ReviewControllerTests`), không phụ thuộc SM-2. Muốn dời thời gian trong test thì sửa `card_progress.next_review_at` bằng `JdbcTemplate` (không thay `Clock` vì JWT dùng chung Clock).
 
 ## Quy tắc OOP / thiết kế
@@ -82,7 +83,7 @@ controller  service  repository  entity  dto  config  exception  algorithm
 | M1 ✅ | User, đăng ký/đăng nhập JWT, phân quyền | D2, D3, D6, D16 |
 | M2 ✅ | CRUD deck & card, quyền sở hữu | D8–D11 |
 | M3 | **SM-2**, thẻ đến hạn, chấm điểm, ReviewLog | D7, D13, D14 |
-| Lộ trình | Lộ trình CEFR A1–C2: chặng, bài (deck OFFICIAL), mở khóa 100% hoặc bài vượt chặng (§6 business-spec) | D23–D26 |
+| Lộ trình ✅ | Lộ trình CEFR A1–C2: chặng, bài (deck OFFICIAL), mở khóa 100% hoặc bài vượt chặng (§6 business-spec) | D23–D26 |
 | M4 | Deck public/official, subscribe, import CSV, admin | D4, D5, D12, D17–D21 |
 | M5 | Thống kê, streak, Swagger | D15 |
 

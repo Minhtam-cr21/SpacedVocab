@@ -57,6 +57,15 @@ export default function DashboardPage() {
         </div>
       </section>
 
+      <Link to="/app/path" className="stage-card is-current">
+        <span className="level-badge level-badge--A1" aria-hidden="true">🗺️</span>
+        <span className="stage-card__body">
+          <span className="stage-card__title">Lộ trình CEFR A1 → C2</span>
+          <span className="stage-card__count">Học theo từng chặng, mỗi bài một chủ đề</span>
+        </span>
+        <span className="stage-card__status" aria-hidden="true">→</span>
+      </Link>
+
       {due && (
         <section className="tiles tiles--3" aria-label="Tổng quan hôm nay">
           <div className="tile tile--honey">

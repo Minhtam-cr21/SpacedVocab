@@ -1,0 +1,104 @@
+# Bài học chặng A1 của "Lộ trình CEFR".
+# Nội dung do SpacedVocab tự soạn (danh sách từ cơ bản, nghĩa, câu ví dụ viết mới), phát hành cùng mã nguồn.
+# Định dạng:
+#   @lesson Tên bài | Mô tả
+#   từ | IPA | từ loại | nghĩa tiếng Việt | câu ví dụ
+# Dòng bắt đầu bằng # là chú thích. Tên bài là khóa để không nạp trùng: đổi tên = bài mới.
+
+@lesson A1 · Chào hỏi | Chào, cảm ơn, xin lỗi và giới thiệu bản thân
+hello | /həˈləʊ/ | interjection | xin chào | Hello, my name is Lan.
+goodbye | /ˌɡʊdˈbaɪ/ | interjection | tạm biệt | Say goodbye to your teacher.
+please | /pliːz/ | adverb | làm ơn, vui lòng | Can I have some water, please?
+thank you | /ˈθæŋk juː/ | phrase | cảm ơn bạn | Thank you for the gift!
+sorry | /ˈsɒri/ | adjective | xin lỗi | Sorry, I am late.
+yes | /jes/ | adverb | vâng, có | Yes, I like cats.
+no | /nəʊ/ | adverb | không | No, thanks.
+name | /neɪm/ | noun | tên | What is your name?
+friend | /frend/ | noun | bạn bè | Minh is my best friend.
+morning | /ˈmɔːnɪŋ/ | noun | buổi sáng | Good morning, Mum!
+night | /naɪt/ | noun | ban đêm | Good night and sweet dreams.
+welcome | /ˈwelkəm/ | interjection | chào mừng | Welcome to our class!
+
+@lesson A1 · Gia đình | Các thành viên trong gia đình
+family | /ˈfæməli/ | noun | gia đình | I love my family.
+mother | /ˈmʌðə(r)/ | noun | mẹ | My mother cooks very well.
+father | /ˈfɑːðə(r)/ | noun | bố, cha | My father drives a blue car.
+sister | /ˈsɪstə(r)/ | noun | chị gái, em gái | My sister is ten years old.
+brother | /ˈbrʌðə(r)/ | noun | anh trai, em trai | I play football with my brother.
+baby | /ˈbeɪbi/ | noun | em bé | The baby is sleeping.
+grandmother | /ˈɡrænmʌðə(r)/ | noun | bà | My grandmother tells funny stories.
+grandfather | /ˈɡrænfɑːðə(r)/ | noun | ông | My grandfather grows flowers.
+son | /sʌn/ | noun | con trai | They have one son.
+daughter | /ˈdɔːtə(r)/ | noun | con gái | Their daughter likes music.
+parents | /ˈpeərənts/ | noun | bố mẹ | My parents work in a hospital.
+home | /həʊm/ | noun | nhà, mái ấm | I go home after school.
+
+@lesson A1 · Màu sắc và số đếm | Gọi tên màu và đếm từ 1 đến 100
+color | /ˈkʌlə(r)/ | noun | màu sắc | What color is your bag?
+red | /red/ | adjective | màu đỏ | The apple is red.
+blue | /bluː/ | adjective | màu xanh dương | The sky is blue today.
+green | /ɡriːn/ | adjective | màu xanh lá | Frogs are green.
+yellow | /ˈjeləʊ/ | adjective | màu vàng | I have a yellow pencil.
+black | /blæk/ | adjective | màu đen | The cat is black.
+white | /waɪt/ | adjective | màu trắng | Snow is white.
+one | /wʌn/ | number | số một | I have one nose.
+two | /tuː/ | number | số hai | I have two hands.
+three | /θriː/ | number | số ba | There are three birds in the tree.
+ten | /ten/ | number | số mười | Count from one to ten.
+hundred | /ˈhʌndrəd/ | number | một trăm | This book has a hundred pages.
+
+@lesson A1 · Đồ ăn và đồ uống | Những món quen thuộc mỗi ngày
+water | /ˈwɔːtə(r)/ | noun | nước | Drink some water.
+milk | /mɪlk/ | noun | sữa | I drink milk every morning.
+rice | /raɪs/ | noun | cơm, gạo | We eat rice for dinner.
+bread | /bred/ | noun | bánh mì | She buys bread at the shop.
+egg | /eɡ/ | noun | quả trứng | I eat an egg for breakfast.
+apple | /ˈæpl/ | noun | quả táo | An apple a day is good for you.
+banana | /bəˈnɑːnə/ | noun | quả chuối | Monkeys like bananas.
+fish | /fɪʃ/ | noun | con cá, món cá | We have fish for lunch.
+chicken | /ˈtʃɪkɪn/ | noun | thịt gà, con gà | The chicken soup is hot.
+tea | /tiː/ | noun | trà | My grandfather drinks green tea.
+juice | /dʒuːs/ | noun | nước ép | Orange juice is sweet.
+hungry | /ˈhʌŋɡri/ | adjective | đói bụng | I am hungry. Let's eat!
+
+@lesson A1 · Trường học | Đồ dùng và hoạt động ở lớp
+school | /skuːl/ | noun | trường học | I walk to school.
+teacher | /ˈtiːtʃə(r)/ | noun | giáo viên | Our teacher is very kind.
+student | /ˈstjuːdnt/ | noun | học sinh | There are thirty students in my class.
+book | /bʊk/ | noun | quyển sách | Open your book, please.
+pen | /pen/ | noun | bút mực | Can I borrow your pen?
+pencil | /ˈpensl/ | noun | bút chì | Draw a cat with your pencil.
+bag | /bæɡ/ | noun | cái cặp, túi | My bag is heavy.
+desk | /desk/ | noun | bàn học | Put your book on the desk.
+class | /klɑːs/ | noun | lớp học | Our English class starts at eight.
+read | /riːd/ | verb | đọc | I read a story every night.
+write | /raɪt/ | verb | viết | Write your name here.
+learn | /lɜːn/ | verb | học, học hỏi | We learn new words every day.
+
+@lesson A1 · Động vật | Những con vật quen thuộc
+animal | /ˈænɪml/ | noun | động vật | What is your favourite animal?
+dog | /dɒɡ/ | noun | con chó | My dog likes to run.
+cat | /kæt/ | noun | con mèo | The cat is on the sofa.
+bird | /bɜːd/ | noun | con chim | A bird can fly.
+cow | /kaʊ/ | noun | con bò | The cow gives us milk.
+pig | /pɪɡ/ | noun | con lợn | The pig is pink.
+duck | /dʌk/ | noun | con vịt | The duck swims in the pond.
+horse | /hɔːs/ | noun | con ngựa | The horse runs very fast.
+elephant | /ˈelɪfənt/ | noun | con voi | An elephant has big ears.
+monkey | /ˈmʌŋki/ | noun | con khỉ | The monkey climbs the tree.
+tiger | /ˈtaɪɡə(r)/ | noun | con hổ | The tiger has stripes.
+rabbit | /ˈræbɪt/ | noun | con thỏ | The rabbit eats carrots.
+
+@lesson A1 · Hoạt động hằng ngày | Động từ dùng mỗi ngày
+wake up | /weɪk ʌp/ | verb | thức dậy | I wake up at six o'clock.
+eat | /iːt/ | verb | ăn | We eat lunch at noon.
+drink | /drɪŋk/ | verb | uống | Drink your milk, please.
+sleep | /sliːp/ | verb | ngủ | Babies sleep a lot.
+play | /pleɪ/ | verb | chơi | Let's play in the park.
+run | /rʌn/ | verb | chạy | I can run fast.
+walk | /wɔːk/ | verb | đi bộ | We walk the dog every evening.
+go | /ɡəʊ/ | verb | đi | I go to bed at nine.
+come | /kʌm/ | verb | đến, tới | Come here, please.
+see | /siː/ | verb | nhìn thấy | I can see a rainbow!
+like | /laɪk/ | verb | thích | I like ice cream.
+wash | /wɒʃ/ | verb | rửa, giặt | Wash your hands before you eat.
