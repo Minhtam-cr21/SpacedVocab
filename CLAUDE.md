@@ -82,10 +82,10 @@ controller  service  repository  entity  dto  config  exception  algorithm
 | Design ✅ | Tài liệu UX/UI + prototype | D1–D22 |
 | M1 ✅ | User, đăng ký/đăng nhập JWT, phân quyền | D2, D3, D6, D16 |
 | M2 ✅ | CRUD deck & card, quyền sở hữu | D8–D11 |
-| M3 | **SM-2**, thẻ đến hạn, chấm điểm, ReviewLog | D7, D13, D14 |
+| M3 ✅ | **SM-2**, thẻ đến hạn, chấm điểm, ReviewLog | D7, D13, D14 |
 | Lộ trình ✅ | Lộ trình CEFR A1–C2: chặng, bài (deck OFFICIAL), mở khóa 100% hoặc bài vượt chặng (§6 business-spec) | D23–D26 |
 | M4 | Deck public/official, subscribe, import CSV, admin | D4, D5, D12, D17–D21 |
 | M5 | Thống kê, streak, Swagger | D15 |
 
-- **M3 là chế độ gia sư:** người dùng **tự code** `Sm2Algorithm` và test của nó. Claude chỉ hỏi gợi mở và gợi ý **từng bước**, không đưa lời giải trừ khi được yêu cầu rõ. Các phần khác Claude có thể code thẳng.
+- **M3:** `Sm2Algorithm` + `Sm2AlgorithmTest` đã được Claude viết theo yêu cầu rõ của người dùng (26/11/2026), kèm giải thích. Khi người dùng **đang học** một thuật toán mới thì vẫn dùng chế độ gia sư (gợi ý từng bước); các phần khác Claude code thẳng.
 - Endpoint mới phải khớp bảng "Ánh xạ màn hình ↔ API" trong [03-information-architecture.md](docs/design/03-information-architecture.md); lệch thì cập nhật tài liệu cùng commit.
