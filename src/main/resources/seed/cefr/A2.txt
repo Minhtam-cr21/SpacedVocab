@@ -1,0 +1,85 @@
+# Bài học chặng A2 của "Lộ trình CEFR". Nội dung do SpacedVocab tự soạn. Định dạng: xem A1.txt.
+
+@lesson A2 · Nhà cửa | Các phòng và đồ vật trong nhà
+kitchen | /ˈkɪtʃɪn/ | noun | nhà bếp | Mum is cooking in the kitchen.
+bedroom | /ˈbedruːm/ | noun | phòng ngủ | My bedroom has a big window.
+bathroom | /ˈbɑːθruːm/ | noun | phòng tắm | The bathroom is next to my room.
+garden | /ˈɡɑːdn/ | noun | khu vườn | We grow tomatoes in the garden.
+window | /ˈwɪndəʊ/ | noun | cửa sổ | Please close the window, it's cold.
+door | /dɔː(r)/ | noun | cửa ra vào | Someone is knocking on the door.
+stairs | /steəz/ | noun | cầu thang | Walk up the stairs slowly.
+roof | /ruːf/ | noun | mái nhà | A cat is sleeping on the roof.
+sofa | /ˈsəʊfə/ | noun | ghế sofa | Grandpa is reading on the sofa.
+cupboard | /ˈkʌbəd/ | noun | tủ chạn, tủ đựng đồ | The cups are in the cupboard.
+neighbour | /ˈneɪbə(r)/ | noun | hàng xóm | Our neighbour has a friendly dog.
+address | /əˈdres/ | noun | địa chỉ | Write your address on the envelope.
+
+@lesson A2 · Mua sắm | Giá cả, trả tiền và đi chợ
+shop | /ʃɒp/ | noun | cửa hàng | The shop opens at nine.
+price | /praɪs/ | noun | giá tiền | What is the price of this shirt?
+cheap | /tʃiːp/ | adjective | rẻ | These shoes are cheap but nice.
+expensive | /ɪkˈspensɪv/ | adjective | đắt | That phone is too expensive.
+money | /ˈmʌni/ | noun | tiền | I save my money in a jar.
+pay | /peɪ/ | verb | trả tiền | Can I pay by card?
+customer | /ˈkʌstəmə(r)/ | noun | khách hàng | The shop is full of customers.
+receipt | /rɪˈsiːt/ | noun | hóa đơn, biên lai | Keep the receipt, please.
+sale | /seɪl/ | noun | đợt giảm giá | Everything is half price in the sale.
+size | /saɪz/ | noun | kích cỡ | Do you have this in a bigger size?
+market | /ˈmɑːkɪt/ | noun | chợ | We buy fresh fruit at the market.
+wallet | /ˈwɒlɪt/ | noun | cái ví | I left my wallet at home.
+
+@lesson A2 · Thời tiết và các mùa | Nói về trời nắng, mưa và bốn mùa
+weather | /ˈweðə(r)/ | noun | thời tiết | The weather is lovely today.
+sunny | /ˈsʌni/ | adjective | có nắng | It's sunny, so let's go to the beach.
+rainy | /ˈreɪni/ | adjective | có mưa | I stay inside on rainy days.
+cloudy | /ˈklaʊdi/ | adjective | nhiều mây | The sky is grey and cloudy.
+windy | /ˈwɪndi/ | adjective | có gió | It's windy, hold your hat!
+snow | /snəʊ/ | noun | tuyết | Children love playing in the snow.
+temperature | /ˈtemprətʃə(r)/ | noun | nhiệt độ | The temperature is thirty degrees.
+spring | /sprɪŋ/ | noun | mùa xuân | Flowers open in spring.
+summer | /ˈsʌmə(r)/ | noun | mùa hè | We swim a lot in summer.
+autumn | /ˈɔːtəm/ | noun | mùa thu | Leaves turn yellow in autumn.
+winter | /ˈwɪntə(r)/ | noun | mùa đông | Winter nights are long.
+umbrella | /ʌmˈbrelə/ | noun | cái ô | Take an umbrella, it might rain.
+
+@lesson A2 · Cơ thể và sức khỏe | Bộ phận cơ thể, ốm đau và đi khám
+head | /hed/ | noun | cái đầu | Put your hat on your head.
+shoulder | /ˈʃəʊldə(r)/ | noun | vai | She carries her bag on her shoulder.
+stomach | /ˈstʌmək/ | noun | bụng, dạ dày | My stomach hurts after lunch.
+tooth | /tuːθ/ | noun | răng | Brush every tooth carefully.
+doctor | /ˈdɒktə(r)/ | noun | bác sĩ | You should see a doctor.
+medicine | /ˈmedsn/ | noun | thuốc | Take this medicine twice a day.
+fever | /ˈfiːvə(r)/ | noun | sốt | The baby has a high fever.
+cough | /kɒf/ | noun | ho | Honey is good for a cough.
+headache | /ˈhedeɪk/ | noun | đau đầu | Loud music gives me a headache.
+healthy | /ˈhelθi/ | adjective | khỏe mạnh | Fruit keeps you healthy.
+rest | /rest/ | verb | nghỉ ngơi | You are tired, so rest for a while.
+hospital | /ˈhɒspɪtl/ | noun | bệnh viện | My aunt works at the hospital.
+
+@lesson A2 · Du lịch và đi lại | Sân bay, vé tàu xe và khách sạn
+airport | /ˈeəpɔːt/ | noun | sân bay | We arrived at the airport early.
+ticket | /ˈtɪkɪt/ | noun | vé | I bought a train ticket online.
+passport | /ˈpɑːspɔːt/ | noun | hộ chiếu | Don't forget your passport!
+train | /treɪn/ | noun | tàu hỏa | The train leaves at noon.
+bus stop | /ˈbʌs stɒp/ | noun | trạm xe buýt | Wait for me at the bus stop.
+map | /mæp/ | noun | bản đồ | Let's look at the map.
+luggage | /ˈlʌɡɪdʒ/ | noun | hành lý | Our luggage is very heavy.
+hotel | /həʊˈtel/ | noun | khách sạn | The hotel is near the sea.
+journey | /ˈdʒɜːni/ | noun | chuyến đi | The journey takes three hours.
+arrive | /əˈraɪv/ | verb | đến nơi | We arrive in Da Nang tonight.
+leave | /liːv/ | verb | rời đi | The bus will leave in five minutes.
+traffic | /ˈtræfɪk/ | noun | giao thông, xe cộ | There is a lot of traffic in the city.
+
+@lesson A2 · Sở thích | Làm gì khi rảnh rỗi
+hobby | /ˈhɒbi/ | noun | sở thích | My hobby is painting.
+music | /ˈmjuːzɪk/ | noun | âm nhạc | I listen to music on the bus.
+dance | /dɑːns/ | verb | nhảy, múa | Can you dance to this song?
+swim | /swɪm/ | verb | bơi | I learned to swim last summer.
+draw | /drɔː/ | verb | vẽ (bằng bút) | She can draw animals very well.
+camera | /ˈkæmərə/ | noun | máy ảnh | Dad takes photos with his camera.
+film | /fɪlm/ | noun | bộ phim | We watched a funny film.
+game | /ɡeɪm/ | noun | trò chơi | Let's play a board game.
+collect | /kəˈlekt/ | verb | sưu tầm | My brother collects stamps.
+guitar | /ɡɪˈtɑː(r)/ | noun | đàn ghi-ta | He plays the guitar every evening.
+cinema | /ˈsɪnəmə/ | noun | rạp chiếu phim | Let's meet at the cinema.
+weekend | /ˌwiːkˈend/ | noun | cuối tuần | What did you do at the weekend?

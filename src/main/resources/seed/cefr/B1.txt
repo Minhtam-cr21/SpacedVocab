@@ -1,0 +1,85 @@
+# Bài học chặng B1 của "Lộ trình CEFR". Nội dung do SpacedVocab tự soạn. Định dạng: xem A1.txt.
+
+@lesson B1 · Công việc | Tìm việc, đồng nghiệp và nơi làm việc
+job | /dʒɒb/ | noun | công việc | She got a new job at a bank.
+career | /kəˈrɪə(r)/ | noun | sự nghiệp | He wants a career in medicine.
+interview | /ˈɪntəvjuː/ | noun | buổi phỏng vấn | I have a job interview tomorrow.
+salary | /ˈsæləri/ | noun | tiền lương | The salary is paid every month.
+colleague | /ˈkɒliːɡ/ | noun | đồng nghiệp | My colleagues are very helpful.
+manager | /ˈmænɪdʒə(r)/ | noun | người quản lý | Ask the manager for a day off.
+office | /ˈɒfɪs/ | noun | văn phòng | Our office is on the fifth floor.
+experience | /ɪkˈspɪəriəns/ | noun | kinh nghiệm | Do you have any experience in sales?
+skill | /skɪl/ | noun | kỹ năng | Communication is an important skill.
+apply | /əˈplaɪ/ | verb | nộp đơn, ứng tuyển | I applied for three jobs last week.
+deadline | /ˈdedlaɪn/ | noun | hạn chót | The deadline for the report is Friday.
+retire | /rɪˈtaɪə(r)/ | verb | nghỉ hưu | My grandfather retired at sixty.
+
+@lesson B1 · Cảm xúc và tính cách | Miêu tả con người và cảm giác
+confident | /ˈkɒnfɪdənt/ | adjective | tự tin | She felt confident before the exam.
+nervous | /ˈnɜːvəs/ | adjective | lo lắng, hồi hộp | I get nervous when I speak in public.
+proud | /praʊd/ | adjective | tự hào | My parents are proud of me.
+jealous | /ˈdʒeləs/ | adjective | ghen tị | He was jealous of his brother's new bike.
+patient | /ˈpeɪʃnt/ | adjective | kiên nhẫn | A good teacher is patient.
+generous | /ˈdʒenərəs/ | adjective | hào phóng | It was generous of you to help.
+honest | /ˈɒnɪst/ | adjective | trung thực | Please give me an honest answer.
+lazy | /ˈleɪzi/ | adjective | lười biếng | Don't be lazy, finish your homework.
+cheerful | /ˈtʃɪəfl/ | adjective | vui vẻ | Our cheerful neighbour always smiles.
+anxious | /ˈæŋkʃəs/ | adjective | bồn chồn, lo âu | She was anxious about the results.
+disappointed | /ˌdɪsəˈpɔɪntɪd/ | adjective | thất vọng | We were disappointed with the hotel.
+grateful | /ˈɡreɪtfl/ | adjective | biết ơn | I'm grateful for your advice.
+
+@lesson B1 · Môi trường | Ô nhiễm, tái chế và bảo vệ thiên nhiên
+environment | /ɪnˈvaɪrənmənt/ | noun | môi trường | We must take care of the environment.
+pollution | /pəˈluːʃn/ | noun | sự ô nhiễm | Air pollution is bad in big cities.
+recycle | /ˌriːˈsaɪkl/ | verb | tái chế | We recycle paper and bottles.
+climate | /ˈklaɪmət/ | noun | khí hậu | The climate here is hot and humid.
+energy | /ˈenədʒi/ | noun | năng lượng | Turn off the lights to save energy.
+waste | /weɪst/ | noun | rác thải, sự lãng phí | Food waste is a big problem.
+protect | /prəˈtekt/ | verb | bảo vệ | We need laws to protect wild animals.
+forest | /ˈfɒrɪst/ | noun | khu rừng | Many birds live in this forest.
+plastic | /ˈplæstɪk/ | noun | nhựa | Try to use less plastic.
+wildlife | /ˈwaɪldlaɪf/ | noun | động vật hoang dã | The park is full of wildlife.
+solar | /ˈsəʊlə(r)/ | adjective | thuộc mặt trời | Solar panels make electricity from sunlight.
+flood | /flʌd/ | noun | lũ lụt | The flood damaged many houses.
+
+@lesson B1 · Công nghệ | Thiết bị, mạng và phần mềm
+device | /dɪˈvaɪs/ | noun | thiết bị | Turn off all devices before the test.
+download | /ˌdaʊnˈləʊd/ | verb | tải xuống | You can download the app for free.
+password | /ˈpɑːswɜːd/ | noun | mật khẩu | Never share your password.
+screen | /skriːn/ | noun | màn hình | My phone screen is broken.
+keyboard | /ˈkiːbɔːd/ | noun | bàn phím | This keyboard is easy to type on.
+battery | /ˈbætri/ | noun | pin | My battery is almost empty.
+update | /ˌʌpˈdeɪt/ | verb | cập nhật | Update your apps regularly.
+website | /ˈwebsaɪt/ | noun | trang web | Visit our website for more details.
+online | /ˌɒnˈlaɪn/ | adverb | trực tuyến | I buy most of my books online.
+charge | /tʃɑːdʒ/ | verb | sạc (pin) | I need to charge my laptop.
+wireless | /ˈwaɪələs/ | adjective | không dây | The café has free wireless internet.
+software | /ˈsɒftweə(r)/ | noun | phần mềm | She writes software for hospitals.
+
+@lesson B1 · Giáo dục | Thi cử, môn học và đại học
+exam | /ɪɡˈzæm/ | noun | kỳ thi | The English exam is next Monday.
+subject | /ˈsʌbdʒɪkt/ | noun | môn học | Maths is my favourite subject.
+homework | /ˈhəʊmwɜːk/ | noun | bài tập về nhà | I finished my homework before dinner.
+degree | /dɪˈɡriː/ | noun | bằng đại học | She has a degree in biology.
+university | /ˌjuːnɪˈvɜːsəti/ | noun | trường đại học | He studies at a university in Hanoi.
+knowledge | /ˈnɒlɪdʒ/ | noun | kiến thức | Reading increases your knowledge.
+revise | /rɪˈvaɪz/ | verb | ôn bài | I need to revise for the test.
+mark | /mɑːk/ | noun | điểm số | She got full marks in the quiz.
+lecture | /ˈlektʃə(r)/ | noun | bài giảng | The lecture lasted two hours.
+scholarship | /ˈskɒləʃɪp/ | noun | học bổng | He won a scholarship to study abroad.
+graduate | /ˈɡrædʒueɪt/ | verb | tốt nghiệp | She will graduate next summer.
+timetable | /ˈtaɪmteɪbl/ | noun | thời khóa biểu | Check the timetable for your classes.
+
+@lesson B1 · Lối sống lành mạnh | Ăn uống, vận động và giữ cân bằng
+exercise | /ˈeksəsaɪz/ | noun | sự tập thể dục | Regular exercise makes you stronger.
+diet | /ˈdaɪət/ | noun | chế độ ăn | A balanced diet includes vegetables.
+habit | /ˈhæbɪt/ | noun | thói quen | Reading before bed is a good habit.
+stress | /stres/ | noun | căng thẳng | Too much work causes stress.
+injury | /ˈɪndʒəri/ | noun | chấn thương | He missed the match because of an injury.
+recover | /rɪˈkʌvə(r)/ | verb | hồi phục | She recovered quickly after the flu.
+vitamin | /ˈvɪtəmɪn/ | noun | vitamin | Oranges are full of vitamin C.
+balance | /ˈbæləns/ | noun | sự cân bằng | Try to find a balance between work and rest.
+fitness | /ˈfɪtnəs/ | noun | sức khỏe thể chất | Swimming improves your fitness.
+appointment | /əˈpɔɪntmənt/ | noun | cuộc hẹn | I have a dentist appointment at three.
+symptom | /ˈsɪmptəm/ | noun | triệu chứng | A sore throat is a common symptom of a cold.
+nutrition | /njuˈtrɪʃn/ | noun | dinh dưỡng | Good nutrition helps children grow.

@@ -1,0 +1,57 @@
+# Bài học chặng C2 của "Lộ trình CEFR". Nội dung do SpacedVocab tự soạn. Định dạng: xem A1.txt.
+
+@lesson C2 · Sắc thái ngôn ngữ | Diễn đạt tinh tế, ngắn gọn và giàu hình ảnh
+ambiguous | /æmˈbɪɡjuəs/ | adjective | mơ hồ, nước đôi | The instructions were ambiguous.
+eloquent | /ˈeləkwənt/ | adjective | hùng hồn, lưu loát | She gave an eloquent speech.
+nuance | /ˈnjuːɑːns/ | noun | sắc thái | Translators must capture every nuance.
+euphemism | /ˈjuːfəmɪzəm/ | noun | uyển ngữ, lối nói giảm | "Passed away" is a euphemism for "died".
+connotation | /ˌkɒnəˈteɪʃn/ | noun | hàm ý, nghĩa liên tưởng | "Cheap" often has a negative connotation.
+articulate | /ɑːˈtɪkjuleɪt/ | verb | diễn đạt rõ ràng | He struggled to articulate his feelings.
+verbose | /vɜːˈbəʊs/ | adjective | dài dòng | The report is too verbose.
+succinct | /səkˈsɪŋkt/ | adjective | ngắn gọn, súc tích | Give a succinct summary of the book.
+colloquial | /kəˈləʊkwiəl/ | adjective | thông tục, khẩu ngữ | Avoid colloquial words in an essay.
+rhetoric | /ˈretərɪk/ | noun | lối hùng biện, lời lẽ hoa mỹ | His speech was full of empty rhetoric.
+idiomatic | /ˌɪdiəˈmætɪk/ | adjective | đúng thành ngữ, tự nhiên | Her English is fluent and idiomatic.
+paraphrase | /ˈpærəfreɪz/ | verb | diễn đạt lại | Paraphrase the quote in your own words.
+
+@lesson C2 · Học thuật chuyên sâu | Từ vựng của nghiên cứu và triết học
+paradigm | /ˈpærədaɪm/ | noun | mô hình, hệ hình | The internet created a new paradigm for business.
+empirical | /ɪmˈpɪrɪkl/ | adjective | dựa trên thực nghiệm | There is little empirical evidence for the claim.
+axiom | /ˈæksiəm/ | noun | tiên đề, chân lý hiển nhiên | It is an axiom that practice improves skill.
+dichotomy | /daɪˈkɒtəmi/ | noun | sự phân đôi, đối lập | The dichotomy between work and play is false.
+epistemology | /ɪˌpɪstəˈmɒlədʒi/ | noun | nhận thức luận | Epistemology asks how we know what we know.
+methodology | /ˌmeθəˈdɒlədʒi/ | noun | phương pháp luận | The study's methodology was criticised.
+corroborate | /kəˈrɒbəreɪt/ | verb | chứng thực, xác nhận | Two witnesses corroborated her story.
+extrapolate | /ɪkˈstræpəleɪt/ | verb | ngoại suy | We cannot extrapolate from such a small sample.
+juxtapose | /ˌdʒʌkstəˈpəʊz/ | verb | đặt cạnh nhau để so sánh | The film juxtaposes wealth and poverty.
+ubiquitous | /juːˈbɪkwɪtəs/ | adjective | có mặt khắp nơi | Smartphones have become ubiquitous.
+intrinsic | /ɪnˈtrɪnsɪk/ | adjective | nội tại, bản chất | Curiosity is an intrinsic part of learning.
+salient | /ˈseɪliənt/ | adjective | nổi bật, chủ yếu | Summarise the salient points of the debate.
+
+@lesson C2 · Tính cách tinh tế | Miêu tả con người bằng từ ngữ chính xác
+meticulous | /məˈtɪkjələs/ | adjective | tỉ mỉ, kỹ lưỡng | She keeps meticulous records of her spending.
+pragmatic | /præɡˈmætɪk/ | adjective | thực dụng, thực tế | We need a pragmatic solution, not a perfect one.
+complacent | /kəmˈpleɪsnt/ | adjective | tự mãn | Don't become complacent after one success.
+candid | /ˈkændɪd/ | adjective | thẳng thắn | Thank you for your candid opinion.
+tenacious | /təˈneɪʃəs/ | adjective | kiên trì, bền bỉ | The tenacious climber reached the summit.
+magnanimous | /mæɡˈnænɪməs/ | adjective | cao thượng, độ lượng | He was magnanimous in victory.
+cynical | /ˈsɪnɪkl/ | adjective | hoài nghi, yếm thế | Many voters are cynical about politicians.
+aloof | /əˈluːf/ | adjective | xa cách, lạnh lùng | The new manager seemed aloof at first.
+gregarious | /ɡrɪˈɡeəriəs/ | adjective | thích giao du | Gregarious people enjoy big parties.
+obstinate | /ˈɒbstɪnət/ | adjective | bướng bỉnh, cố chấp | The obstinate child refused to eat.
+benevolent | /bəˈnevələnt/ | adjective | nhân từ, rộng lượng | A benevolent donor paid for the new library.
+fastidious | /fæˈstɪdiəs/ | adjective | khó tính, cầu kỳ | He is fastidious about keeping his desk tidy.
+
+@lesson C2 · Văn chương và phê bình | Thuật ngữ khi đọc và bình văn
+allegory | /ˈæləɡəri/ | noun | truyện ngụ ngôn, phúng dụ | The novel is an allegory of power.
+protagonist | /prəˈtæɡənɪst/ | noun | nhân vật chính | The protagonist is a young orphan.
+irony | /ˈaɪrəni/ | noun | sự trớ trêu, mỉa mai | The irony is that the fire station burned down.
+metaphor | /ˈmetəfə(r)/ | noun | ẩn dụ | "Time is money" is a common metaphor.
+narrative | /ˈnærətɪv/ | noun | lời kể, mạch truyện | The narrative moves between past and present.
+satire | /ˈsætaɪə(r)/ | noun | tác phẩm trào phúng | The play is a satire on modern politics.
+poignant | /ˈpɔɪnjənt/ | adjective | xúc động sâu sắc | The film ends with a poignant farewell.
+evocative | /ɪˈvɒkətɪv/ | adjective | gợi cảm xúc, gợi nhớ | Her poems are full of evocative images.
+prose | /prəʊz/ | noun | văn xuôi | His prose is simple but powerful.
+anecdote | /ˈænɪkdəʊt/ | noun | giai thoại, chuyện vặt | She opened her talk with a funny anecdote.
+cliché | /ˈkliːʃeɪ/ | noun | lối nói sáo rỗng | "Love is blind" is a cliché.
+denouement | /deɪˈnuːmɒ̃/ | noun | đoạn kết, phần mở nút | The denouement reveals the killer's identity.

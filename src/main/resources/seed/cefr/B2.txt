@@ -1,0 +1,85 @@
+# Bài học chặng B2 của "Lộ trình CEFR". Nội dung do SpacedVocab tự soạn. Định dạng: xem A1.txt.
+
+@lesson B2 · Truyền thông và tin tức | Báo chí, quảng cáo và mạng xã hội
+headline | /ˈhedlaɪn/ | noun | tiêu đề bài báo | The story made the front-page headline.
+journalist | /ˈdʒɜːnəlɪst/ | noun | nhà báo | The journalist interviewed the mayor.
+broadcast | /ˈbrɔːdkɑːst/ | verb | phát sóng | The match will be broadcast live.
+article | /ˈɑːtɪkl/ | noun | bài báo | I read an interesting article about sleep.
+audience | /ˈɔːdiəns/ | noun | khán giả, độc giả | The show attracts a young audience.
+advertisement | /ədˈvɜːtɪsmənt/ | noun | quảng cáo | The advertisement promised free delivery.
+publish | /ˈpʌblɪʃ/ | verb | xuất bản, đăng tải | The results will be published online.
+editor | /ˈedɪtə(r)/ | noun | biên tập viên | The editor cut the article in half.
+source | /sɔːs/ | noun | nguồn (tin) | Always check the source of the news.
+rumour | /ˈruːmə(r)/ | noun | tin đồn | The rumour spread quickly at school.
+viral | /ˈvaɪrəl/ | adjective | lan truyền nhanh (trên mạng) | Her cooking video went viral.
+coverage | /ˈkʌvərɪdʒ/ | noun | sự đưa tin | The election received wide coverage.
+
+@lesson B2 · Kinh doanh | Lợi nhuận, hợp đồng và thương hiệu
+profit | /ˈprɒfɪt/ | noun | lợi nhuận | The company made a large profit this year.
+investment | /ɪnˈvestmənt/ | noun | khoản đầu tư | Education is a good investment.
+competitor | /kəmˈpetɪtə(r)/ | noun | đối thủ cạnh tranh | Our main competitor lowered its prices.
+negotiate | /nɪˈɡəʊʃieɪt/ | verb | đàm phán | They negotiated a better deal.
+contract | /ˈkɒntrækt/ | noun | hợp đồng | Read the contract before you sign it.
+revenue | /ˈrevənjuː/ | noun | doanh thu | Online sales increased our revenue.
+budget | /ˈbʌdʒɪt/ | noun | ngân sách | We have a small budget for the trip.
+launch | /lɔːntʃ/ | verb | ra mắt (sản phẩm) | The firm will launch a new phone in May.
+brand | /brænd/ | noun | thương hiệu | This brand is popular with teenagers.
+supplier | /səˈplaɪə(r)/ | noun | nhà cung cấp | We changed our coffee supplier.
+loan | /ləʊn/ | noun | khoản vay | She took out a loan to open a café.
+merger | /ˈmɜːdʒə(r)/ | noun | sự sáp nhập | The merger created the largest bank in the region.
+
+@lesson B2 · Xã hội | Cộng đồng, bất bình đẳng và đa dạng
+community | /kəˈmjuːnəti/ | noun | cộng đồng | The local community built a new playground.
+inequality | /ˌɪnɪˈkwɒləti/ | noun | sự bất bình đẳng | Income inequality is growing.
+poverty | /ˈpɒvəti/ | noun | sự nghèo đói | Millions of people live in poverty.
+volunteer | /ˌvɒlənˈtɪə(r)/ | noun | tình nguyện viên | Volunteers cleaned the beach on Sunday.
+charity | /ˈtʃærəti/ | noun | tổ chức từ thiện | The concert raised money for charity.
+generation | /ˌdʒenəˈreɪʃn/ | noun | thế hệ | The younger generation grew up online.
+tradition | /trəˈdɪʃn/ | noun | truyền thống | Giving lucky money is a Tet tradition.
+diversity | /daɪˈvɜːsəti/ | noun | sự đa dạng | The city is proud of its cultural diversity.
+immigrant | /ˈɪmɪɡrənt/ | noun | người nhập cư | Her grandparents were immigrants.
+citizen | /ˈsɪtɪzn/ | noun | công dân | Every citizen has the right to vote.
+welfare | /ˈwelfeə(r)/ | noun | phúc lợi | The government spends more on welfare.
+protest | /ˈprəʊtest/ | noun | cuộc biểu tình | Students held a peaceful protest.
+
+@lesson B2 · Khoa học | Thí nghiệm, giả thuyết và bằng chứng
+experiment | /ɪkˈsperɪmənt/ | noun | thí nghiệm | We did an experiment with magnets.
+hypothesis | /haɪˈpɒθəsɪs/ | noun | giả thuyết | The results support our hypothesis.
+evidence | /ˈevɪdəns/ | noun | bằng chứng | There is no evidence that it works.
+laboratory | /ləˈbɒrətri/ | noun | phòng thí nghiệm | The samples were tested in a laboratory.
+theory | /ˈθɪəri/ | noun | lý thuyết, học thuyết | Darwin's theory changed biology.
+discover | /dɪˈskʌvə(r)/ | verb | khám phá, phát hiện | Scientists discovered a new species.
+data | /ˈdeɪtə/ | noun | dữ liệu | We collected data from 500 students.
+analyse | /ˈænəlaɪz/ | verb | phân tích | The team analysed the results carefully.
+research | /rɪˈsɜːtʃ/ | noun | nghiên cứu | Her research focuses on sleep.
+conclusion | /kənˈkluːʒn/ | noun | kết luận | What conclusion can we draw from this?
+sample | /ˈsɑːmpl/ | noun | mẫu (thử) | The nurse took a blood sample.
+accurate | /ˈækjərət/ | adjective | chính xác | The map is not very accurate.
+
+@lesson B2 · Pháp luật | Tội phạm, tòa án và hình phạt
+crime | /kraɪm/ | noun | tội phạm, tội ác | Crime has fallen in our area.
+witness | /ˈwɪtnəs/ | noun | nhân chứng | The witness saw the car drive away.
+suspect | /ˈsʌspekt/ | noun | nghi phạm | Police questioned the suspect for hours.
+court | /kɔːt/ | noun | tòa án | The case will go to court next month.
+judge | /dʒʌdʒ/ | noun | thẩm phán | The judge listened to both sides.
+punishment | /ˈpʌnɪʃmənt/ | noun | hình phạt | The punishment should fit the crime.
+guilty | /ˈɡɪlti/ | adjective | có tội | He was found guilty of theft.
+innocent | /ˈɪnəsnt/ | adjective | vô tội | She insisted that she was innocent.
+arrest | /əˈrest/ | verb | bắt giữ | The police arrested two men.
+sentence | /ˈsentəns/ | noun | bản án | He received a two-year sentence.
+victim | /ˈvɪktɪm/ | noun | nạn nhân | The victims received compensation.
+penalty | /ˈpenəlti/ | noun | tiền phạt, hình phạt | There is a heavy penalty for littering.
+
+@lesson B2 · Các mối quan hệ | Tin tưởng, mâu thuẫn và thấu hiểu
+relationship | /rɪˈleɪʃnʃɪp/ | noun | mối quan hệ | They have a close relationship.
+trust | /trʌst/ | noun | sự tin tưởng | Trust takes years to build.
+argue | /ˈɑːɡjuː/ | verb | tranh cãi | My brothers argue about everything.
+apologise | /əˈpɒlədʒaɪz/ | verb | xin lỗi | He apologised for being rude.
+compromise | /ˈkɒmprəmaɪz/ | noun | sự thỏa hiệp | We reached a compromise in the end.
+support | /səˈpɔːt/ | verb | ủng hộ, hỗ trợ | My friends always support me.
+rely | /rɪˈlaɪ/ | verb | dựa vào, tin cậy | You can rely on her to help.
+conflict | /ˈkɒnflɪkt/ | noun | xung đột | They solved the conflict by talking.
+respect | /rɪˈspekt/ | noun | sự tôn trọng | Treat everyone with respect.
+sympathy | /ˈsɪmpəθi/ | noun | sự cảm thông | I have a lot of sympathy for him.
+tolerate | /ˈtɒləreɪt/ | verb | chịu đựng, khoan dung | I can't tolerate rude behaviour.
+loyal | /ˈlɔɪəl/ | adjective | trung thành | Dogs are loyal animals.

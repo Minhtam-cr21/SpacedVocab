@@ -1,0 +1,71 @@
+# Bài học chặng C1 của "Lộ trình CEFR". Nội dung do SpacedVocab tự soạn. Định dạng: xem A1.txt.
+
+@lesson C1 · Lập luận | Từ dùng khi trình bày và phản biện ý kiến
+acknowledge | /əkˈnɒlɪdʒ/ | verb | thừa nhận | She acknowledged that the plan had flaws.
+assert | /əˈsɜːt/ | verb | khẳng định | He asserted that the data was reliable.
+contradict | /ˌkɒntrəˈdɪkt/ | verb | mâu thuẫn, phản bác | The new findings contradict earlier studies.
+emphasise | /ˈemfəsaɪz/ | verb | nhấn mạnh | The report emphasises the need for change.
+interpret | /ɪnˈtɜːprɪt/ | verb | diễn giải | People interpret the law in different ways.
+justify | /ˈdʒʌstɪfaɪ/ | verb | biện minh, chứng minh là đúng | Can you justify such a high price?
+notion | /ˈnəʊʃn/ | noun | khái niệm, ý niệm | The notion of free time is changing.
+perspective | /pəˈspektɪv/ | noun | góc nhìn | Travel gives you a new perspective.
+premise | /ˈpremɪs/ | noun | tiền đề | The argument rests on a false premise.
+refute | /rɪˈfjuːt/ | verb | bác bỏ | The scientist refuted the claim with new data.
+undermine | /ˌʌndəˈmaɪn/ | verb | làm suy yếu | Constant criticism undermines confidence.
+viable | /ˈvaɪəbl/ | adjective | khả thi | Solar power is now a viable option.
+
+@lesson C1 · Kinh tế và chính sách | Lạm phát, thuế quan và phát triển bền vững
+inflation | /ɪnˈfleɪʃn/ | noun | lạm phát | Inflation pushed food prices up.
+recession | /rɪˈseʃn/ | noun | suy thoái kinh tế | Many firms closed during the recession.
+subsidy | /ˈsʌbsədi/ | noun | trợ cấp | Farmers receive a subsidy for rice.
+regulation | /ˌreɡjuˈleɪʃn/ | noun | quy định | New regulations limit plastic packaging.
+fiscal | /ˈfɪskl/ | adjective | thuộc tài khóa | The fiscal year ends in December.
+incentive | /ɪnˈsentɪv/ | noun | động lực, ưu đãi | Tax cuts are an incentive to invest.
+sustainable | /səˈsteɪnəbl/ | adjective | bền vững | We need sustainable ways to farm.
+deficit | /ˈdefɪsɪt/ | noun | thâm hụt | The budget deficit grew last year.
+tariff | /ˈtærɪf/ | noun | thuế quan | The tariff on imported cars was raised.
+privatise | /ˈpraɪvətaɪz/ | verb | tư nhân hóa | The government plans to privatise the railway.
+austerity | /ɒˈsterəti/ | noun | chính sách thắt lưng buộc bụng | Austerity led to cuts in public services.
+stakeholder | /ˈsteɪkhəʊldə(r)/ | noun | bên liên quan | All stakeholders were invited to the meeting.
+
+@lesson C1 · Tâm lý và hành vi | Nhận thức, động lực và cảm xúc
+cognitive | /ˈkɒɡnətɪv/ | adjective | thuộc nhận thức | Sleep improves cognitive performance.
+perception | /pəˈsepʃn/ | noun | nhận thức, cách nhìn nhận | Public perception of the brand improved.
+bias | /ˈbaɪəs/ | noun | thiên kiến | We all have some unconscious bias.
+resilience | /rɪˈzɪliəns/ | noun | khả năng phục hồi, sức bật | Children show amazing resilience.
+motivation | /ˌməʊtɪˈveɪʃn/ | noun | động lực | Her motivation comes from her family.
+conscientious | /ˌkɒnʃiˈenʃəs/ | adjective | tận tâm, chu đáo | He is a conscientious and careful worker.
+empathy | /ˈempəθi/ | noun | sự đồng cảm | Good doctors show empathy to patients.
+impulsive | /ɪmˈpʌlsɪv/ | adjective | bốc đồng | Don't make impulsive decisions about money.
+introvert | /ˈɪntrəvɜːt/ | noun | người hướng nội | As an introvert, she enjoys quiet evenings.
+persuade | /pəˈsweɪd/ | verb | thuyết phục | I persuaded him to see a doctor.
+procrastinate | /prəˈkræstɪneɪt/ | verb | trì hoãn | Stop procrastinating and start your essay.
+wellbeing | /ˌwelˈbiːɪŋ/ | noun | sự khỏe mạnh, hạnh phúc | Exercise is good for mental wellbeing.
+
+@lesson C1 · Môi trường và phát triển | Đa dạng sinh học, phát thải và đô thị hóa
+biodiversity | /ˌbaɪəʊdaɪˈvɜːsəti/ | noun | đa dạng sinh học | Coral reefs are rich in biodiversity.
+conservation | /ˌkɒnsəˈveɪʃn/ | noun | sự bảo tồn | Conservation projects protect rare birds.
+emission | /iˈmɪʃn/ | noun | khí thải | Cars are a major source of emissions.
+deforestation | /ˌdiːˌfɒrɪˈsteɪʃn/ | noun | nạn phá rừng | Deforestation threatens many species.
+renewable | /rɪˈnjuːəbl/ | adjective | tái tạo được | Wind is a renewable source of energy.
+ecosystem | /ˈiːkəʊsɪstəm/ | noun | hệ sinh thái | Pollution damages the river's ecosystem.
+drought | /draʊt/ | noun | hạn hán | The drought destroyed the harvest.
+habitat | /ˈhæbɪtæt/ | noun | môi trường sống | Pandas are losing their natural habitat.
+mitigate | /ˈmɪtɪɡeɪt/ | verb | giảm nhẹ | Trees help mitigate the effects of heat.
+depletion | /dɪˈpliːʃn/ | noun | sự cạn kiệt | Overfishing causes the depletion of fish stocks.
+infrastructure | /ˈɪnfrəstrʌktʃə(r)/ | noun | cơ sở hạ tầng | The city is investing in new infrastructure.
+urbanisation | /ˌɜːbənaɪˈzeɪʃn/ | noun | đô thị hóa | Rapid urbanisation puts pressure on housing.
+
+@lesson C1 · Giao tiếp chuyên nghiệp | Họp, phối hợp và giao việc
+delegate | /ˈdelɪɡeɪt/ | verb | giao việc, ủy quyền | A good leader knows how to delegate.
+liaise | /liˈeɪz/ | verb | liên lạc, phối hợp | She liaises with our partners abroad.
+prioritise | /praɪˈɒrətaɪz/ | verb | ưu tiên | Prioritise the most urgent tasks.
+feedback | /ˈfiːdbæk/ | noun | phản hồi, góp ý | Thank you for your useful feedback.
+consensus | /kənˈsensəs/ | noun | sự đồng thuận | The team reached a consensus quickly.
+agenda | /əˈdʒendə/ | noun | chương trình nghị sự | The budget is first on the agenda.
+brief | /briːf/ | verb | tóm tắt, thông báo ngắn | The manager briefed us on the project.
+collaborate | /kəˈlæbəreɪt/ | verb | cộng tác | Two universities collaborated on the study.
+implement | /ˈɪmplɪment/ | verb | triển khai, thực hiện | The new system was implemented in May.
+objective | /əbˈdʒektɪv/ | noun | mục tiêu | Our main objective is to cut costs.
+transparent | /trænsˈpærənt/ | adjective | minh bạch | The selection process should be transparent.
+accountable | /əˈkaʊntəbl/ | adjective | chịu trách nhiệm | Leaders must be accountable for their decisions.
